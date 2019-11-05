@@ -1,0 +1,14 @@
+keyword	keywordThesaurus
+Populations	LTER Core Research Areas
+Primary production	LTER Core Research Areas
+Phytoplankton	LTER Controlled Vocabulary
+Zooplankton	LTER Controlled Vocabulary
+Growth	LTER Controlled Vocabulary
+Grazing	LTER Controlled Vocabulary
+Population dynamics	LTER Controlled Vocabulary
+Trophic dynamics	LTER Controlled Vocabulary
+Aquatic ecosystems	LTER Controlled Vocabulary
+Marine	LTER Controlled Vocabulary
+Phytoplankton growth	
+Zooplankton growth	
+Northeast U.S. Shelf	
