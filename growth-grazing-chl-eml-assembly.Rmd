@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(message = FALSE, warning = FALSE)
 
 # clear workspace for local development
-# rm(list = ls())
+rm(list = ls())
 
 # install libraries for EML assembly
 # install.packages("devtools")
@@ -32,7 +32,7 @@ setwd(dir)
 • the missing values in numeric fields should be numeric
 ```{r}
 # set filename to variable
-growgraze_xls <- "NES-LTER_Growth-Grazing_SMD_v2"
+growgraze_xls <- "NES-LTER_Growth-Grazing_SMD_2019_11_01"
 
 # Load growth and grazing data from excel sheet
 growgraze <- read_excel(path = paste0(dir, "/", growgraze_xls, ".xlsx"), 
@@ -83,7 +83,7 @@ This chunk checks the nutrient values used by Pierre against the nutrient values
 ```{r}
 
 # load in nutrients data (provided by Pierre)
-nutrients_xls <- "NES-LTER_Nutrients_SMD_v2.xlsx"
+nutrients_xls <- "NES-LTER_Nutrients_SMD_2019_11_01.xlsx"
 # Load in nutrient data from excel sheet
 nut_pierre <- read_excel(path = paste0(dir, "/", nutrients_xls), 
                   sheet = 1, na = "NA")
@@ -135,6 +135,27 @@ for (i in 1:nrow(nut_check)) {
 mismatch <- nut_check[nut_check$silicate_match==FALSE,]
 
 ```
+
+## Quality Assurance: Consistency Check
+```{r}
+
+gg_check_EN608 <- growgraze_EDI %>%
+  select(project:sal) %>%
+  filter(cruise == "EN608")
+unique(gg_check_EN608)
+
+gg_check_EN617 <- growgraze_EDI %>%
+  select(project:sal) %>%
+  filter(cruise == "EN617")
+unique(gg_check_EN617)
+
+gg_check_EN627 <- growgraze_EDI %>%
+  select(project:sal) %>%  
+  filter(cruise == "EN627")
+unique(gg_check_EN627)
+
+```
+
 
 ## Quality Assurance: Map Sampling Locations
 
