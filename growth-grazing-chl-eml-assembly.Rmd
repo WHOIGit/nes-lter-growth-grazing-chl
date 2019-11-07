@@ -32,8 +32,6 @@ lapply(libs, require, character.only = TRUE)
 
 ## Preparing Provided Data for EDI
 
-• if theres a "-" in the cast or a "/" in the bottle, insert a "|".
-• the missing values in numeric fields should be numeric
 ```{r}
 # set filename to variable
 pierre_data <- "NES-LTER_Growth-Grazing_SMD_2019_11_01"
@@ -43,8 +41,10 @@ edi_filename <- "nes-lter-growth-grazing-chl"
 growgraze <- read_excel(path = paste0(dir, "/", pierre_data, ".xlsx"), 
                   sheet = "DataTable", na = "NA")
 
-# DATA CLEANING
+# Data Cleaning ----------
+
 # standardize the formatting of the cast and bottle columns
+# if theres a "-" in the cast or a "/" in the bottle, insert a "|"
 growgraze$cast <- trimws(gsub('-', '|', growgraze$cast))
 growgraze$bottle <- trimws(gsub('/', '|', growgraze$bottle))
 
@@ -53,9 +53,8 @@ growgraze$bottle <- trimws(gsub('/', '|', growgraze$bottle))
 mv_cols <- c("mu_N", "mu_N_Std", "grazing", "grazing_Std", "mu_10d", 
              "mu_10d_Std", "grazing_10d", "grazing_10d_Std", "mu_10u", 
              "mu_10u_Std", "grazing_10u", "grazing_10u_Std")
-
+# isolate and rename missing value columns
 mv <- growgraze %>% select(mv_cols) %>%
-  # rename to incidate that these are the missing value columns
   rename_at(mv_cols, ~ paste0(mv_cols, "_mv"))
 
 # convert numerical values in missing value explanation columns to not missing 
@@ -79,92 +78,92 @@ growgraze_EDI <- growgraze_EDI[,c("project", "cruise", "date_time_UTC", "station
                                   "mu_10u", "mu_10u_mv", "mu_10u_Std", "mu_10u_Std_mv", "grazing_10u", "grazing_10u_mv", "grazing_10u_Std", 
                                   "grazing_10u_Std_mv", "temp_light_inc_filename")]
 
+# write csv for EDI
 write.csv(growgraze_EDI, paste0(edi_filename, ".csv"), row.names = FALSE)
 ```
 
 ## Quality Assurance: Nutrients Check
 
-This chunk checks the nutrient values used by Pierre against the nutrient values from teh NES-LTER nutrients transect. The second version that Pierre provided produced no mismatched averages.
+Check that the averaged nutrient values used by Pierre match those provided by the REST API for the NES-LTER nutrients transect. UPDATE: The second version that Pierre provided produced no mismatched averages. Code commented out.
+
 ```{r}
 
-# load in nutrients data (provided by Pierre)
-nutrients_xls <- "NES-LTER_Nutrients_SMD_2019_11_01.xlsx"
-# Load in nutrient data from excel sheet
-nut_pierre <- read_excel(path = paste0(dir, "/", nutrients_xls), 
-                  sheet = 1, na = "NA")
-
-# load in nes-lter nutrient transect data 
-# these will be compared against the NES-LTER nutrient-transect data
-nut_transect <- read_csv("https://raw.githubusercontent.com/WHOIGit/nes-lter-nutrient-transect/master/nes-lter-nutrient-transect.csv")
-
-nut_transect_avg <- nut_transect %>%
-  group_by(cruise, cast, niskin, depth) %>%
-  # calculate the average nutrients across the replicate samples
-  summarize(avg_nitrate_nitrite = mean(nitrate_nitrite),
-            avg_phosphate = mean(phosphate),
-            avg_silicate = mean(silicate),
-            avg_ammonium = mean(ammonium)) %>%
-  # isolate the surface samples for each cruise-cast combo
-  group_by(cruise, cast) %>%
-  slice(which.min(depth))
-
-# merge datasets for comparison 
-nut_check <- left_join(nut_pierre, nut_transect_avg,
-                       by = c("cruise", "castNut"="cast", "depthNut"="depth"))
-# rename nitrate nitrite col
-colnames(nut_check)[colnames(nut_check)=="Nitrate+Nitrite"] <- "Nitrate_Nitrite"
-
-# create empty columns to check mismatches
-nut_check$nitrate_nitrite_match <- FALSE
-nut_check$phosphate_match <- FALSE
-nut_check$ammonium_match <- FALSE
-nut_check$silicate_match <- FALSE
-
-for (i in 1:nrow(nut_check)) {
-    # if the average values match for each nutrient, set name to true
-    if (round(nut_check$Nitrate_Nitrite[i], 2) == round(nut_check$avg_nitrate_nitrite[i], 2)) {
-    nut_check$nitrate_nitrite_match[i] <- TRUE
-    }
-    if (round(nut_check$Phosphate[i], 2) == round(nut_check$avg_phosphate[i], 2)) {
-    nut_check$phosphate_match[i] <- TRUE
-    }
-    if (round(nut_check$Ammonium[i], 2) == round(nut_check$avg_ammonium[i], 2)) {
-    nut_check$ammonium_match[i] <- TRUE
-    }
-    if (round(nut_check$Silicate[i], 2) == round(nut_check$avg_silicate[i], 2)) {
-    nut_check$silicate_match[i] <- TRUE
-    }
-  }
-
-# isolate mismatches
-mismatch <- nut_check[nut_check$silicate_match==FALSE,]
+# # load in nutrients data (provided by Pierre)
+# nutrients_xls <- "NES-LTER_Nutrients_SMD_2019_11_01.xlsx"
+# # Load in nutrient data from excel sheet
+# nut_pierre <- read_excel(path = paste0(dir, "/", nutrients_xls), 
+#                   sheet = 1, na = "NA")
+# 
+# # load in nes-lter nutrient transect data 
+# # these will be compared against the NES-LTER nutrient-transect data
+# nut_transect <- read_csv("https://raw.githubusercontent.com/WHOIGit/nes-lter-nutrient-transect/master/nes-lter-nutrient-transect.csv")
+# 
+# nut_transect_avg <- nut_transect %>%
+#   group_by(cruise, cast, niskin, depth) %>%
+#   # calculate the average nutrients across the replicate samples
+#   summarize(avg_nitrate_nitrite = mean(nitrate_nitrite),
+#             avg_phosphate = mean(phosphate),
+#             avg_silicate = mean(silicate),
+#             avg_ammonium = mean(ammonium)) %>%
+#   # isolate the surface samples for each cruise-cast combo
+#   group_by(cruise, cast) %>%
+#   slice(which.min(depth))
+# 
+# # merge datasets for comparison 
+# nut_check <- left_join(nut_pierre, nut_transect_avg,
+#                        by = c("cruise", "castNut"="cast", "depthNut"="depth"))
+# # rename nitrate nitrite col
+# colnames(nut_check)[colnames(nut_check)=="Nitrate+Nitrite"] <- "Nitrate_Nitrite"
+# 
+# # create empty columns to check mismatches
+# nut_check$nitrate_nitrite_match <- FALSE
+# nut_check$phosphate_match <- FALSE
+# nut_check$ammonium_match <- FALSE
+# nut_check$silicate_match <- FALSE
+# 
+# for (i in 1:nrow(nut_check)) {
+#     # if the average values match for each nutrient, set name to true
+#     if (round(nut_check$Nitrate_Nitrite[i], 2) == round(nut_check$avg_nitrate_nitrite[i], 2)) {
+#     nut_check$nitrate_nitrite_match[i] <- TRUE
+#     }
+#     if (round(nut_check$Phosphate[i], 2) == round(nut_check$avg_phosphate[i], 2)) {
+#     nut_check$phosphate_match[i] <- TRUE
+#     }
+#     if (round(nut_check$Ammonium[i], 2) == round(nut_check$avg_ammonium[i], 2)) {
+#     nut_check$ammonium_match[i] <- TRUE
+#     }
+#     if (round(nut_check$Silicate[i], 2) == round(nut_check$avg_silicate[i], 2)) {
+#     nut_check$silicate_match[i] <- TRUE
+#     }
+#   }
+# 
+# # isolate mismatches
+# mismatch <- nut_check[nut_check$silicate_match==FALSE,]
 
 ```
 
-## Quality Assurance: Consistency Check
+## QA: Consistency Across Replicates
 
-This chunk determines if there are differences across the two light treatments.
+Determine if there are differences across the two light treatments for each of the cruises. Slight differences in time observed for cruise EN608. There was one row missing which was expected: There was no 15% light experiment at EN617 station L10.
+
 ```{r}
 
-gg_check_EN608 <- growgraze_EDI %>%
-  select(project:sal) %>%
-  filter(cruise == "EN608")
-unique(gg_check_EN608)
+cruiselist <- c("EN608", "EN617", "EN627")
 
-gg_check_EN617 <- growgraze_EDI %>%
-  select(project:sal) %>%
-  filter(cruise == "EN617")
-unique(gg_check_EN617)
-
-gg_check_EN627 <- growgraze_EDI %>%
-  select(project:sal) %>%  
-  filter(cruise == "EN627")
-unique(gg_check_EN627)
+for (k in 1:length(cruiselist)) {
+  gg_check <- growgraze_EDI %>%
+    select(project:sal) %>%
+    filter(cruise == cruiselist[k])
+  unique(gg_check)
+  print(gg_check)
+}
 
 ```
 
 
-## Quality Assurance: Map Sampling Locations
+## QA: Map Sampling Locations
+
+Call the map_locs function from edi-utility.R to map the sampling locations. Perform a visual check.
 
 ```{r, echo=FALSE}
 
@@ -208,8 +207,8 @@ make_eml(path = getwd(),
          data.table = paste0(edi_filename, ".csv"),
          data.table.description = "Phytoplankton growth and microzooplankton grazing rates data cleaned for EDI",
          other.entity = c(paste0(metadata, ".xlsx"), "NES-LTER_temp_light_incubation_SMD.zip"),
-         other.entity.description = c("Phytoplankton growth and microzooplankton grazing rates contributed by the Menden-Deuer lab",
-                                      "Temperature and light intensity recorded during the incubation experiments"),
+         other.entity.description = c("Phytoplankton growth and microzooplankton grazing rates contributed by the Menden-Deuer lab.",
+                                      "Temperature and light intensity recorded during the incubation experiments. Each .csv file includes dateTime in UTC, Temp_In (temperature in the incubation tank), Light_In (light in the incubation tank), Temp_Out (temperature out the incubation tank) and Light_Out (light out the incubation tank) with a time step of 5 min."),
          temporal.coverage = c(coverage$startdate, coverage$enddate),
          geographic.description = "NES-LTER Transect",
          geographic.coordinates = c(coverage$North, coverage$East, coverage$South, coverage$West),

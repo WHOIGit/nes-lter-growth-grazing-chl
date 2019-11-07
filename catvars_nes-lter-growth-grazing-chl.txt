@@ -4,18 +4,18 @@ mu_N_Std_mv	n/n	Not nutrient limited, thus no value.
 grazing_mv	n/d	Not determined because g < 0, which is a violation of dilution method's assumption. 
 grazing_Std_mv	n/d	Not determined because g < 0, which is a violation of dilution method's assumption. 
 mu_10d_mv	n/c	Not calculated because Chl-a concentrations < 10 µm inferred from Chl-a total and Chl-a > 10 µm were too variable.
-mu_10d_mv	n/a	Not available because no Chl-a size fractionnation was performed.
+mu_10d_mv	n/a	Not available because no Chl-a size fractionation was performed.
 mu_10d_Std_mv	n/c	Not calculated because Chl-a concentrations < 10 µm inferred from Chl-a total and Chl-a > 10 µm were too variable.
-mu_10d_Std_mv	n/a	Not available because no Chl-a size fractionnation was performed.
+mu_10d_Std_mv	n/a	Not available because no Chl-a size fractionation was performed.
 grazing_10d_mv	n/d	Not determined because g < 0, which is a violation of dilution method's assumption. 
-grazing_10d_mv	n/a	Not available because no Chl-a size fractionnation was performed.
+grazing_10d_mv	n/a	Not available because no Chl-a size fractionation was performed.
 grazing_10d_mv	n/c	Not calculated because Chl-a concentrations < 10 µm inferred from Chl-a total and Chl-a > 10 µm were too variable.
 grazing_10d_Std_mv	n/d	Not determined because g < 0, which is a violation of dilution method's assumption. 
-grazing_10d_Std_mv	n/a	Not available because no Chl-a size fractionnation was performed.
+grazing_10d_Std_mv	n/a	Not available because no Chl-a size fractionation was performed.
 grazing_10d_Std_mv	n/c	Not calculated because Chl-a concentrations < 10 µm inferred from Chl-a total and Chl-a > 10 µm were too variable.
-mu_10u_mv	n/a	Not available because no Chl-a size fractionnation was performed.
-mu_10u_Std_mv	n/a	Not available because no Chl-a size fractionnation was performed.
+mu_10u_mv	n/a	Not available because no Chl-a size fractionation was performed.
+mu_10u_Std_mv	n/a	Not available because no Chl-a size fractionation was performed.
 grazing_10u_mv	n/d	Not determined because g < 0, which is a violation of dilution method's assumption. 
-grazing_10u_mv	n/a	Not available because no Chl-a size fractionnation was performed.
+grazing_10u_mv	n/a	Not available because no Chl-a size fractionation was performed.
 grazing_10u_Std_mv	n/d	Not determined because g < 0, which is a violation of dilution method's assumption. 
-grazing_10u_Std_mv	n/a	Not available because no Chl-a size fractionnation was performed.
+grazing_10u_Std_mv	n/a	Not available because no Chl-a size fractionation was performed.

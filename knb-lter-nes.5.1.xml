@@ -288,18 +288,71 @@
           <section>
             <title>Data Cleaning</title>
             <para>
-    Data cleaning (i.e., referring to multiple casts and bottles and
-    separating numerical and categorical variables) and metadata
-    template assembly were performed in R Markdown. Further
-    documentation can be found on GitHub, at
+    Data cleaning (i.e., separating numerical and categorical variables,
+    referring to multiple casts and bottles, and assuring date and time
+    of sampling) and metadata template assembly were performed in R
+    Markdown. Further documentation can be found on GitHub, at
     https://github.com/WHOIGit/nes-lter-growth-grazing-chl.
   </para>
           </section>
           <section>
             <title>Quality Assurance</title>
             <para>
-    We assured that the geographic and temporal coverage of the clean
-    data table were within expected ranges.
+    We assured that all values reported in the clean data table for
+    geographic (latitude, longitude, depth, station), temporal
+    (date_time_UTC, date_time_start_UTC, date_time_end_UTC), and other
+    cruise metadata and data (cast, bottle, temp, sal) were as expected.
+  </para>
+          </section>
+          <section>
+            <title>References</title>
+            <para>
+    Chen, B., Liu, H., Landry, M.R., DaI, M., Huang, B., Sune, J., 2009.
+    Close coupling between phytoplankton growth and microzooplankton
+    grazing in the western South China Sea. Limnology and Oceanography
+    54, 1084–1097. https://doi.org/10.4319/lo.2009.54.4.1084
+  </para>
+            <para>
+    Graff, J.R., Rynearson, T.A., 2011. Extraction method influences the
+    recovery of phytoplankton pigments from natural assemblages:
+    Chlorophyll extraction method artifacts. Limnology and Oceanography:
+    Methods 9, 129–139. https://doi.org/10.4319/lom.2011.9.129
+  </para>
+            <para>
+    Jespersen AM, Christoffersen K. 1987. Measurements of Chlorophyll a
+    from phytoplankton using ethanol as a solvent. Archiv Fur
+    Hydrobiologie 109:445454.
+  </para>
+            <para>
+    Landry, M.R., Hassett, R.P., 1982. Estimating the grazing impact of
+    marine micro-zooplankton. Marine Biology 67, 283–288.
+    https://doi.org/10.1007/BF00397668
+  </para>
+            <para>
+    Landry, M., Haas, L., Fagerness, V., 1984. Dynamics of microbial
+    plankton communities: experiments in Kaneohe Bay, Hawaii. Marine
+    Ecology Progress Series 16, 127–133.
+    https://doi.org/10.3354/meps016127
+  </para>
+            <para>
+    Landry, M.R., Brown, S.L., Rii, Y.M., Selph, K.E., Bidigare, R.R.,
+    Yang, E.J., Simmons, M.P., 2008. Depth-stratified phytoplankton
+    dynamics in Cyclone Opal, a subtropical mesoscale eddy. Deep Sea
+    Research Part II: Topical Studies in Oceanography 55, 1348–1359.
+    https://doi.org/10.1016/j.dsr2.2008.02.001
+  </para>
+            <para>
+    Murrell, M.C., Stanley, R.S., Lores, E.M., DiDonato, G.T., Flemer,
+    D.A., 2002. Linkage between microzooplankton grazing and
+    phytoplankton growth in a Gulf of Mexico estuary. Estuaries 25,
+    19–29. https://doi.org/10.1007/BF02696046
+  </para>
+            <para>
+    Morison, F., Menden-Deuer, S., 2017. Doing more with less? Balancing
+    sampling resolution and effort in measurements of protistan growth
+    and grazing-rates: Measuring plankton growth and grazing. Limnology
+    and Oceanography: Methods 15, 794–809.
+    https://doi.org/10.1002/lom3.10200
   </para>
           </section>
         </description>
@@ -453,7 +506,7 @@
         </attribute>
         <attribute>
           <attributeName>date_time_UTC</attributeName>
-          <attributeDefinition>Date and time of sampling (UTC). The value given here is the mean value of each Niskin bottle closure where the seawater sample comes from</attributeDefinition>
+          <attributeDefinition>Date and time of sampling (UTC). The value given here is the mean value for multiple Niskin bottle closure where the seawater sample comes from</attributeDefinition>
           <storageType>date</storageType>
           <measurementScale>
             <dateTime>
@@ -587,7 +640,7 @@
           <measurementScale>
             <ratio>
               <unit>
-                <standardUnit>dimensionless</standardUnit>
+                <customUnit>PSU</customUnit>
               </unit>
               <numericDomain>
                 <numberType>real</numberType>
@@ -661,7 +714,7 @@
         </attribute>
         <attribute>
           <attributeName>mu_0_Std</attributeName>
-          <attributeDefinition>Uncertainty relative to µ0 estinated from the standard deviation observed on the apparent phytoplankton growth rate kNoN in nutrient unamended treatment (see associated computation methods)</attributeDefinition>
+          <attributeDefinition>Uncertainty relative to µ0 estimated from the standard deviation observed on the apparent phytoplankton growth rate kNoN in nutrient unamended treatment (see associated computation methods)</attributeDefinition>
           <storageType>float</storageType>
           <measurementScale>
             <ratio>
@@ -720,7 +773,7 @@
         </attribute>
         <attribute>
           <attributeName>mu_N_Std</attributeName>
-          <attributeDefinition>Uncertainty relative to µN estinated from the standard deviation observed on the apparent phytoplankton growth rate kN in nutrient amended treatment (see associated computation methods)</attributeDefinition>
+          <attributeDefinition>Uncertainty relative to µN estimated from the standard deviation observed on the apparent phytoplankton growth rate kN in nutrient amended treatment (see associated computation methods)</attributeDefinition>
           <storageType>float</storageType>
           <measurementScale>
             <ratio>
@@ -875,7 +928,7 @@
                   </codeDefinition>
                   <codeDefinition>
                     <code>n/a</code>
-                    <definition>Not available because no Chl-a size fractionnation was performed.</definition>
+                    <definition>Not available because no Chl-a size fractionation was performed.</definition>
                   </codeDefinition>
                 </enumeratedDomain>
               </nonNumericDomain>
@@ -884,7 +937,7 @@
         </attribute>
         <attribute>
           <attributeName>mu_10d_Std</attributeName>
-          <attributeDefinition>Uncertainty relative to µ Chl-a &lt; 10 µm estinated from the standard deviation observed on the apparent phytoplankton growth rate k computed from Chl-a &lt;10µm.</attributeDefinition>
+          <attributeDefinition>Uncertainty relative to µ Chl-a &lt; 10 µm estimated from the standard deviation observed on the apparent phytoplankton growth rate k computed from Chl-a &lt;10µm.</attributeDefinition>
           <storageType>float</storageType>
           <measurementScale>
             <ratio>
@@ -919,7 +972,7 @@
                   </codeDefinition>
                   <codeDefinition>
                     <code>n/a</code>
-                    <definition>Not available because no Chl-a size fractionnation was performed.</definition>
+                    <definition>Not available because no Chl-a size fractionation was performed.</definition>
                   </codeDefinition>
                 </enumeratedDomain>
               </nonNumericDomain>
@@ -963,7 +1016,7 @@
                   </codeDefinition>
                   <codeDefinition>
                     <code>n/a</code>
-                    <definition>Not available because no Chl-a size fractionnation was performed.</definition>
+                    <definition>Not available because no Chl-a size fractionation was performed.</definition>
                   </codeDefinition>
                   <codeDefinition>
                     <code>n/c</code>
@@ -1011,7 +1064,7 @@
                   </codeDefinition>
                   <codeDefinition>
                     <code>n/a</code>
-                    <definition>Not available because no Chl-a size fractionnation was performed.</definition>
+                    <definition>Not available because no Chl-a size fractionation was performed.</definition>
                   </codeDefinition>
                   <codeDefinition>
                     <code>n/c</code>
@@ -1055,7 +1108,7 @@
                 <enumeratedDomain>
                   <codeDefinition>
                     <code>n/a</code>
-                    <definition>Not available because no Chl-a size fractionnation was performed.</definition>
+                    <definition>Not available because no Chl-a size fractionation was performed.</definition>
                   </codeDefinition>
                 </enumeratedDomain>
               </nonNumericDomain>
@@ -1064,7 +1117,7 @@
         </attribute>
         <attribute>
           <attributeName>mu_10u_Std</attributeName>
-          <attributeDefinition>Uncertainty relative to µ Chl-a &gt; 10 µm estinated from the standard deviation observed on the apparent phytoplankton growth rate k computed from Chl-a &gt;10µm.</attributeDefinition>
+          <attributeDefinition>Uncertainty relative to µ Chl-a &gt; 10 µm estimated from the standard deviation observed on the apparent phytoplankton growth rate k computed from Chl-a &gt;10µm.</attributeDefinition>
           <storageType>float</storageType>
           <measurementScale>
             <ratio>
@@ -1095,7 +1148,7 @@
                 <enumeratedDomain>
                   <codeDefinition>
                     <code>n/a</code>
-                    <definition>Not available because no Chl-a size fractionnation was performed.</definition>
+                    <definition>Not available because no Chl-a size fractionation was performed.</definition>
                   </codeDefinition>
                 </enumeratedDomain>
               </nonNumericDomain>
@@ -1139,7 +1192,7 @@
                   </codeDefinition>
                   <codeDefinition>
                     <code>n/a</code>
-                    <definition>Not available because no Chl-a size fractionnation was performed.</definition>
+                    <definition>Not available because no Chl-a size fractionation was performed.</definition>
                   </codeDefinition>
                 </enumeratedDomain>
               </nonNumericDomain>
@@ -1183,7 +1236,7 @@
                   </codeDefinition>
                   <codeDefinition>
                     <code>n/a</code>
-                    <definition>Not available because no Chl-a size fractionnation was performed.</definition>
+                    <definition>Not available because no Chl-a size fractionation was performed.</definition>
                   </codeDefinition>
                 </enumeratedDomain>
               </nonNumericDomain>
@@ -1208,12 +1261,12 @@
       <numberOfRecords>33</numberOfRecords>
     </dataTable>
     <otherEntity>
-      <entityName>Phytoplankton growth and microzooplankton grazing rates contributed by the Menden-Deuer lab</entityName>
-      <entityDescription>Phytoplankton growth and microzooplankton grazing rates contributed by the Menden-Deuer lab</entityDescription>
+      <entityName>Phytoplankton growth and microzooplankton grazing rates contributed by the Menden-Deuer lab.</entityName>
+      <entityDescription>Phytoplankton growth and microzooplankton grazing rates contributed by the Menden-Deuer lab.</entityDescription>
       <physical>
         <objectName>NES-LTER_Growth-Grazing_SMD_2019_11_01.xlsx</objectName>
-        <size unit="bytes">31822</size>
-        <authentication method="MD5">9704d04fc5785f212e0a7cd99b153f99</authentication>
+        <size unit="bytes">31888</size>
+        <authentication method="MD5">4d8fc776216a524a45310c16a0dfa7dc</authentication>
         <dataFormat>
           <externallyDefinedFormat>
             <formatName>unknown</formatName>
@@ -1223,8 +1276,8 @@
       <entityType>unknown</entityType>
     </otherEntity>
     <otherEntity>
-      <entityName>Temperature and light intensity recorded during the incubation experiments</entityName>
-      <entityDescription>Temperature and light intensity recorded during the incubation experiments</entityDescription>
+      <entityName>Temperature and light intensity recorded during the incubation experiments. Each .csv file includes dateTime in UTC, Temp_In (temperature in the incubation tank), Light_In (light in the incubation tank), Temp_Out (temperature out the incubation tank) and Light_Out (light out the incubation tank) with a time step of 5 min.</entityName>
+      <entityDescription>Temperature and light intensity recorded during the incubation experiments. Each .csv file includes dateTime in UTC, Temp_In (temperature in the incubation tank), Light_In (light in the incubation tank), Temp_Out (temperature out the incubation tank) and Light_Out (light out the incubation tank) with a time step of 5 min.</entityDescription>
       <physical>
         <objectName>NES-LTER_temp_light_incubation_SMD.zip</objectName>
         <size unit="bytes">40958</size>
