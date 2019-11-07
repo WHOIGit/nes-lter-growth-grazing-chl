@@ -11,32 +11,37 @@ knitr::opts_chunk$set(message = FALSE, warning = FALSE)
 # clear workspace for local development
 rm(list = ls())
 
-# install libraries for EML assembly
-# install.packages("devtools")
-# install_github("EDIorg/EMLassemblyline")
-
-# define R packages to require
-libs <- c("tidyverse", "readxl", "lubridate", "devtools", "EMLassemblyline", "EML")
-# load libraries
-lapply(libs, require, character.only = TRUE)
-
 # assign resused directory to a variable
 dir <- "/Users/jaxinewolfe/Documents/WHOI/NESLTER/nes-lter-growth-grazing-chl/"
 # set working directory
 setwd(dir)
+
+# define source for functions developed for the EDI packaging workflow
+source("edi-utilities.R")
+
+# install and load libraries
+# install.packages("devtools")
+# install_github("EDIorg/EMLassemblyline")
+
+# define R packages to require
+libs <- c("tidyverse", "readxl", "lubridate", "devtools", "EMLassemblyline", "EML", "maps", "xml2")
+# load libraries
+lapply(libs, require, character.only = TRUE)
+
 ```
 
-## Preparing Original Data for EDI
+## Preparing Provided Data for EDI
 
 • if theres a "-" in the cast or a "/" in the bottle, insert a "|".
 • the missing values in numeric fields should be numeric
 ```{r}
 # set filename to variable
-growgraze_xls <- "NES-LTER_Growth-Grazing_SMD_2019_11_01"
+pierre_data <- "NES-LTER_Growth-Grazing_SMD_2019_11_01"
+edi_filename <- "nes-lter-growth-grazing-chl"
 
 # Load growth and grazing data from excel sheet
-growgraze <- read_excel(path = paste0(dir, "/", growgraze_xls, ".xlsx"), 
-                  sheet = 1, na = "NA")
+growgraze <- read_excel(path = paste0(dir, "/", pierre_data, ".xlsx"), 
+                  sheet = "DataTable", na = "NA")
 
 # DATA CLEANING
 # standardize the formatting of the cast and bottle columns
@@ -67,14 +72,14 @@ growgraze[mv_cols] <- sapply(growgraze[mv_cols], as.numeric)
 # add the missing value explanation columns to the data
 growgraze_EDI <- cbind(growgraze, mv)
 
-# rearrange columns
+# rearrange columns to match the order in the attributes table
 growgraze_EDI <- growgraze_EDI[,c("project", "cruise", "date_time_UTC", "station", "cast", "bottle", "latitude", "longitude", "depth", "temp", "sal", "date_time_start_UTC", "date_time_end_UTC", "light_treatment", "mu_0", "mu_0_Std",
                                   "mu_N", "mu_N_mv", "mu_N_Std", "mu_N_Std_mv", "grazing", "grazing_mv", "grazing_Std", "grazing_Std_mv", "mu_10d",
                                   "mu_10d_mv",  "mu_10d_Std", "mu_10d_Std_mv" , "grazing_10d", "grazing_10d_mv", "grazing_10d_Std", "grazing_10d_Std_mv",
                                   "mu_10u", "mu_10u_mv", "mu_10u_Std", "mu_10u_Std_mv", "grazing_10u", "grazing_10u_mv", "grazing_10u_Std", 
                                   "grazing_10u_Std_mv", "temp_light_inc_filename")]
 
-write.csv(growgraze_EDI, "nes-lter-growth-grazing-chl.csv", row.names = FALSE)
+write.csv(growgraze_EDI, paste0(edi_filename, ".csv"), row.names = FALSE)
 ```
 
 ## Quality Assurance: Nutrients Check
@@ -137,6 +142,8 @@ mismatch <- nut_check[nut_check$silicate_match==FALSE,]
 ```
 
 ## Quality Assurance: Consistency Check
+
+This chunk determines if there are differences across the two light treatments.
 ```{r}
 
 gg_check_EN608 <- growgraze_EDI %>%
@@ -160,144 +167,57 @@ unique(gg_check_EN627)
 ## Quality Assurance: Map Sampling Locations
 
 ```{r, echo=FALSE}
-library(maps)
-library(dplyr)
 
-nes <- map_data("state") %>% filter(long > -72 & lat < 42)
-
-# Map given coordinates
-ggplot() +
-  geom_polygon(data = nes, mapping = aes(x = long, y = lat, group = group),
-               fill = NA, color = "grey50") +
-  geom_point(growgraze, mapping = aes(x = longitude, y = latitude, color = cruise),
-            size = 1) + 
-  coord_fixed(1.3) +
-  theme_classic()
-```
-
-## Create Template .txt files for EMLassembly
-
-```{r}
-
-# define title of EDI-ready file
-growgraze_file <- "nes-lter-growth-grazing-chl"
-
-# read in metadata info
-headers <- read_excel(path = paste0(dir, "/", growgraze_xls, ".xlsx"), 
-                  sheet = "ColumnHeaders", na = "NA")
-personnel <- read_excel(path = paste0(dir, "/", growgraze_xls, ".xlsx"), 
-                  sheet = "Personnel", na = "NA")
-keywords <- read_excel(path = paste0(dir, "/", growgraze_xls, ".xlsx"), 
-                  sheet = "Keywords", na = "NA")
-custom_units <- read_excel(path = paste0(dir, "/", growgraze_xls, ".xlsx"), 
-                  sheet = "CustomUnits", na = "NA")
-catvars <- read_excel(path = paste0(dir, "/", growgraze_xls, ".xlsx"), 
-                  sheet = "CategoricalVariables", na = "NA")
-
-# write info data frames to text files for EML assembly
-write.table(personnel,"personnel.txt", 
-            quote = FALSE, na = "", sep = "\t", row.names = FALSE)
-write.table(headers, paste0("attributes_", growgraze_file, ".txt"), 
-            quote = FALSE, na = "", sep = "\t", row.names = FALSE)
-write.table(keywords,"keywords.txt", 
-            quote = FALSE, na = "", sep = "\t", row.names = FALSE)
-write.table(custom_units,"custom_units.txt", 
-            quote = FALSE, na = "", sep = "\t", row.names = FALSE)
-write.table(catvars, paste0("catvars_", growgraze_file, ".txt"), 
-            quote = FALSE, na = "", sep = "\t", row.names = FALSE)
+# Map Check
+map_locs(growgraze_EDI, longitude, latitude, region = "transect")
 
 ```
 
-## Construct XML for Nutrient Data
+## EML Assembly
+
+This chunk outputs the final xml file for EDI through the following steps:
+
+Step 1: Populating EML Assembly Line templates with metadata
+Step 2: Calculating the geospatial and temporal coverage 
+Step 3: Making the XML file 
+Step 4: Inserting a custom NES-LTER parent project node 
 
 ```{r}
 
-growgraze_pkg <- "knb-lter-nes.5.1"
+# define input files
+metadata <- "NES-LTER_Growth-Grazing_SMD_2019_11_01"
+edi_filename <- "nes-lter-growth-grazing-chl"
+pkg_id <- "knb-lter-nes.5.1"
 
-# Import EDI templates for diet dataset licensed under CCBY
-import_templates(path = dir,
-                 license = "CCBY",
-                 data.files = paste0(growgraze_file, ".csv"))
-# this will not overwrite existing files
+# Make EML Templates 
+xlsx_to_template(metadata.path = metadata, 
+                 edi.filename = edi_filename, 
+                 rights = "CCBY")
 
-# eliminate unneccesary templates
-# bounding_boxes.txt must be eliminated to specify coverage manually
-unlink(c("bounding_boxes.txt", "additional_info.txt"))
+# Data Coverage
+# isolate date and geospatial columns for input
+date_col <- as.Date(growgraze_EDI$date_time_UTC)
+lat_col <- growgraze_EDI$latitude
+lon_col <- growgraze_EDI$longitude
+# run function to determine geospatial and temporal coverage
+coverage <- data_coverage(dates = date_col, lat = lat_col, lon = lon_col)
 
-# Temporal coverage
-# Will need this in make_eml YYYY-MM-DD
-column_of_dates <- as.Date(growgraze_EDI$date_time_UTC)
-startdate <- min(column_of_dates, na.rm = TRUE)
-enddate <- max(column_of_dates, na.rm = TRUE)
-# temporal.coverage argument is expecting objects of 'character' class, not 'Date'
-startdate_as_character <- as.character(startdate)
-enddate_as_character <- as.character(enddate)
-
-# Geographic coverage
-# Will need this order in make_eml: North, East, South, West
-North <- max(growgraze_EDI$latitude, na.rm = TRUE)
-East <- max(growgraze_EDI$longitude, na.rm = TRUE)
-South <- min(growgraze_EDI$latitude, na.rm = TRUE)
-West <- min(growgraze_EDI$longitude, na.rm = TRUE)
-
-# ensure metadata template txt files are UTF-8 and at specified path
-make_eml(path = dir,
+# Make EML
+make_eml(path = getwd(),
          dataset.title = "Phytoplankton growth and microzooplankton grazing rates from NES-LTER transect cruises EN608, EN617, EN627.",
-         data.table = paste0(growgraze_file, ".csv"),
+         data.table = paste0(edi_filename, ".csv"),
          data.table.description = "Phytoplankton growth and microzooplankton grazing rates data cleaned for EDI",
-         other.entity = c(paste0(growgraze_xls, ".xlsx"), "NES-LTER_temp_light_incubation_SMD.zip"),
+         other.entity = c(paste0(metadata, ".xlsx"), "NES-LTER_temp_light_incubation_SMD.zip"),
          other.entity.description = c("Phytoplankton growth and microzooplankton grazing rates contributed by the Menden-Deuer lab",
                                       "Temperature and light intensity recorded during the incubation experiments"),
-         temporal.coverage = c(startdate_as_character, enddate_as_character),
+         temporal.coverage = c(coverage$startdate, coverage$enddate),
          geographic.description = "NES-LTER Transect",
-         geographic.coordinates = c(North, East, South, West),
+         geographic.coordinates = c(coverage$North, coverage$East, coverage$South, coverage$West),
          maintenance.description = "ongoing",
          user.id = "NES",
          affiliation = "LTER",
-         package.id = growgraze_pkg)
+         package.id = pkg_id)
 
+# Insert Custom Project Node
+project_insert(edi_pkg = pkg_id)
 ```
-
-## Insert Custom Project Node
-
-Step 1: Read in the xml file and the new xml node
-Step 2: Insert the new node or replace the old node with the new node
-Step 3: Write the modified xml file 
-
-Instructions for node replacement using the xml2 package can be found [here](https://cran.r-project.org/web/packages/xml2/vignettes/modification.html).
-
-```{r}
-# install.packages("xml2")
-library(xml2)
-
-# Function inserts project node after the methods node of an xml document
-project_insert <- function(x, projectnode) {
-  if (is.na(xml_find_first(x, ".//project")) == FALSE) {
-    stop("<project> node already exists")
-  }
-  
-  # find methods node
-  methodsnode <- xml_find_first(x, ".//methods")
-  # add project node after methods and before dataTable
-  xml_add_sibling(methodsnode, projectnode, where = "after")
-  
-  if (eml_validate(x) == FALSE) {
-    warning("XML document not valid")
-  }
-  return(x)
-}
-
-# read in project node
-project_eml <- read_xml("parent_project.txt", from = "xml")
-# read in xml files exported by make_eml
-growgraze_eml <- read_xml(paste0(dir, "/", growgraze_pkg, ".xml"), from = "xml")
-# all objects should be of class c("xml_document" "xml_node")
-
-# make the neccessary modifications
-growgraze_eml_final <- project_insert(growgraze_eml, project_eml)
-
-# write modified xml file 
-write_xml(growgraze_eml_final, paste0(dir, "/", growgraze_pkg, ".xml"))
-
-```
-

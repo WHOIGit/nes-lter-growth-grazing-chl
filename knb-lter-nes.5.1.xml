@@ -42,7 +42,7 @@
       <userId directory="https://orcid.org">https://orcid.org/0000-0001-9620-5382</userId>
       <role>Metadataprovider</role>
     </associatedParty>
-    <pubDate>2019-11-05</pubDate>
+    <pubDate>2019-11-07</pubDate>
     <abstract>
       <para>
   Phytoplankton growth and microzooplankton grazing rates were measured
@@ -116,9 +116,9 @@
         <geographicDescription>NES-LTER Transect</geographicDescription>
         <boundingCoordinates>
           <westBoundingCoordinate>-70.891</westBoundingCoordinate>
-          <eastBoundingCoordinate>-70.759398</eastBoundingCoordinate>
+          <eastBoundingCoordinate>-70.7594</eastBoundingCoordinate>
           <northBoundingCoordinate>41.20336</northBoundingCoordinate>
-          <southBoundingCoordinate>39.7631466666667</southBoundingCoordinate>
+          <southBoundingCoordinate>39.76315</southBoundingCoordinate>
         </boundingCoordinates>
       </geographicCoverage>
       <temporalCoverage>
@@ -1211,7 +1211,7 @@
       <entityName>Phytoplankton growth and microzooplankton grazing rates contributed by the Menden-Deuer lab</entityName>
       <entityDescription>Phytoplankton growth and microzooplankton grazing rates contributed by the Menden-Deuer lab</entityDescription>
       <physical>
-        <objectName>NES-LTER_Growth-Grazing_SMD_v2.xlsx</objectName>
+        <objectName>NES-LTER_Growth-Grazing_SMD_2019_11_01.xlsx</objectName>
         <size unit="bytes">31822</size>
         <authentication method="MD5">9704d04fc5785f212e0a7cd99b153f99</authentication>
         <dataFormat>
