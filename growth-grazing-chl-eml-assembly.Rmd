@@ -72,7 +72,7 @@ growgraze[growgraze == "n/n" | growgraze == "n/a" |
 growgraze[gg_cols] <- sapply(growgraze[gg_cols], as.numeric)
 # str(growgraze) # check
 # round growgraze values to two decimals
-growgraze[gg_cols] <- round(growgraze[gg_cols], 2)
+growgraze[, c("mu_0", "mu_0_Std", gg_cols)] <- round(growgraze[, c("mu_0", "mu_0_Std", gg_cols)], 2)
 
 # add the missing value explanation columns to the data
 growgraze_EDI <- cbind(growgraze, mv)
