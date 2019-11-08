@@ -463,8 +463,8 @@
       <entityDescription>Phytoplankton growth and microzooplankton grazing rates data cleaned for EDI</entityDescription>
       <physical>
         <objectName>nes-lter-growth-grazing-chl.csv</objectName>
-        <size unit="bytes">14929</size>
-        <authentication method="MD5">63deab879978976135019f3c7d77ad40</authentication>
+        <size unit="bytes">14635</size>
+        <authentication method="MD5">bde5ee47bb5eb1195f2d9a2b0d236c82</authentication>
         <dataFormat>
           <textFormat>
             <numHeaderLines>1</numHeaderLines>
@@ -609,7 +609,7 @@
                 <numberType>real</numberType>
                 <bounds>
                   <minimum exclusive="false">1.62</minimum>
-                  <maximum exclusive="false">7.02</maximum>
+                  <maximum exclusive="false">7.03</maximum>
                 </bounds>
               </numericDomain>
             </ratio>

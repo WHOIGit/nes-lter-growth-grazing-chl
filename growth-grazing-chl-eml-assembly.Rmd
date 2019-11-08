@@ -40,6 +40,10 @@ edi_filename <- "nes-lter-growth-grazing-chl"
 # Load growth and grazing data from excel sheet
 growgraze <- read_excel(path = paste0(dir, "/", pierre_data, ".xlsx"), 
                   sheet = "DataTable", na = "NA")
+# round necessary columns to standard precision
+growgraze$latitude <- round(growgraze$latitude, 5)
+growgraze$longitude <- round(growgraze$longitude, 5)
+growgraze$depth <- round(growgraze$depth, 3)
 
 # Data Cleaning ----------
 
@@ -191,7 +195,7 @@ Call the map_locs function from edi-utility.R to map the sampling locations. Per
 ```{r, echo=FALSE}
 
 # Map Check
-map_locs(growgraze_EDI, longitude, latitude, region = "transect")
+map_locs(growgraze_EDI, longitude, latitude, region = "transect", color.by = cruise)
 
 ```
 
