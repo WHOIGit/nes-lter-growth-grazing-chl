@@ -50,12 +50,12 @@ growgraze$bottle <- trimws(gsub('/', '|', growgraze$bottle))
 
 # Add categorical columns to expand missing value explantions
 # define columms containing missing values
-mv_cols <- c("mu_N", "mu_N_Std", "grazing", "grazing_Std", "mu_10d", 
+gg_cols <- c("mu_N", "mu_N_Std", "grazing", "grazing_Std", "mu_10d", 
              "mu_10d_Std", "grazing_10d", "grazing_10d_Std", "mu_10u", 
              "mu_10u_Std", "grazing_10u", "grazing_10u_Std")
 # isolate and rename missing value columns
-mv <- growgraze %>% select(mv_cols) %>%
-  rename_at(mv_cols, ~ paste0(mv_cols, "_mv"))
+mv <- growgraze %>% select(gg_cols) %>%
+  rename_at(gg_cols, ~ paste0(gg_cols, "_mv"))
 
 # convert numerical values in missing value explanation columns to not missing 
 mv[mv != "n/n" & mv != "n/a" & 
@@ -65,7 +65,7 @@ mv[mv != "n/n" & mv != "n/a" &
 growgraze[growgraze == "n/n" | growgraze == "n/a" |
             growgraze == "n/d" | growgraze == "n/c"] <- -9999
 # assign columns to numerical
-growgraze[mv_cols] <- sapply(growgraze[mv_cols], as.numeric)
+growgraze[gg_cols] <- sapply(growgraze[gg_cols], as.numeric)
 # str(growgraze) # check
 
 # add the missing value explanation columns to the data
@@ -87,16 +87,20 @@ write.csv(growgraze_EDI, paste0(edi_filename, ".csv"), row.names = FALSE)
 Check that the numerical values and their precision were retained during the data cleaning.
 
 ```{r}
-# data provided by pierre
+# isolate growgraze data provided by pierre
 gg_pierre <- read_excel(path = paste0(dir, "/", pierre_data, ".xlsx"), 
-                  sheet = "DataTable", na = "NA") %>% select(mv_cols)
-# cleaned
-gg_edi <- growgraze_EDI %>% select(mv_cols) %>%
-    rename_at(mv_cols, ~ paste0(mv_cols, "_clean"))
+                  sheet = "DataTable", na = c("n/n", "n/a", "n/d", "n/c")) %>% select(gg_cols)
+# convert NAs to numerical missing values
+gg_pierre[is.na(gg_pierre)] <- -9999
 
-# merge
-# create logical check, ignoring missing values
+# isolate growgraze columns from the cleaned data
+gg_edi <- growgraze_EDI %>% select(gg_cols)
 
+# loop through paired columns to check dor discrepancies between the data tables
+for (i in 1:length(gg_cols)) {
+  val_check <- gg_pierre[,i] == gg_edi[,i]
+  print(unique(val_check)) # these should all print TRUE
+}
 
 ```
 
