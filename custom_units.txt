@@ -1,2 +1,3 @@
 id	unitType	parentSI	multiplierToSI	description
 numberPerDay	rate		1	number per day
+PSU	massPerUnitVolume	gramsPerKilogram	1	practical salinity unit
