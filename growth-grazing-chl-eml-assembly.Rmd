@@ -82,7 +82,26 @@ growgraze_EDI <- growgraze_EDI[,c("project", "cruise", "date_time_UTC", "station
 write.csv(growgraze_EDI, paste0(edi_filename, ".csv"), row.names = FALSE)
 ```
 
-## Quality Assurance: Nutrients Check
+## QA: Retainig Data Integrity
+
+Check that the numerical values and their precision were retained during the data cleaning.
+
+```{r}
+# data provided by pierre
+gg_pierre <- read_excel(path = paste0(dir, "/", pierre_data, ".xlsx"), 
+                  sheet = "DataTable", na = "NA") %>% select(mv_cols)
+# cleaned
+gg_edi <- growgraze_EDI %>% select(mv_cols) %>%
+    rename_at(mv_cols, ~ paste0(mv_cols, "_clean"))
+
+# merge
+# create logical check, ignoring missing values
+
+
+```
+
+
+## QA: Nutrients Check
 
 Check that the averaged nutrient values used by Pierre match those provided by the REST API for the NES-LTER nutrients transect. UPDATE: The second version that Pierre provided produced no mismatched averages. Code commented out.
 
@@ -214,7 +233,7 @@ make_eml(path = getwd(),
          geographic.coordinates = c(coverage$North, coverage$East, coverage$South, coverage$West),
          maintenance.description = "ongoing",
          user.id = "NES",
-         affiliation = "LTER",
+         user.domain = "LTER",
          package.id = pkg_id)
 
 # Insert Custom Project Node

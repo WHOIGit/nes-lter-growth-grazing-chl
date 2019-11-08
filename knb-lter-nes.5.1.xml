@@ -636,12 +636,12 @@
         </attribute>
         <attribute>
           <attributeName>sal</attributeName>
-          <attributeDefinition>Salinity of sampling. The value given here is the mean salinity at which each bottle was fired</attributeDefinition>
+          <attributeDefinition>Salinity of sampling. The value given here is the mean salinity in PSU at which each bottle was fired</attributeDefinition>
           <storageType>float</storageType>
           <measurementScale>
             <ratio>
               <unit>
-                <customUnit>PSU</customUnit>
+                <standardUnit>dimensionless</standardUnit>
               </unit>
               <numericDomain>
                 <numberType>real</numberType>
@@ -1266,8 +1266,8 @@
       <entityDescription>Phytoplankton growth and microzooplankton grazing rates contributed by the Menden-Deuer lab.</entityDescription>
       <physical>
         <objectName>NES-LTER_Growth-Grazing_SMD_2019_11_01.xlsx</objectName>
-        <size unit="bytes">31984</size>
-        <authentication method="MD5">dfb214496071252aca56e52fb25c7492</authentication>
+        <size unit="bytes">31910</size>
+        <authentication method="MD5">5a73526c99103536f9fcc8dba9c173e0</authentication>
         <dataFormat>
           <externallyDefinedFormat>
             <formatName>unknown</formatName>
@@ -1297,9 +1297,6 @@
       <unitList>
         <unit id="numberPerDay" multiplierToSI="1" name="numberPerDay" parentSI="" unitType="rate">
           <description>number per day</description>
-        </unit>
-        <unit id="PSU" multiplierToSI="1" name="PSU" parentSI="gramsPerKilogram" unitType="massPerUnitVolume">
-          <description>practical salinity unit</description>
         </unit>
       </unitList>
     </metadata>

@@ -9,7 +9,7 @@ latitude	Latitude of sample event. The value given here is the mean latitude at 
 longitude	Longitude of sample event. The value given here is the mean longitude at which each bottle was fired	numeric	degree			
 depth	Depth of sampling. The value given here is the mean depth at which each bottle was fired	numeric	meter			
 temp	Temperature of sampling. The value given here is the mean temperature at which each bottle was fired	numeric	celsius			
-sal	Salinity of sampling. The value given here is the mean salinity at which each bottle was fired	numeric	PSU			
+sal	Salinity of sampling. The value given here is the mean salinity in PSU at which each bottle was fired	numeric	dimensionless			
 date_time_start_UTC	Date and time (UTC) of the start of the incubation	Date		YYYY-MM-DD hh:mm:ss+hh:mm		
 date_time_end_UTC	Date and time (UTC) of the end of the incubation	Date		YYYY-MM-DD hh:mm:ss+hh:mm		
 light_treatment	Expected percentage of light attenuation used during the incubation	numeric	dimensionless			
