@@ -71,6 +71,8 @@ growgraze[growgraze == "n/n" | growgraze == "n/a" |
 # assign columns to numerical
 growgraze[gg_cols] <- sapply(growgraze[gg_cols], as.numeric)
 # str(growgraze) # check
+# round growgraze values to two decimals
+growgraze[gg_cols] <- round(growgraze[gg_cols], 2)
 
 # add the missing value explanation columns to the data
 growgraze_EDI <- cbind(growgraze, mv)
@@ -169,9 +171,9 @@ Check that the averaged nutrient values used by Pierre match those provided by t
 
 ```
 
-## QA: Consistency Across Replicates
+## QA: Consistency Across Light Treatments
 
-Determine if there are differences across the two light treatments for each of the cruises. Slight differences in time observed for cruise EN608. There was one row missing which was expected: There was no 15% light experiment at EN617 station L10.
+Determine if there are differences in metadata across the two light treatments for each of the cruises. Slight differences in time observed for cruise EN608. There was one row missing which was expected: There was no 15% light experiment at EN617 station L10.
 
 ```{r}
 
