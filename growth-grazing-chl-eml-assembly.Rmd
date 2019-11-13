@@ -197,7 +197,7 @@ Call the map_locs function from edi-utility.R to map the sampling locations. Per
 ```{r, echo=FALSE}
 
 # Map Check
-map_locs(growgraze_EDI, longitude, latitude, region = "transect", color.by = cruise)
+map_locs(growgraze_EDI, longitude, latitude, region = "transect")
 
 ```
 

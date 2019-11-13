@@ -1,2 +1,2 @@
 id	unitType	parentSI	multiplierToSI	description
-numberPerDay	rate		1	number per day
+perDay	rate		1	per day

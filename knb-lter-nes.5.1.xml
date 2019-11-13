@@ -42,7 +42,7 @@
       <userId directory="https://orcid.org">https://orcid.org/0000-0001-9620-5382</userId>
       <role>Metadataprovider</role>
     </associatedParty>
-    <pubDate>2019-11-12</pubDate>
+    <pubDate>2019-11-13</pubDate>
     <abstract>
       <para>
   Phytoplankton growth and microzooplankton grazing rates were measured
@@ -701,7 +701,7 @@
           <measurementScale>
             <ratio>
               <unit>
-                <customUnit>numberPerDay</customUnit>
+                <customUnit>perDay</customUnit>
               </unit>
               <numericDomain>
                 <numberType>real</numberType>
@@ -720,7 +720,7 @@
           <measurementScale>
             <ratio>
               <unit>
-                <customUnit>numberPerDay</customUnit>
+                <customUnit>perDay</customUnit>
               </unit>
               <numericDomain>
                 <numberType>real</numberType>
@@ -739,7 +739,7 @@
           <measurementScale>
             <ratio>
               <unit>
-                <customUnit>numberPerDay</customUnit>
+                <customUnit>perDay</customUnit>
               </unit>
               <numericDomain>
                 <numberType>real</numberType>
@@ -779,7 +779,7 @@
           <measurementScale>
             <ratio>
               <unit>
-                <customUnit>numberPerDay</customUnit>
+                <customUnit>perDay</customUnit>
               </unit>
               <numericDomain>
                 <numberType>real</numberType>
@@ -819,7 +819,7 @@
           <measurementScale>
             <ratio>
               <unit>
-                <customUnit>numberPerDay</customUnit>
+                <customUnit>perDay</customUnit>
               </unit>
               <numericDomain>
                 <numberType>real</numberType>
@@ -859,7 +859,7 @@
           <measurementScale>
             <ratio>
               <unit>
-                <customUnit>numberPerDay</customUnit>
+                <customUnit>perDay</customUnit>
               </unit>
               <numericDomain>
                 <numberType>real</numberType>
@@ -899,7 +899,7 @@
           <measurementScale>
             <ratio>
               <unit>
-                <customUnit>numberPerDay</customUnit>
+                <customUnit>perDay</customUnit>
               </unit>
               <numericDomain>
                 <numberType>real</numberType>
@@ -943,7 +943,7 @@
           <measurementScale>
             <ratio>
               <unit>
-                <customUnit>numberPerDay</customUnit>
+                <customUnit>perDay</customUnit>
               </unit>
               <numericDomain>
                 <numberType>real</numberType>
@@ -987,7 +987,7 @@
           <measurementScale>
             <ratio>
               <unit>
-                <customUnit>numberPerDay</customUnit>
+                <customUnit>perDay</customUnit>
               </unit>
               <numericDomain>
                 <numberType>real</numberType>
@@ -1035,7 +1035,7 @@
           <measurementScale>
             <ratio>
               <unit>
-                <customUnit>numberPerDay</customUnit>
+                <customUnit>perDay</customUnit>
               </unit>
               <numericDomain>
                 <numberType>real</numberType>
@@ -1083,7 +1083,7 @@
           <measurementScale>
             <ratio>
               <unit>
-                <customUnit>numberPerDay</customUnit>
+                <customUnit>perDay</customUnit>
               </unit>
               <numericDomain>
                 <numberType>real</numberType>
@@ -1123,7 +1123,7 @@
           <measurementScale>
             <ratio>
               <unit>
-                <customUnit>numberPerDay</customUnit>
+                <customUnit>perDay</customUnit>
               </unit>
               <numericDomain>
                 <numberType>real</numberType>
@@ -1163,7 +1163,7 @@
           <measurementScale>
             <ratio>
               <unit>
-                <customUnit>numberPerDay</customUnit>
+                <customUnit>perDay</customUnit>
               </unit>
               <numericDomain>
                 <numberType>real</numberType>
@@ -1207,7 +1207,7 @@
           <measurementScale>
             <ratio>
               <unit>
-                <customUnit>numberPerDay</customUnit>
+                <customUnit>perDay</customUnit>
               </unit>
               <numericDomain>
                 <numberType>real</numberType>
@@ -1266,8 +1266,8 @@
       <entityDescription>Phytoplankton growth and microzooplankton grazing rates contributed by the Menden-Deuer lab.</entityDescription>
       <physical>
         <objectName>NES-LTER_Growth-Grazing_SMD_2019_11_01.xlsx</objectName>
-        <size unit="bytes">31910</size>
-        <authentication method="MD5">5a73526c99103536f9fcc8dba9c173e0</authentication>
+        <size unit="bytes">31903</size>
+        <authentication method="MD5">bc0b54bca1c837b01cc5be564c517397</authentication>
         <dataFormat>
           <externallyDefinedFormat>
             <formatName>unknown</formatName>
@@ -1295,8 +1295,8 @@
   <additionalMetadata>
     <metadata>
       <unitList>
-        <unit id="numberPerDay" multiplierToSI="1" name="numberPerDay" parentSI="" unitType="rate">
-          <description>number per day</description>
+        <unit id="perDay" multiplierToSI="1" name="perDay" parentSI="" unitType="rate">
+          <description>per day</description>
         </unit>
       </unitList>
     </metadata>
