@@ -102,12 +102,12 @@ gg_pierre[is.na(gg_pierre)] <- -9999
 # isolate growgraze columns from the cleaned data
 gg_edi <- growgraze_EDI %>% select(gg_cols)
 
-# loop through paired columns to check dor discrepancies between the data tables
+# loop through paired columns to check for discrepancies between the data tables
 for (i in 1:length(gg_cols)) {
   val_check <- gg_pierre[,i] == gg_edi[,i]
   print(unique(val_check)) # these should all print TRUE
 }
-
+# report if any FALSE
 ```
 
 
@@ -236,8 +236,7 @@ make_eml(path = getwd(),
          data.table = paste0(edi_filename, ".csv"),
          data.table.description = "Phytoplankton growth and microzooplankton grazing rates data cleaned for EDI",
          other.entity = c(paste0(metadata, ".xlsx"), "NES-LTER_temp_light_incubation_SMD.zip"),
-         other.entity.description = c("Phytoplankton growth and microzooplankton grazing rates contributed by the Menden-Deuer lab.",
-                                      "Temperature and light intensity recorded during the incubation experiments. Each .csv file includes dateTime in UTC, Temp_In (temperature in the incubation tank), Light_In (light in the incubation tank), Temp_Out (temperature out the incubation tank) and Light_Out (light out the incubation tank) with a time step of 5 min."),
+         other.entity.description = c("Phytoplankton growth and microzooplankton grazing rates contributed by the Menden-Deuer lab", "Temperature and light intensity recorded during the incubation experiments. Each .csv file includes dateTime in UTC, Temp_In (temperature in the incubation tank), Light_In (light in the incubation tank), Temp_Out (temperature out the incubation tank) and Light_Out (light out the incubation tank) with a time step of 5 min."),
          temporal.coverage = c(coverage$startdate, coverage$enddate),
          geographic.description = "NES-LTER Transect",
          geographic.coordinates = c(coverage$North, coverage$East, coverage$South, coverage$West),
@@ -246,6 +245,32 @@ make_eml(path = getwd(),
          user.domain = "LTER",
          package.id = pkg_id)
 
-# Insert Custom Project Node
-project_insert(edi_pkg = pkg_id)
 ```
+
+## Edits to XML file
+
+1) Insert a custom parent project node that describes the PI/Co-PI's for the NES-LTER team and gives a short description of the overarching project.
+
+2) EMLassembly line uses other.entity.description to populate entityName and entityDescription. 
+
+```{r}
+
+## Insert Custom Project Node
+project_insert(edi_pkg = pkg_id)
+
+## Truncate Lengthy entityName
+# read in xml
+xml_file <- read_xml(paste0(getwd(), "/", pkg_id, ".xml"), from = "xml")
+
+# check entityName character length
+entityName_check(xml_file)
+
+# isolate entityName which violates character length
+name_to_replace <- xml_find_all(xml_file, ".//entityName")[3]
+# replace with truncated entityName
+xml_text(name_to_replace) <- "Temperature and light intensity recorded during the incubation experiments"
+
+# write file
+write_xml(xml_file, paste0(getwd(), "/", pkg_id, ".xml"))
+```
+

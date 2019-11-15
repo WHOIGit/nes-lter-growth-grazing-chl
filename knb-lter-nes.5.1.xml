@@ -42,7 +42,7 @@
       <userId directory="https://orcid.org">https://orcid.org/0000-0001-9620-5382</userId>
       <role>Metadataprovider</role>
     </associatedParty>
-    <pubDate>2019-11-13</pubDate>
+    <pubDate>2019-11-14</pubDate>
     <abstract>
       <para>
   Phytoplankton growth and microzooplankton grazing rates were measured
@@ -1262,8 +1262,8 @@
       <numberOfRecords>33</numberOfRecords>
     </dataTable>
     <otherEntity>
-      <entityName>Phytoplankton growth and microzooplankton grazing rates contributed by the Menden-Deuer lab.</entityName>
-      <entityDescription>Phytoplankton growth and microzooplankton grazing rates contributed by the Menden-Deuer lab.</entityDescription>
+      <entityName>Phytoplankton growth and microzooplankton grazing rates contributed by the Menden-Deuer lab</entityName>
+      <entityDescription>Phytoplankton growth and microzooplankton grazing rates contributed by the Menden-Deuer lab</entityDescription>
       <physical>
         <objectName>NES-LTER_Growth-Grazing_SMD_2019_11_01.xlsx</objectName>
         <size unit="bytes">31903</size>
@@ -1277,7 +1277,7 @@
       <entityType>unknown</entityType>
     </otherEntity>
     <otherEntity>
-      <entityName>Temperature and light intensity recorded during the incubation experiments. Each .csv file includes dateTime in UTC, Temp_In (temperature in the incubation tank), Light_In (light in the incubation tank), Temp_Out (temperature out the incubation tank) and Light_Out (light out the incubation tank) with a time step of 5 min.</entityName>
+      <entityName>Temperature and light intensity recorded during the incubation experiments</entityName>
       <entityDescription>Temperature and light intensity recorded during the incubation experiments. Each .csv file includes dateTime in UTC, Temp_In (temperature in the incubation tank), Light_In (light in the incubation tank), Temp_Out (temperature out the incubation tank) and Light_Out (light out the incubation tank) with a time step of 5 min.</entityDescription>
       <physical>
         <objectName>NES-LTER_temp_light_incubation_SMD.zip</objectName>
