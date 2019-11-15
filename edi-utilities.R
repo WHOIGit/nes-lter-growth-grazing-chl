@@ -137,27 +137,29 @@ project_insert <- function(edi_pkg) {
 # project_insert(edi_pkg = growgraze_pkg)
 
 # Quality Assurance: Mapping Sample Locations ----------
-# packages required: maps, dplyr
+# packages required: maps, dplyr, ggplot2
 
-map_locs <- function(x, longitude, latitude, region) {
+map_locs <- function(df, xvar = "longitude", yvar = "latitude", colorvar = "cruise", region = "shelf") {
   if (region == "transect") {
     nes_region <- map_data("state") %>% filter(long > -72 & lat < 42)
   }
   if (region == "shelf") {
     nes_region <- map_data("state") %>% filter(long > -77)
-  }
+  } 
+  
   # Map given coordinates
-  ggplot() +
+  ggplot(df, mapping = aes_string(x = xvar, y = yvar, color = colorvar)) +
+    geom_point(size = 1) + 
     geom_polygon(data = nes_region, mapping = aes(x = long, y = lat, group = group),
                  fill = NA, color = "grey50") +
-    geom_point(x, mapping = aes(x = longitude, y = latitude, color = cruise),
-               size = 1) + 
     coord_fixed(1.3) +
     theme_classic()
 }
 
 # Example code
-# map_locs(x = growgraze_EDI, longitude, latitude, region = "transect", color.by = cruise)
+# map_locs(df = all_cruises, xvar = "longitude", yvar = "latitude", 
+#          region = "transect", colorvar = "cruise")
+
 
 # Check that entityName doesn't exceed ----------
 # required packages: xml2
@@ -171,8 +173,10 @@ entityName_check <- function(xml_file) {
     
     # if the character count exceeds 250, trim the text
     if (n > 250) {
+      # print the entityNames that violate
       print(paste0("The following entityName exceeds word count: ", 
             xml_text(xml_find_all(xml_file, ".//entityName")[i])))
+      # return the node to correct
       index <- i
       return(index)
     } else {
