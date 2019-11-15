@@ -98,6 +98,8 @@ gg_pierre <- read_excel(path = paste0(dir, "/", pierre_data, ".xlsx"),
                   sheet = "DataTable", na = c("n/n", "n/a", "n/d", "n/c")) %>% select(gg_cols)
 # convert NAs to numerical missing values
 gg_pierre[is.na(gg_pierre)] <- -9999
+# round growgraze values to two decimals
+gg_pierre[, gg_cols] <- round(gg_pierre[, gg_cols], 2)
 
 # isolate growgraze columns from the cleaned data
 gg_edi <- growgraze_EDI %>% select(gg_cols)
@@ -105,9 +107,14 @@ gg_edi <- growgraze_EDI %>% select(gg_cols)
 # loop through paired columns to check for discrepancies between the data tables
 for (i in 1:length(gg_cols)) {
   val_check <- gg_pierre[,i] == gg_edi[,i]
-  print(unique(val_check)) # these should all print TRUE
+  
+  # report if any fail the check
+  if (isTRUE("FALSE" %in% val_check)) {
+    print(paste0(names(gg_pierre[,i]), " contains a mismatch at row(s): ", 
+                 match("FALSE", val_check)))
+  }
 }
-# report if any FALSE
+
 ```
 
 
