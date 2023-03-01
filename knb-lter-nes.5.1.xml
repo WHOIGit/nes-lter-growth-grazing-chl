@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.1" packageId="knb-lter-nes.5.1" xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.1  http://nis.lternet.edu/schemas/EML/eml-2.1.1/eml.xsd" system="edi">
+<eml:eml xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2" packageId="knb-lter-nes.5.1" xsi:schemaLocation="https://eml.ecoinformatics.org/eml-2.2.0/eml.xsd https://eml.ecoinformatics.org/eml-2.2.0/eml.xsd" system="edi">
   <access authSystem="https://pasta.edirepository.org/authentication" order="allowFirst" scope="document">
     <allow>
       <principal>uid=NES,o=LTER,dc=ecoinformatics,dc=org</principal>
@@ -40,31 +40,11 @@
       <organizationName>Northeast U.S. Shelf LTER</organizationName>
       <electronicMailAddress>jawolfe@whoi.edu</electronicMailAddress>
       <userId directory="https://orcid.org">https://orcid.org/0000-0001-9620-5382</userId>
-      <role>Metadataprovider</role>
+      <role>metadataProvider</role>
     </associatedParty>
-    <pubDate>2019-11-14</pubDate>
+    <pubDate>2023-03-01</pubDate>
     <abstract>
-      <para>
-  Phytoplankton growth and microzooplankton grazing rates were measured
-  from incubation experiments using the dilution method in the framework
-  of the Northeast US Shelf Long-Term Ecological Research project. The
-  dataset gathers plankton population dynamics rates obtained during
-  cruises onboard the R/V Endeavor in winter 2018 (EN608), summer 2018
-  (EN617), and winter 2019 (EN627) along a North/South transect from
-  Martha’s Vineyard to the shelf-break. This is an ongoing dataset
-  reporting the first phytoplankton growth and microzooplankton rates
-  used for a publication. The dataset includes only rates obtained from
-  surface samples. Different light treatments were used to simulate
-  different environmental conditions and to better understand the role
-  of light on plankton population dynamics. Phytoplankton growth and
-  microzooplankton grazing rates were measured for the total
-  phytoplankton community (Chl-a concentrations) and for size fractions
-  (Chl-a size fractionation) less than and greater than 10 µm.
-  Phytoplankton growth and microzooplankton grazing rates, the first
-  trophic interaction between primary producers and higher trophic
-  levels, are essential parameters to assess the cycling and export of
-  carbon in the ocean and to better understand marine food webs.
-</para>
+      <para>Phytoplankton growth and microzooplankton grazing rates were measured from incubation experiments using the dilution method in the framework of the Northeast US Shelf Long-Term Ecological Research project. The dataset gathers plankton population dynamics rates obtained during cruises onboard the R/V Endeavor in winter 2018 (EN608), summer 2018 (EN617), and winter 2019 (EN627) along a North/South transect from Martha’s Vineyard to the shelf-break. This is an ongoing dataset reporting the first phytoplankton growth and microzooplankton rates used for a publication. The dataset includes only rates obtained from surface samples. Different light treatments were used to simulate different environmental conditions and to better understand the role of light on plankton population dynamics. Phytoplankton growth and microzooplankton grazing rates were measured for the total phytoplankton community (Chl-a concentrations) and for size fractions (Chl-a size fractionation) less than and greater than 10 µm. Phytoplankton growth and microzooplankton grazing rates, the first trophic interaction between primary producers and higher trophic levels, are essential parameters to assess the cycling and export of carbon in the ocean and to better understand marine food webs.</para>
     </abstract>
     <keywordSet>
       <keyword>Populations</keyword>
@@ -88,27 +68,7 @@
       <keyword>Northeast U.S. Shelf</keyword>
     </keywordSet>
     <intellectualRights>
-      <para>
-  This information is released under the Creative Commons license -
-  Attribution - CC BY (https://creativecommons.org/licenses/by/4.0/).
-  The consumer of these data ("Data User" herein) is required
-  to cite it appropriately in any publication that results from its use.
-  The Data User should realize that these data may be actively used by
-  others for ongoing research and that coordination may be necessary to
-  prevent duplicate publication. The Data User is urged to contact the
-  authors of these data if any questions about methodology or results
-  occur. Where appropriate, the Data User is encouraged to consider
-  collaboration or co-authorship with the authors. The Data User should
-  realize that misinterpretation of data may occur if used out of
-  context of the original study. While substantial efforts are made to
-  ensure the accuracy of data and associated documentation, complete
-  accuracy of data sets cannot be guaranteed. All data are made
-  available "as is." The Data User should be aware, however,
-  that data are updated periodically and it is the responsibility of the
-  Data User to check for new versions of the data. The data authors and
-  the repository where these data were obtained shall not be liable for
-  damages resulting from any use or misinterpretation of the data. Thank
-  you.
+      <para>This information is released under the Creative Commons license - Attribution - CC BY (https://creativecommons.org/licenses/by/4.0/). The consumer of these data (\"Data User\" herein) is required to cite it appropriately in any publication that results from its use. The Data User should realize that these data may be actively used by others for ongoing research and that coordination may be necessary to prevent duplicate publication. The Data User is urged to contact the authors of these data if any questions about methodology or results occur. Where appropriate, the Data User is encouraged to consider collaboration or co-authorship with the authors. The Data User should realize that misinterpretation of data may occur if used out of context of the original study. While substantial efforts are made to ensure the accuracy of data and associated documentation, complete accuracy of data sets cannot be guaranteed. All data are made available \"as is.\" The Data User should be aware, however, that data are updated periodically and it is the responsibility of the Data User to check for new versions of the data. The data authors and the repository where these data were obtained shall not be liable for damages resulting from any use or misinterpretation of the data. Thank you.
 </para>
     </intellectualRights>
     <coverage>
@@ -143,219 +103,37 @@
     <methods>
       <methodStep>
         <description>
-          <section>
-            <title>Sample Collection</title>
-            <para>
-    At each station, hydrographic data of depth, temperature, and
-    salinity were collected with a SBE911 (Seabird Electronics Inc.)
-    CTD-rosette system. Seawater for the experiments was collected near
-    the surface (1.6-7 m) using multiple Niskin bottles and sometimes
-    from different CTD casts at a given location. Cast and bottle
-    numbers are reported in the data table. Depth, temperature and
-    salinity values of the seawater collected for the experiments
-    reported in the data table are averaged from bottle summary files
-    produced with Seabird software onboard ship and have not been
-    corrected to salts.
-  </para>
-          </section>
-          <section>
-            <title>Experimental Set-Up</title>
-            <para>
-    Rates of phytoplankton growth and microzooplankton grazing were
-    quantified using a 2-point modification of the dilution method
-    (Morison and Menden-Deuer, 2017). Whole seawater (WSW) was gently
-    transferred from a Niskin to a 10 L polycarbonate carboy through a
-    200 µm mesh to remove mesozooplankton predators (e.g. copepods).
-    Diluent was prepared by gravity filtration through a 0.2 µm membrane
-    filter capsule (PALL) from the Niskin to the carboys. The
-    appropriate amount of WSW was added to the filtered water to obtain
-    a 20 percent WSW dilution (20WSW). The carboys were covered by black
-    trash bags and gently mixed while water was siphoned into duplicate
-    1.2 L clear polycarbonate bottles. To ensure the gross growth rate
-    of the phytoplankton was not dependent upon dilution, a central
-    assumption of the dilution method (Landry and Hasset, 1982),
-    incubation bottles were amended with macronutrients (10 µM SiO4, 10
-    µM NO3, 1 µM PO4). An additional set of WSW bottles without
-    additional nutrients was added to assess nutrient limitation or
-    toxicity effects. For each dilution (20WSW and WSW), nutrient
-    (nutrient amended and without nutrient) and light (high and low
-    light, see below) treatment, incubation bottles were duplicated.
-  </para>
-            <para>
-    Bottles were incubated for 24 h in a clear deck-board, flow through,
-    1 m^3, incubator. Surface water was incubated at two light-levels
-    that simulated the contrasting light conditions (e.g. sunny/cloudy
-    weather, well-mixed/stratified water column) under which
-    phytoplankton could be growing in the surface ocean. Mesh, screen,
-    bags were used to create High Light (HL) and Low Light (LL)
-    treatments that simulated 65 percent and 15 percent of light
-    attenuation. The incubator was free of overhead obstructions to
-    avoid shading during the day and covered by a tarp at night to
-    minimize light pollution from deck lighting. Natural movement of the
-    ship kept the bottles in the incubator agitated over the incubation
-    period. Temperature within the incubators was maintained equivalent
-    to current surface temperature through continuous flow-through from
-    the ship seawater system. Temperature and light in the incubators
-    were monitored at 5-minute intervals with a Hobo (Onset) data
-    logger. Temperature and light measurements recorded during each of
-    the incubation experiments are available in .csv files following the
-    links present in the last column of the data table.
-  </para>
-          </section>
-          <section>
-            <title>Phytoplankton Growth and Protist Grazing Rate Estimates</title>
-            <para>
-    Initial (T0) chlorophyll-a (Chl-a) concentration was determined from
-    triplicate 120-150 mL subsamples from carboys used to fill
-    incubation bottles. Final Chl-a concentration (TF) was determined
-    from triplicate 120-150 mL subsamples from bottles at the end of the
-    incubation. The extraction method followed Graff and Rynearson
-    (2011) except here we used 95 percent ethanol as a solvent
-    (Jespersen and Christoffersen, 1987). Extracted Chl-a concentration
-    was determined using a Turner AU10 fluorometer after a 12 h
-    extraction period. In addition, the size structure of the initial
-    phytoplankton community was characterized from T0 triplicate
-    size-fractionated Chl-a samples (greater than 0.7 µm GF/F, greater
-    than 5 µm, greater than 10 µm, and greater than 20 µm). At TF,
-    size-fractionated Chl-a concentration at 10 µm were also measured
-    for 20WSW and WSW nutrient amended bottles. During the first winter
-    cruise in 2018 (EN608) size fractionation was only performed on
-    bottles incubated under high light conditions.
-  </para>
-            <para>
-    Phytoplankton growth rates and protist grazing rates were estimated
-    from 24 h changes in Chl-a concentration. For each incubation
-    bottle, the apparent growth rates (k, d^-1) were calculated as:
-    k=1⁄t×ln(C_t⁄C_0)
-  </para>
-            <para>
-    where t is the incubation time (d) and C_t and C_0 the final and
-    initial Chl-a concentration (µg L^-1), respectively.
-  </para>
-            <para>
-    Protist grazing rates (g, d^-1) were estimated with the equation:
-  </para>
-            <para>
-    g=((k_d-k_N))⁄((1-x))
-  </para>
-            <para>
-    where k_d and k_N are the apparent growth rates in 20WSW and WSW
-    nutrient amended treatments, respectively, and x is the achieved
-    fraction of WSW in the diluted treatment calculated from T0 Chl-a in
-    20WSW and WSW (Landry et al., 1984). Accordingly, the instantaneous,
-    or in situ, growth rate (mu_0, d^-1) was estimated as in (Landry et
-    al., 2008):
-  </para>
-            <para>
-    mu_0=g+k_NoN
-  </para>
-            <para>
-    where k_NoN is apparent phytoplankton growth rate k without nutrient
-    addition.
-  </para>
-            <para>
-    The potential for nutrient limitation was assessed by comparing
-    apparent phytoplankton growth rates k in nutrient amended (k_N) and
-    nonamended (k_NoN) replicates using a paired t-test. If a
-    significant difference was found (p below 0.05) between k_N and
-    k_NoN, nutrient-amended growth rates (mu_N, d^-1) were also
-    calculated as mu_N = g + k_N. Otherwise, all k_N and k_NoN
-    triplicate of replicate values were used to calculate both g and
-    mu_0.
-  </para>
-            <para>
-    Since size fractionation at 10 µm was performed only on nutrient
-    amended samples, growth rates reported on greater than 10 µm and
-    less than 10 µm fractions in this study were nutrient-amended growth
-    rates (mu_N) when nutrient limitation was observed. If no nutrient
-    limitation was observed, mu_N obtained is equivalent to mu_0.
-  </para>
-            <para>
-    The uncertainty of g estimates was quantified using the standard
-    error of the slope fit from a linear regression between replicate k
-    values and dilution levels. When the slope obtained was not
-    significantly different from zero (p higher than 0.05), g was set to
-    0. Thus, the average k_N represented mu_N and the average k_NoN
-    represented mu_0 (Murrell et al., 2002; Chen et al. 2009). A
-    significant positive slope (i.e. higher growth in the WSW treatment
-    than in the diluted) represents a violation of the method’s
-    assumption. In such cases, g was reported as undetermined, and k in
-    the undiluted bottles represented mu_N and mu_0. Uncertainties
-    relative to mu_N and mu_0 were estimated from the standard
-    deviations observed on k_N and k_NoN triplicate values.
-  </para>
-          </section>
-          <section>
-            <title>Data Cleaning</title>
-            <para>
-    Data cleaning (i.e., separating numerical and categorical variables,
-    referring to multiple casts and bottles, and assuring date and time
-    of sampling) and metadata template assembly were performed in R
-    Markdown. Further documentation can be found on GitHub, at
-    https://github.com/WHOIGit/nes-lter-growth-grazing-chl.
-  </para>
-          </section>
-          <section>
-            <title>Quality Assurance</title>
-            <para>
-    We assured that all values reported in the clean data table for
-    geographic (latitude, longitude, depth, station), temporal
-    (date_time_UTC, date_time_start_UTC, date_time_end_UTC), and other
-    cruise metadata and data (cast, bottle, temp, sal) were aligned with
-    other NES-LTER data products.
-  </para>
-          </section>
-          <section>
-            <title>References</title>
-            <para>
-    Chen, B., Liu, H., Landry, M.R., DaI, M., Huang, B., Sune, J., 2009.
-    Close coupling between phytoplankton growth and microzooplankton
-    grazing in the western South China Sea. Limnology and Oceanography
-    54, 1084–1097. https://doi.org/10.4319/lo.2009.54.4.1084
-  </para>
-            <para>
-    Graff, J.R., Rynearson, T.A., 2011. Extraction method influences the
-    recovery of phytoplankton pigments from natural assemblages:
-    Chlorophyll extraction method artifacts. Limnology and Oceanography:
-    Methods 9, 129–139. https://doi.org/10.4319/lom.2011.9.129
-  </para>
-            <para>
-    Jespersen AM, Christoffersen K. 1987. Measurements of Chlorophyll a
-    from phytoplankton using ethanol as a solvent. Archiv Fur
-    Hydrobiologie 109:445454.
-  </para>
-            <para>
-    Landry, M.R., Hassett, R.P., 1982. Estimating the grazing impact of
-    marine micro-zooplankton. Marine Biology 67, 283–288.
-    https://doi.org/10.1007/BF00397668
-  </para>
-            <para>
-    Landry, M., Haas, L., Fagerness, V., 1984. Dynamics of microbial
-    plankton communities: experiments in Kaneohe Bay, Hawaii. Marine
-    Ecology Progress Series 16, 127–133.
-    https://doi.org/10.3354/meps016127
-  </para>
-            <para>
-    Landry, M.R., Brown, S.L., Rii, Y.M., Selph, K.E., Bidigare, R.R.,
-    Yang, E.J., Simmons, M.P., 2008. Depth-stratified phytoplankton
-    dynamics in Cyclone Opal, a subtropical mesoscale eddy. Deep Sea
-    Research Part II: Topical Studies in Oceanography 55, 1348–1359.
-    https://doi.org/10.1016/j.dsr2.2008.02.001
-  </para>
-            <para>
-    Murrell, M.C., Stanley, R.S., Lores, E.M., DiDonato, G.T., Flemer,
-    D.A., 2002. Linkage between microzooplankton grazing and
-    phytoplankton growth in a Gulf of Mexico estuary. Estuaries 25,
-    19–29. https://doi.org/10.1007/BF02696046
-  </para>
-            <para>
-    Morison, F., Menden-Deuer, S., 2017. Doing more with less? Balancing
-    sampling resolution and effort in measurements of protistan growth
-    and grazing-rates: Measuring plankton growth and grazing. Limnology
-    and Oceanography: Methods 15, 794–809.
-    https://doi.org/10.1002/lom3.10200
-  </para>
-          </section>
+          <para># Sample Collection</para>
+          <para>At each station, hydrographic data of depth, temperature, and salinity were collected with a SBE911 (Seabird Electronics Inc.) CTD-rosette system. Seawater for the experiments was collected near the surface (1.6-7 m) using multiple Niskin bottles and sometimes from different CTD casts at a given location. Cast and bottle numbers are reported in the data table. Depth, temperature and salinity values of the seawater collected for the experiments reported in the data table are averaged from bottle summary files produced with Seabird software onboard ship and have not been corrected to salts. </para>
+          <para># Experimental Set-Up</para>
+          <para>Rates of phytoplankton growth and microzooplankton grazing were quantified using a 2-point modification of the dilution method (Morison and Menden-Deuer, 2017). Whole seawater (WSW) was gently transferred from a Niskin to a 10 L polycarbonate carboy through a 200 µm mesh to remove mesozooplankton predators (e.g. copepods). Diluent was prepared by gravity filtration through a 0.2 µm membrane filter capsule (PALL) from the Niskin to the carboys. The appropriate amount of WSW was added to the filtered water to obtain a 20 percent WSW dilution (20WSW). The carboys were covered by black trash bags and gently mixed while water was siphoned into duplicate 1.2 L clear polycarbonate bottles. To ensure the gross growth rate of the phytoplankton was not dependent upon dilution, a central assumption of the dilution method (Landry and Hasset, 1982), incubation bottles were amended with macronutrients (10 µM SiO4, 10 µM NO3, 1 µM PO4). An additional set of WSW bottles without additional nutrients was added to assess nutrient limitation or toxicity effects. For each dilution (20WSW and WSW), nutrient (nutrient amended and without nutrient) and light (high and low light, see below) treatment, incubation bottles were duplicated. </para>
+          <para>Bottles were incubated for 24 h in a clear deck-board, flow through, 1 m^3, incubator. Surface water was incubated at two light-levels that simulated the contrasting light conditions (e.g. sunny/cloudy weather, well-mixed/stratified water column) under which phytoplankton could be growing in the surface ocean. Mesh, screen, bags were used to create High Light (HL) and Low Light (LL) treatments that simulated 65 percent and 15 percent of light attenuation. The incubator was free of overhead obstructions to avoid shading during the day and covered by a tarp at night to minimize light pollution from deck lighting. Natural movement of the ship kept the bottles in the incubator agitated over the incubation period. Temperature within the incubators was maintained equivalent to current surface temperature through continuous flow-through from the ship seawater system. Temperature and light in the incubators were monitored at 5-minute intervals with a Hobo (Onset) data logger. Temperature and light measurements recorded during each of the incubation experiments are available in .csv files following the links present in the last column of the data table. </para>
+          <para># Phytoplankton Growth and Protist Grazing Rate Estimates</para>
+          <para>Initial (T0) chlorophyll-a (Chl-a) concentration was determined from triplicate 120-150 mL subsamples from carboys used to fill incubation bottles. Final Chl-a concentration (TF) was determined from triplicate 120-150 mL subsamples from bottles at the end of the incubation. The extraction method followed Graff and Rynearson (2011) except here we used 95 percent ethanol as a solvent (Jespersen and Christoffersen, 1987). Extracted Chl-a concentration was determined using a Turner AU10 fluorometer after a 12 h extraction period. In addition, the size structure of the initial phytoplankton community was characterized from T0 triplicate size-fractionated Chl-a samples (greater than 0.7 µm GF/F, greater than 5 µm, greater than 10 µm, and greater than 20 µm). At TF, size-fractionated Chl-a concentration at 10 µm were also measured for 20WSW and WSW nutrient amended bottles. During the first winter cruise in 2018 (EN608) size fractionation was only performed on bottles incubated under high light conditions.  </para>
+          <para>Phytoplankton growth rates and protist grazing rates were estimated from 24 h changes in Chl-a concentration. For each incubation bottle, the apparent growth rates (k, d^-1) were calculated as: k=1⁄t×ln(C_t⁄C_0)</para>
+          <para>where t is the incubation time (d) and C_t and C_0 the final and initial Chl-a concentration (µg L^-1), respectively.</para>
+          <para>Protist grazing rates (g, d^-1) were estimated with the equation:</para>
+          <para>g=((k_d-k_N))⁄((1-x))</para>
+          <para>where k_d and k_N are the apparent growth rates in 20WSW and WSW nutrient amended treatments, respectively, and x is the achieved fraction of WSW in the diluted treatment calculated from T0 Chl-a in 20WSW and WSW (Landry et al., 1984). Accordingly, the instantaneous, or in situ, growth rate (mu_0, d^-1) was estimated as in (Landry et al., 2008):</para>
+          <para>mu_0=g+k_NoN</para>
+          <para>where k_NoN is apparent phytoplankton growth rate k without nutrient addition.</para>
+          <para>The potential for nutrient limitation was assessed by comparing apparent phytoplankton growth rates k in nutrient amended (k_N) and nonamended (k_NoN) replicates using a paired t-test. If a significant difference was found (p below 0.05) between k_N and k_NoN, nutrient-amended growth rates (mu_N, d^-1) were also calculated as mu_N = g + k_N. Otherwise, all k_N and k_NoN triplicate of replicate values were used to calculate both g and mu_0. </para>
+          <para>Since size fractionation at 10 µm was performed only on nutrient amended samples, growth rates reported on greater than 10 µm and less than 10 µm fractions in this study were nutrient-amended growth rates (mu_N) when nutrient limitation was observed. If no nutrient limitation was observed, mu_N obtained is equivalent to mu_0. </para>
+          <para>The uncertainty of g estimates was quantified using the standard error of the slope fit from a linear regression between replicate k values and dilution levels. When the slope obtained was not significantly different from zero (p higher than 0.05), g was set to 0. Thus, the average k_N represented mu_N and the average k_NoN represented mu_0 (Murrell et al., 2002; Chen et al. 2009). A significant positive slope (i.e. higher growth in the WSW treatment than in the diluted) represents a violation of the method’s assumption. In such cases, g was reported as undetermined, and k in the undiluted bottles represented mu_N and mu_0. Uncertainties relative to mu_N and mu_0 were estimated from the standard deviations observed on k_N and k_NoN triplicate values.  </para>
+          <para># Data Cleaning</para>
+          <para>Data cleaning (i.e., separating numerical and categorical variables, referring to multiple casts and bottles, and assuring date and time of sampling) and metadata template assembly were performed in R Markdown. Further documentation can be found on GitHub, at https://github.com/WHOIGit/nes-lter-growth-grazing-chl. </para>
+          <para># Quality Assurance</para>
+          <para>We assured that all values reported in the clean data table for geographic (latitude, longitude, depth, station), temporal (date_time_UTC, date_time_start_UTC, date_time_end_UTC), and other cruise metadata and data (cast, bottle, temp, sal) were aligned with other NES-LTER data products.</para>
+          <para># References</para>
+          <para>Chen, B., Liu, H., Landry, M.R., DaI, M., Huang, B., Sune, J., 2009. Close coupling between phytoplankton growth and microzooplankton grazing in the western South China Sea. Limnology and Oceanography 54, 1084–1097. https://doi.org/10.4319/lo.2009.54.4.1084</para>
+          <para>Graff, J.R., Rynearson, T.A., 2011. Extraction method influences the recovery of phytoplankton pigments from natural assemblages: Chlorophyll extraction method artifacts. Limnology and Oceanography: Methods 9, 129–139. https://doi.org/10.4319/lom.2011.9.129</para>
+          <para>Jespersen AM, Christoffersen K. 1987. Measurements of Chlorophyll a from phytoplankton using ethanol as a solvent. Archiv Fur Hydrobiologie 109:445454.</para>
+          <para>Landry, M.R., Hassett, R.P., 1982. Estimating the grazing impact of marine micro-zooplankton. Marine Biology 67, 283–288. https://doi.org/10.1007/BF00397668</para>
+          <para>Landry, M., Haas, L., Fagerness, V., 1984. Dynamics of microbial plankton communities: experiments in Kaneohe Bay, Hawaii. Marine Ecology Progress Series 16, 127–133. https://doi.org/10.3354/meps016127</para>
+          <para>Landry, M.R., Brown, S.L., Rii, Y.M., Selph, K.E., Bidigare, R.R., Yang, E.J., Simmons, M.P., 2008. Depth-stratified phytoplankton dynamics in Cyclone Opal, a subtropical mesoscale eddy. Deep Sea Research Part II: Topical Studies in Oceanography 55, 1348–1359. https://doi.org/10.1016/j.dsr2.2008.02.001</para>
+          <para>Murrell, M.C., Stanley, R.S., Lores, E.M., DiDonato, G.T., Flemer, D.A., 2002. Linkage between microzooplankton grazing and phytoplankton growth in a Gulf of Mexico estuary. Estuaries 25, 19–29. https://doi.org/10.1007/BF02696046</para>
+          <para>Morison, F., Menden-Deuer, S., 2017. Doing more with less? Balancing sampling resolution and effort in measurements of protistan growth and grazing-rates: Measuring plankton growth and grazing. Limnology and Oceanography: Methods 15, 794–809. https://doi.org/10.1002/lom3.10200
+</para>
         </description>
       </methodStep>
     </methods>
@@ -459,16 +237,16 @@
       </funding>
     </project>
     <dataTable>
-      <entityName>Phytoplankton growth and microzooplankton grazing rates data cleaned for EDI</entityName>
+      <entityName>nes-lter-growth-grazing-chl.csv</entityName>
       <entityDescription>Phytoplankton growth and microzooplankton grazing rates data cleaned for EDI</entityDescription>
       <physical>
         <objectName>nes-lter-growth-grazing-chl.csv</objectName>
-        <size unit="bytes">14110</size>
-        <authentication method="MD5">1ae7da089fdca15dcb75809b2a306cbb</authentication>
+        <size unit="bytes">12674</size>
+        <authentication method="MD5">5d32c4b62c8d87cc5ac7cd6b027b6277</authentication>
         <dataFormat>
           <textFormat>
             <numHeaderLines>1</numHeaderLines>
-            <recordDelimiter>\n</recordDelimiter>
+            <recordDelimiter>\r\n</recordDelimiter>
             <attributeOrientation>column</attributeOrientation>
             <simpleDelimited>
               <fieldDelimiter>,</fieldDelimiter>
@@ -570,8 +348,8 @@
               <numericDomain>
                 <numberType>real</numberType>
                 <bounds>
-                  <minimum exclusive="false">39.76</minimum>
-                  <maximum exclusive="false">41.2</maximum>
+                  <minimum exclusive="false">39.76315</minimum>
+                  <maximum exclusive="false">41.20336</maximum>
                 </bounds>
               </numericDomain>
             </ratio>
@@ -589,8 +367,8 @@
               <numericDomain>
                 <numberType>real</numberType>
                 <bounds>
-                  <minimum exclusive="false">-70.89</minimum>
-                  <maximum exclusive="false">-70.76</maximum>
+                  <minimum exclusive="false">-70.891</minimum>
+                  <maximum exclusive="false">-70.7594</maximum>
                 </bounds>
               </numericDomain>
             </ratio>
@@ -608,8 +386,8 @@
               <numericDomain>
                 <numberType>real</numberType>
                 <bounds>
-                  <minimum exclusive="false">1.62</minimum>
-                  <maximum exclusive="false">7.03</maximum>
+                  <minimum exclusive="false">1.619</minimum>
+                  <maximum exclusive="false">7.025</maximum>
                 </bounds>
               </numericDomain>
             </ratio>
@@ -627,8 +405,8 @@
               <numericDomain>
                 <numberType>real</numberType>
                 <bounds>
-                  <minimum exclusive="false">2.31</minimum>
-                  <maximum exclusive="false">23.61</maximum>
+                  <minimum exclusive="false">2.3088</minimum>
+                  <maximum exclusive="false">23.609</maximum>
                 </bounds>
               </numericDomain>
             </ratio>
@@ -646,8 +424,8 @@
               <numericDomain>
                 <numberType>real</numberType>
                 <bounds>
-                  <minimum exclusive="false">31.61</minimum>
-                  <maximum exclusive="false">34.69</maximum>
+                  <minimum exclusive="false">31.6084666666667</minimum>
+                  <maximum exclusive="false">34.68505</maximum>
                 </bounds>
               </numericDomain>
             </ratio>
@@ -1262,22 +1040,22 @@
       <numberOfRecords>33</numberOfRecords>
     </dataTable>
     <otherEntity>
-      <entityName>Phytoplankton growth and microzooplankton grazing rates contributed by the Menden-Deuer lab</entityName>
+      <entityName>NES-LTER_Growth-Grazing_SMD_2019_11_01.xlsx</entityName>
       <entityDescription>Phytoplankton growth and microzooplankton grazing rates contributed by the Menden-Deuer lab</entityDescription>
       <physical>
         <objectName>NES-LTER_Growth-Grazing_SMD_2019_11_01.xlsx</objectName>
-        <size unit="bytes">31903</size>
-        <authentication method="MD5">bc0b54bca1c837b01cc5be564c517397</authentication>
+        <size unit="bytes">31824</size>
+        <authentication method="MD5">8e4f564bdd6d81a0506fb6b5dd6b6b75</authentication>
         <dataFormat>
           <externallyDefinedFormat>
-            <formatName>unknown</formatName>
+            <formatName>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</formatName>
           </externallyDefinedFormat>
         </dataFormat>
       </physical>
       <entityType>unknown</entityType>
     </otherEntity>
     <otherEntity>
-      <entityName>Temperature and light intensity recorded during the incubation experiments</entityName>
+      <entityName>NES-LTER_temp_light_incubation_SMD.zip</entityName>
       <entityDescription>Temperature and light intensity recorded during the incubation experiments. Each .csv file includes dateTime in UTC, Temp_In (temperature in the incubation tank), Light_In (light in the incubation tank), Temp_Out (temperature out the incubation tank) and Light_Out (light out the incubation tank) with a time step of 5 min.</entityDescription>
       <physical>
         <objectName>NES-LTER_temp_light_incubation_SMD.zip</objectName>
@@ -1285,7 +1063,7 @@
         <authentication method="MD5">0cf4170f85c0c5e0aa34fd4c5bd2385d</authentication>
         <dataFormat>
           <externallyDefinedFormat>
-            <formatName>unknown</formatName>
+            <formatName>application/zip</formatName>
           </externallyDefinedFormat>
         </dataFormat>
       </physical>
@@ -1299,6 +1077,14 @@
           <description>per day</description>
         </unit>
       </unitList>
+    </metadata>
+  </additionalMetadata>
+  <additionalMetadata>
+    <metadata>
+      <emlEditor>
+        <app>EMLassemblyline</app>
+        <release>3.5.5</release>
+      </emlEditor>
     </metadata>
   </additionalMetadata>
 </eml:eml>
