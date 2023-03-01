@@ -1,2 +1,0 @@
-id	unitType	parentSI	multiplierToSI	description
-perDay	rate	NA	1	per day
