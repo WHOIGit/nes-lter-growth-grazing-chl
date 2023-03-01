@@ -1,4 +1,4 @@
-attribute	code	Definition
+attributeName	code	definition
 mu_N_mv	n/n	Not nutrient limited, thus no value.
 mu_N_Std_mv	n/n	Not nutrient limited, thus no value.
 grazing_mv	n/d	Not determined because g < 0, which is a violation of dilution method's assumption. 

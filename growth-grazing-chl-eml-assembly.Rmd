@@ -12,21 +12,33 @@ knitr::opts_chunk$set(message = FALSE, warning = FALSE)
 rm(list = ls())
 
 # assign resused directory to a variable
-dir <- "/Users/jaxinewolfe/Documents/WHOI/NESLTER/nes-lter-growth-grazing-chl/"
+# dir <- "/Users/jaxinewolfe/Documents/WHOI/NESLTER/nes-lter-growth-grazing-chl/"
 # set working directory
-setwd(dir)
+#setwd(dir)
 
 # define source for functions developed for the EDI packaging workflow
-source("edi-utilities.R")
+#source("edi-utilities.R")
 
 # install and load libraries
 # install.packages("devtools")
 # install_github("EDIorg/EMLassemblyline")
 
+library(EMLassemblyline)
+library(ediutilities)
+library(here)
+library(lubridate)
+library(tidyverse)
+require(readxl)
+require(lubridate)
+require(devtools)
+require(EML)
+require(maps)
+require(xml2)
+
 # define R packages to require
-libs <- c("tidyverse", "readxl", "lubridate", "devtools", "EMLassemblyline", "EML", "maps", "xml2")
+# libs <- c("tidyverse", "readxl", "lubridate", "devtools", "EMLassemblyline", # "EML", "maps", "xml2")
 # load libraries
-lapply(libs, require, character.only = TRUE)
+# apply(libs, require, character.only = TRUE)
 
 ```
 
@@ -38,7 +50,7 @@ pierre_data <- "NES-LTER_Growth-Grazing_SMD_2019_11_01"
 edi_filename <- "nes-lter-growth-grazing-chl"
 
 # Load growth and grazing data from excel sheet
-growgraze <- read_excel(path = paste0(dir, "/", pierre_data, ".xlsx"), 
+growgraze <- read_excel(path = paste0(here(), "/", pierre_data, ".xlsx"), 
                   sheet = "DataTable", na = "NA")
 # round necessary columns to standard precision
 growgraze$latitude <- round(growgraze$latitude, 5)
@@ -67,7 +79,7 @@ mv[mv != "n/n" & mv != "n/a" &
 
 # convert missing values in original columns to -9999
 growgraze[growgraze == "n/n" | growgraze == "n/a" |
-            growgraze == "n/d" | growgraze == "n/c"] <- -9999
+            growgraze == "n/d" | growgraze == "n/c"] <- "-9999"
 # assign columns to numerical
 growgraze[gg_cols] <- sapply(growgraze[gg_cols], as.numeric)
 # str(growgraze) # check
@@ -84,8 +96,8 @@ growgraze_EDI <- growgraze_EDI[,c("project", "cruise", "date_time_UTC", "station
                                   "mu_10u", "mu_10u_mv", "mu_10u_Std", "mu_10u_Std_mv", "grazing_10u", "grazing_10u_mv", "grazing_10u_Std", 
                                   "grazing_10u_Std_mv", "temp_light_inc_filename")]
 
-# write csv for EDI
-write.csv(growgraze_EDI, paste0(edi_filename, ".csv"), row.names = FALSE)
+# write csv for EDI 
+write.csv(growgraze_EDI, paste0(edi_filename, ".csv"), row.names = FALSE, quote = FALSE)
 ```
 
 ## QA: Retainig Data Integrity
@@ -94,7 +106,7 @@ Check that the numerical values and their precision were retained during the dat
 
 ```{r}
 # isolate growgraze data provided by pierre
-gg_pierre <- read_excel(path = paste0(dir, "/", pierre_data, ".xlsx"), 
+gg_pierre <- read_excel(path = paste0(here(), "/", pierre_data, ".xlsx"), 
                   sheet = "DataTable", na = c("n/n", "n/a", "n/d", "n/c")) %>% select(gg_cols)
 # convert NAs to numerical missing values
 gg_pierre[is.na(gg_pierre)] <- -9999
@@ -127,7 +139,7 @@ Check that the averaged nutrient values used by Pierre match those provided by t
 # # load in nutrients data (provided by Pierre)
 # nutrients_xls <- "NES-LTER_Nutrients_SMD_2019_11_01.xlsx"
 # # Load in nutrient data from excel sheet
-# nut_pierre <- read_excel(path = paste0(dir, "/", nutrients_xls), 
+# nut_pierre <- read_excel(path = paste0(here(), "/", nutrients_xls), 
 #                   sheet = 1, na = "NA")
 # 
 # # load in nes-lter nutrient transect data 
@@ -226,9 +238,10 @@ edi_filename <- "nes-lter-growth-grazing-chl"
 pkg_id <- "knb-lter-nes.5.1"
 
 # Make EML Templates 
-xlsx_to_template(metadata.path = metadata, 
-                 edi.filename = edi_filename, 
-                 rights = "CCBY")
+# xlsx_to_template(metadata.path = metadata, 
+#                 edi.filename = edi_filename, 
+#                 rights = "CCBY")
+excel_to_template(here(metadata), edi_filename, rights='CCBY')
 
 # Data Coverage
 # isolate date and geospatial columns for input
@@ -239,7 +252,7 @@ lon_col <- growgraze_EDI$longitude
 coverage <- data_coverage(dates = date_col, lat = lat_col, lon = lon_col)
 
 # Make EML
-make_eml(path = getwd(),
+make_eml(here(),
          dataset.title = "Phytoplankton growth and microzooplankton grazing rates from NES-LTER transect cruises EN608, EN617, EN627.",
          data.table = paste0(edi_filename, ".csv"),
          data.table.description = "Phytoplankton growth and microzooplankton grazing rates data cleaned for EDI",
@@ -268,17 +281,17 @@ project_insert(edi_pkg = pkg_id)
 
 ## Truncate Lengthy entityName
 # read in xml
-xml_file <- read_xml(paste0(getwd(), "/", pkg_id, ".xml"), from = "xml")
+#xml_file <- read_xml(paste0(here(), "/", pkg_id, ".xml"), from = "xml")
 
 # check entityName character length
-entityName_check(xml_file)
+#entityName_check(xml_file)
 
 # isolate entityName which violates character length
-name_to_replace <- xml_find_all(xml_file, ".//entityName")[3]
+#name_to_replace <- xml_find_all(xml_file, ".//entityName")[3]
 # replace with truncated entityName
-xml_text(name_to_replace) <- "Temperature and light intensity recorded during the incubation experiments"
+#xml_text(name_to_replace) <- "Temperature and light intensity recorded during the #incubation experiments"
 
 # write file
-write_xml(xml_file, paste0(getwd(), "/", pkg_id, ".xml"))
+#write_xml(xml_file, paste0(here(), "/", pkg_id, ".xml"))
 ```
 
