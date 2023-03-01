@@ -238,9 +238,6 @@ edi_filename <- "nes-lter-growth-grazing-chl"
 pkg_id <- "knb-lter-nes.5.1"
 
 # Make EML Templates 
-# xlsx_to_template(metadata.path = metadata, 
-#                 edi.filename = edi_filename, 
-#                 rights = "CCBY")
 excel_to_template(here(metadata), edi_filename, rights='CCBY')
 
 # Data Coverage
