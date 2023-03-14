@@ -11,14 +11,6 @@ knitr::opts_chunk$set(message = FALSE, warning = FALSE)
 # clear workspace for local development
 rm(list = ls())
 
-# assign resused directory to a variable
-# dir <- "/Users/jaxinewolfe/Documents/WHOI/NESLTER/nes-lter-growth-grazing-chl/"
-# set working directory
-#setwd(dir)
-
-# define source for functions developed for the EDI packaging workflow
-#source("edi-utilities.R")
-
 # install and load libraries
 # install.packages("devtools")
 # install_github("EDIorg/EMLassemblyline")
@@ -34,11 +26,6 @@ require(devtools)
 require(EML)
 require(maps)
 require(xml2)
-
-# define R packages to require
-# libs <- c("tidyverse", "readxl", "lubridate", "devtools", "EMLassemblyline", # "EML", "maps", "xml2")
-# load libraries
-# apply(libs, require, character.only = TRUE)
 
 ```
 
@@ -238,7 +225,8 @@ edi_filename <- "nes-lter-growth-grazing-chl"
 pkg_id <- "knb-lter-nes.5.1"
 
 # Make EML Templates 
-excel_to_template(here(metadata), edi_filename, rights='CCBY')
+# Specify methods file type as markdown
+excel_to_template(here(metadata), edi_filename, rights='CCBY', file_type=".md")
 
 # Data Coverage
 # isolate date and geospatial columns for input
