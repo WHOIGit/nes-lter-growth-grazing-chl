@@ -222,7 +222,7 @@ Step 4: Inserting a custom NES-LTER parent project node
 # define input files
 metadata <- "NES-LTER_Growth-Grazing_SMD_2019_11_01"
 edi_filename <- "nes-lter-growth-grazing-chl"
-pkg_id <- "knb-lter-nes.5.1"
+pkg_id <- "knb-lter-nes.5.2"
 
 # Make EML Templates 
 # Specify methods file type as markdown
