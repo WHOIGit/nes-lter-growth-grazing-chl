@@ -1,7 +1,7 @@
 ---
 title: "nes-lter-nutrients-transect-emlassemblyline"
-author: "Jaxine Wolfe"
-date: "Oct 20, 2019"
+author: "Kate Morkeski, Jaxine Wolfe"
+date: "`r Sys.Date()`"
 output: html_document
 ---
 
@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(message = FALSE, warning = FALSE)
 
 # clear workspace for local development
-rm(list = ls())
+#rm(list = ls())
 
 # assign resused directory to a variable
 # dir <- "/Users/jaxinewolfe/Documents/WHOI/NESLTER/nes-lter-growth-grazing-chl/"
@@ -46,58 +46,58 @@ require(xml2)
 
 ```{r}
 # set filename to variable
-pierre_data <- "NES-LTER_Growth-Grazing_SMD_2019_11_01"
+pierre_data <- read_csv("nes-lter-growth-grazing-chl.csv")
 edi_filename <- "nes-lter-growth-grazing-chl"
 
-# Load growth and grazing data from excel sheet
-growgraze <- read_excel(path = paste0(here(), "/", pierre_data, ".xlsx"), 
-                  sheet = "DataTable", na = "NA")
-# round necessary columns to standard precision
-growgraze$latitude <- round(growgraze$latitude, 5)
-growgraze$longitude <- round(growgraze$longitude, 5)
-growgraze$depth <- round(growgraze$depth, 3)
-
-# Data Cleaning ----------
-
-# standardize the formatting of the cast and bottle columns
-# if theres a "-" in the cast or a "/" in the bottle, insert a "|"
-growgraze$cast <- trimws(gsub('-', '|', growgraze$cast))
-growgraze$bottle <- trimws(gsub('/', '|', growgraze$bottle))
-
-# Add categorical columns to expand missing value explantions
-# define columms containing missing values
-gg_cols <- c("mu_N", "mu_N_Std", "grazing", "grazing_Std", "mu_10d", 
-             "mu_10d_Std", "grazing_10d", "grazing_10d_Std", "mu_10u", 
-             "mu_10u_Std", "grazing_10u", "grazing_10u_Std")
-# isolate and rename missing value columns
-mv <- growgraze %>% select(gg_cols) %>%
-  rename_at(gg_cols, ~ paste0(gg_cols, "_mv"))
-
-# convert numerical values in missing value explanation columns to not missing 
-mv[mv != "n/n" & mv != "n/a" & 
-               mv != "n/d" & mv != "n/c"] <- "not missing"
-
-# convert missing values in original columns to -9999
-growgraze[growgraze == "n/n" | growgraze == "n/a" |
-            growgraze == "n/d" | growgraze == "n/c"] <- "-9999"
-# assign columns to numerical
-growgraze[gg_cols] <- sapply(growgraze[gg_cols], as.numeric)
-# str(growgraze) # check
-# round growgraze values to two decimals
-growgraze[, c("mu_0", "mu_0_Std", gg_cols)] <- round(growgraze[, c("mu_0", "mu_0_Std", gg_cols)], 2)
-
-# add the missing value explanation columns to the data
-growgraze_EDI <- cbind(growgraze, mv)
-
-# rearrange columns to match the order in the attributes table
-growgraze_EDI <- growgraze_EDI[,c("project", "cruise", "date_time_UTC", "station", "cast", "bottle", "latitude", "longitude", "depth", "temp", "sal", "date_time_start_UTC", "date_time_end_UTC", "light_treatment", "mu_0", "mu_0_Std",
-                                  "mu_N", "mu_N_mv", "mu_N_Std", "mu_N_Std_mv", "grazing", "grazing_mv", "grazing_Std", "grazing_Std_mv", "mu_10d",
-                                  "mu_10d_mv",  "mu_10d_Std", "mu_10d_Std_mv" , "grazing_10d", "grazing_10d_mv", "grazing_10d_Std", "grazing_10d_Std_mv",
-                                  "mu_10u", "mu_10u_mv", "mu_10u_Std", "mu_10u_Std_mv", "grazing_10u", "grazing_10u_mv", "grazing_10u_Std", 
-                                  "grazing_10u_Std_mv", "temp_light_inc_filename")]
-
-# write csv for EDI 
-write.csv(growgraze_EDI, paste0(edi_filename, ".csv"), row.names = FALSE, quote = FALSE)
+# # Load growth and grazing data from excel sheet
+# growgraze <- read_excel(path = paste0(here(), "/", pierre_data, ".xlsx"), 
+#                   sheet = "DataTable", na = "NA")
+# # round necessary columns to standard precision
+# growgraze$latitude <- round(growgraze$latitude, 5)
+# growgraze$longitude <- round(growgraze$longitude, 5)
+# growgraze$depth <- round(growgraze$depth, 3)
+# 
+# # Data Cleaning ----------
+# 
+# # standardize the formatting of the cast and bottle columns
+# # if theres a "-" in the cast or a "/" in the bottle, insert a "|"
+# growgraze$cast <- trimws(gsub('-', '|', growgraze$cast))
+# growgraze$bottle <- trimws(gsub('/', '|', growgraze$bottle))
+# 
+# # Add categorical columns to expand missing value explantions
+# # define columms containing missing values
+# gg_cols <- c("mu_N", "mu_N_Std", "grazing", "grazing_Std", "mu_10d", 
+#              "mu_10d_Std", "grazing_10d", "grazing_10d_Std", "mu_10u", 
+#              "mu_10u_Std", "grazing_10u", "grazing_10u_Std")
+# # isolate and rename missing value columns
+# mv <- growgraze %>% select(gg_cols) %>%
+#   rename_at(gg_cols, ~ paste0(gg_cols, "_mv"))
+# 
+# # convert numerical values in missing value explanation columns to not missing 
+# mv[mv != "n/n" & mv != "n/a" & 
+#                mv != "n/d" & mv != "n/c"] <- "not missing"
+# 
+# # convert missing values in original columns to -9999
+# growgraze[growgraze == "n/n" | growgraze == "n/a" |
+#             growgraze == "n/d" | growgraze == "n/c"] <- "-9999"
+# # assign columns to numerical
+# growgraze[gg_cols] <- sapply(growgraze[gg_cols], as.numeric)
+# # str(growgraze) # check
+# # round growgraze values to two decimals
+# growgraze[, c("mu_0", "mu_0_Std", gg_cols)] <- round(growgraze[, c("mu_0", "mu_0_Std", gg_cols)], 2)
+# 
+# # add the missing value explanation columns to the data
+# growgraze_EDI <- cbind(growgraze, mv)
+# 
+# # rearrange columns to match the order in the attributes table
+# growgraze_EDI <- growgraze_EDI[,c("project", "cruise", "date_time_UTC", "station", "cast", "bottle", "latitude", "longitude", "depth", "temp", "sal", "date_time_start_UTC", "date_time_end_UTC", "light_treatment", "mu_0", "mu_0_Std",
+#                                   "mu_N", "mu_N_mv", "mu_N_Std", "mu_N_Std_mv", "grazing", "grazing_mv", "grazing_Std", "grazing_Std_mv", "mu_10d",
+#                                   "mu_10d_mv",  "mu_10d_Std", "mu_10d_Std_mv" , "grazing_10d", "grazing_10d_mv", "grazing_10d_Std", "grazing_10d_Std_mv",
+#                                   "mu_10u", "mu_10u_mv", "mu_10u_Std", "mu_10u_Std_mv", "grazing_10u", "grazing_10u_mv", "grazing_10u_Std", 
+#                                   "grazing_10u_Std_mv", "temp_light_inc_filename")]
+# 
+# # write csv for EDI 
+# write.csv(growgraze_EDI, paste0(edi_filename, ".csv"), row.names = FALSE, quote = FALSE)
 ```
 
 ## QA: Retainig Data Integrity
@@ -105,106 +105,48 @@ write.csv(growgraze_EDI, paste0(edi_filename, ".csv"), row.names = FALSE, quote 
 Check that the numerical values and their precision were retained during the data cleaning.
 
 ```{r}
-# isolate growgraze data provided by pierre
-gg_pierre <- read_excel(path = paste0(here(), "/", pierre_data, ".xlsx"), 
-                  sheet = "DataTable", na = c("n/n", "n/a", "n/d", "n/c")) %>% select(gg_cols)
-# convert NAs to numerical missing values
-gg_pierre[is.na(gg_pierre)] <- -9999
-# round growgraze values to two decimals
-gg_pierre[, gg_cols] <- round(gg_pierre[, gg_cols], 2)
-
-# isolate growgraze columns from the cleaned data
-gg_edi <- growgraze_EDI %>% select(gg_cols)
-
-# loop through paired columns to check for discrepancies between the data tables
-for (i in 1:length(gg_cols)) {
-  val_check <- gg_pierre[,i] == gg_edi[,i]
-  
-  # report if any fail the check
-  if (isTRUE("FALSE" %in% val_check)) {
-    print(paste0(names(gg_pierre[,i]), " contains a mismatch at row(s): ", 
-                 match("FALSE", val_check)))
-  }
-}
-
-```
-
-
-## QA: Nutrients Check
-
-Check that the averaged nutrient values used by Pierre match those provided by the REST API for the NES-LTER nutrients transect. UPDATE: The second version that Pierre provided produced no mismatched averages. Code commented out.
-
-```{r}
-
-# # load in nutrients data (provided by Pierre)
-# nutrients_xls <- "NES-LTER_Nutrients_SMD_2019_11_01.xlsx"
-# # Load in nutrient data from excel sheet
-# nut_pierre <- read_excel(path = paste0(here(), "/", nutrients_xls), 
-#                   sheet = 1, na = "NA")
+# # isolate growgraze data provided by pierre
+# gg_pierre <- read_excel(path = paste0(here(), "/", pierre_data, ".xlsx"), 
+#                   sheet = "DataTable", na = c("n/n", "n/a", "n/d", "n/c")) %>% select(gg_cols)
+# # convert NAs to numerical missing values
+# gg_pierre[is.na(gg_pierre)] <- -9999
+# # round growgraze values to two decimals
+# gg_pierre[, gg_cols] <- round(gg_pierre[, gg_cols], 2)
 # 
-# # load in nes-lter nutrient transect data 
-# # these will be compared against the NES-LTER nutrient-transect data
-# nut_transect <- read_csv("https://raw.githubusercontent.com/WHOIGit/nes-lter-nutrient-transect/master/nes-lter-nutrient-transect.csv")
+# # isolate growgraze columns from the cleaned data
+# gg_edi <- growgraze_EDI %>% select(gg_cols)
 # 
-# nut_transect_avg <- nut_transect %>%
-#   group_by(cruise, cast, niskin, depth) %>%
-#   # calculate the average nutrients across the replicate samples
-#   summarize(avg_nitrate_nitrite = mean(nitrate_nitrite),
-#             avg_phosphate = mean(phosphate),
-#             avg_silicate = mean(silicate),
-#             avg_ammonium = mean(ammonium)) %>%
-#   # isolate the surface samples for each cruise-cast combo
-#   group_by(cruise, cast) %>%
-#   slice(which.min(depth))
-# 
-# # merge datasets for comparison 
-# nut_check <- left_join(nut_pierre, nut_transect_avg,
-#                        by = c("cruise", "castNut"="cast", "depthNut"="depth"))
-# # rename nitrate nitrite col
-# colnames(nut_check)[colnames(nut_check)=="Nitrate+Nitrite"] <- "Nitrate_Nitrite"
-# 
-# # create empty columns to check mismatches
-# nut_check$nitrate_nitrite_match <- FALSE
-# nut_check$phosphate_match <- FALSE
-# nut_check$ammonium_match <- FALSE
-# nut_check$silicate_match <- FALSE
-# 
-# for (i in 1:nrow(nut_check)) {
-#     # if the average values match for each nutrient, set name to true
-#     if (round(nut_check$Nitrate_Nitrite[i], 2) == round(nut_check$avg_nitrate_nitrite[i], 2)) {
-#     nut_check$nitrate_nitrite_match[i] <- TRUE
-#     }
-#     if (round(nut_check$Phosphate[i], 2) == round(nut_check$avg_phosphate[i], 2)) {
-#     nut_check$phosphate_match[i] <- TRUE
-#     }
-#     if (round(nut_check$Ammonium[i], 2) == round(nut_check$avg_ammonium[i], 2)) {
-#     nut_check$ammonium_match[i] <- TRUE
-#     }
-#     if (round(nut_check$Silicate[i], 2) == round(nut_check$avg_silicate[i], 2)) {
-#     nut_check$silicate_match[i] <- TRUE
-#     }
+# # loop through paired columns to check for discrepancies between the data tables
+# for (i in 1:length(gg_cols)) {
+#   val_check <- gg_pierre[,i] == gg_edi[,i]
+#   
+#   # report if any fail the check
+#   if (isTRUE("FALSE" %in% val_check)) {
+#     print(paste0(names(gg_pierre[,i]), " contains a mismatch at row(s): ", 
+#                  match("FALSE", val_check)))
 #   }
-# 
-# # isolate mismatches
-# mismatch <- nut_check[nut_check$silicate_match==FALSE,]
+# }
 
 ```
+
+
+
 
 ## QA: Consistency Across Light Treatments
 
 Determine if there are differences in metadata across the two light treatments for each of the cruises. Slight differences in time observed for cruise EN608. There was one row missing which was expected: There was no 15% light experiment at EN617 station L10.
 
 ```{r}
-
-cruiselist <- c("EN608", "EN617", "EN627")
-
-for (k in 1:length(cruiselist)) {
-  gg_check <- growgraze_EDI %>%
-    select(project:sal) %>%
-    filter(cruise == cruiselist[k])
-  unique(gg_check)
-  print(gg_check)
-}
+# 
+# cruiselist <- c("EN608", "EN617", "EN627")
+# 
+# for (k in 1:length(cruiselist)) {
+#   gg_check <- growgraze_EDI %>%
+#     select(project:sal) %>%
+#     filter(cruise == cruiselist[k])
+#   unique(gg_check)
+#   print(gg_check)
+# }
 
 ```
 
@@ -216,7 +158,7 @@ Call the map_locs function from edi-utility.R to map the sampling locations. Per
 ```{r, echo=FALSE}
 
 # Map Check
-map_locs(df = growgraze_EDI, xvar = "longitude", yvar = "latitude",
+map_locs(df = pierre_data, xvar = "longitude", yvar = "latitude",
          region = "transect", colorvar = "cruise")
 
 ```
@@ -233,27 +175,27 @@ Step 4: Inserting a custom NES-LTER parent project node
 ```{r}
 
 # define input files
-metadata <- "NES-LTER_Growth-Grazing_SMD_2019_11_01"
-edi_filename <- "nes-lter-growth-grazing-chl"
-pkg_id <- "knb-lter-nes.5.1"
+metadata <- "growth-grazing-info"
+#edi_filename <- "nes-lter-growth-grazing-chl"
+pkg_id <- "knb-lter-nes.5.2"
 
 # Make EML Templates 
 excel_to_template(here(metadata), edi_filename, rights='CCBY')
 
 # Data Coverage
 # isolate date and geospatial columns for input
-date_col <- as.Date(growgraze_EDI$date_time_UTC)
-lat_col <- growgraze_EDI$latitude
-lon_col <- growgraze_EDI$longitude
+date_col <- as.Date(pierre_data$date_time_UTC)
+lat_col <- pierre_data$latitude
+lon_col <- pierre_data$longitude
 # run function to determine geospatial and temporal coverage
 coverage <- data_coverage(dates = date_col, lat = lat_col, lon = lon_col)
 
 # Make EML
 make_eml(here(),
-         dataset.title = "Phytoplankton growth and microzooplankton grazing rates from NES-LTER transect cruises EN608, EN617, EN627.",
+         dataset.title = "Phytoplankton growth and microzooplankton grazing rates from NES-LTER transect cruises, ongoing since 2017",
          data.table = paste0(edi_filename, ".csv"),
-         data.table.description = "Phytoplankton growth and microzooplankton grazing rates data cleaned for EDI",
-         other.entity = c(paste0(metadata, ".xlsx"), "NES-LTER_temp_light_incubation_SMD.zip"),
+         data.table.description = "Phytoplankton growth and microzooplankton grazing rates",
+         other.entity = c("NES-LTER_temp_light_incubation_SMD.zip"),
          other.entity.description = c("Phytoplankton growth and microzooplankton grazing rates contributed by the Menden-Deuer lab", "Temperature and light intensity recorded during the incubation experiments. Each .csv file includes dateTime in UTC, Temp_In (temperature in the incubation tank), Light_In (light in the incubation tank), Temp_Out (temperature out the incubation tank) and Light_Out (light out the incubation tank) with a time step of 5 min."),
          temporal.coverage = c(coverage$startdate, coverage$enddate),
          geographic.description = "NES-LTER Transect",
