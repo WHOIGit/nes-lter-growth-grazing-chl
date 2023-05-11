@@ -8,20 +8,10 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(message = FALSE, warning = FALSE)
 
-# clear workspace for local development
-#rm(list = ls())
-
-# assign resused directory to a variable
-# dir <- "/Users/jaxinewolfe/Documents/WHOI/NESLTER/nes-lter-growth-grazing-chl/"
-# set working directory
-#setwd(dir)
-
-# define source for functions developed for the EDI packaging workflow
-#source("edi-utilities.R")
-
 # install and load libraries
-# install.packages("devtools")
-# install_github("EDIorg/EMLassemblyline")
+#library(devtools)
+#install_github('WHOIGit/ediutilities')
+#install_github("EDIorg/EMLassemblyline")
 
 library(EMLassemblyline)
 library(ediutilities)
@@ -35,130 +25,23 @@ require(EML)
 require(maps)
 require(xml2)
 
-# define R packages to require
-# libs <- c("tidyverse", "readxl", "lubridate", "devtools", "EMLassemblyline", # "EML", "maps", "xml2")
-# load libraries
-# apply(libs, require, character.only = TRUE)
-
 ```
 
 ## Preparing Provided Data for EDI
 
 ```{r}
 # set filename to variable
-pierre_data <- read_csv("nes-lter-growth-grazing-chl.csv")
-edi_filename <- "nes-lter-growth-grazing-chl"
-
-# # Load growth and grazing data from excel sheet
-# growgraze <- read_excel(path = paste0(here(), "/", pierre_data, ".xlsx"), 
-#                   sheet = "DataTable", na = "NA")
-# # round necessary columns to standard precision
-# growgraze$latitude <- round(growgraze$latitude, 5)
-# growgraze$longitude <- round(growgraze$longitude, 5)
-# growgraze$depth <- round(growgraze$depth, 3)
-# 
-# # Data Cleaning ----------
-# 
-# # standardize the formatting of the cast and bottle columns
-# # if theres a "-" in the cast or a "/" in the bottle, insert a "|"
-# growgraze$cast <- trimws(gsub('-', '|', growgraze$cast))
-# growgraze$bottle <- trimws(gsub('/', '|', growgraze$bottle))
-# 
-# # Add categorical columns to expand missing value explantions
-# # define columms containing missing values
-# gg_cols <- c("mu_N", "mu_N_Std", "grazing", "grazing_Std", "mu_10d", 
-#              "mu_10d_Std", "grazing_10d", "grazing_10d_Std", "mu_10u", 
-#              "mu_10u_Std", "grazing_10u", "grazing_10u_Std")
-# # isolate and rename missing value columns
-# mv <- growgraze %>% select(gg_cols) %>%
-#   rename_at(gg_cols, ~ paste0(gg_cols, "_mv"))
-# 
-# # convert numerical values in missing value explanation columns to not missing 
-# mv[mv != "n/n" & mv != "n/a" & 
-#                mv != "n/d" & mv != "n/c"] <- "not missing"
-# 
-# # convert missing values in original columns to -9999
-# growgraze[growgraze == "n/n" | growgraze == "n/a" |
-#             growgraze == "n/d" | growgraze == "n/c"] <- "-9999"
-# # assign columns to numerical
-# growgraze[gg_cols] <- sapply(growgraze[gg_cols], as.numeric)
-# # str(growgraze) # check
-# # round growgraze values to two decimals
-# growgraze[, c("mu_0", "mu_0_Std", gg_cols)] <- round(growgraze[, c("mu_0", "mu_0_Std", gg_cols)], 2)
-# 
-# # add the missing value explanation columns to the data
-# growgraze_EDI <- cbind(growgraze, mv)
-# 
-# # rearrange columns to match the order in the attributes table
-# growgraze_EDI <- growgraze_EDI[,c("project", "cruise", "date_time_UTC", "station", "cast", "bottle", "latitude", "longitude", "depth", "temp", "sal", "date_time_start_UTC", "date_time_end_UTC", "light_treatment", "mu_0", "mu_0_Std",
-#                                   "mu_N", "mu_N_mv", "mu_N_Std", "mu_N_Std_mv", "grazing", "grazing_mv", "grazing_Std", "grazing_Std_mv", "mu_10d",
-#                                   "mu_10d_mv",  "mu_10d_Std", "mu_10d_Std_mv" , "grazing_10d", "grazing_10d_mv", "grazing_10d_Std", "grazing_10d_Std_mv",
-#                                   "mu_10u", "mu_10u_mv", "mu_10u_Std", "mu_10u_Std_mv", "grazing_10u", "grazing_10u_mv", "grazing_10u_Std", 
-#                                   "grazing_10u_Std_mv", "temp_light_inc_filename")]
-# 
-# # write csv for EDI 
-# write.csv(growgraze_EDI, paste0(edi_filename, ".csv"), row.names = FALSE, quote = FALSE)
-```
-
-## QA: Retainig Data Integrity
-
-Check that the numerical values and their precision were retained during the data cleaning.
-
-```{r}
-# # isolate growgraze data provided by pierre
-# gg_pierre <- read_excel(path = paste0(here(), "/", pierre_data, ".xlsx"), 
-#                   sheet = "DataTable", na = c("n/n", "n/a", "n/d", "n/c")) %>% select(gg_cols)
-# # convert NAs to numerical missing values
-# gg_pierre[is.na(gg_pierre)] <- -9999
-# # round growgraze values to two decimals
-# gg_pierre[, gg_cols] <- round(gg_pierre[, gg_cols], 2)
-# 
-# # isolate growgraze columns from the cleaned data
-# gg_edi <- growgraze_EDI %>% select(gg_cols)
-# 
-# # loop through paired columns to check for discrepancies between the data tables
-# for (i in 1:length(gg_cols)) {
-#   val_check <- gg_pierre[,i] == gg_edi[,i]
-#   
-#   # report if any fail the check
-#   if (isTRUE("FALSE" %in% val_check)) {
-#     print(paste0(names(gg_pierre[,i]), " contains a mismatch at row(s): ", 
-#                  match("FALSE", val_check)))
-#   }
-# }
+grazing_data <- read_csv("nes-lter-growth-grazing-chl.csv")
 
 ```
-
-
-
-
-## QA: Consistency Across Light Treatments
-
-Determine if there are differences in metadata across the two light treatments for each of the cruises. Slight differences in time observed for cruise EN608. There was one row missing which was expected: There was no 15% light experiment at EN617 station L10.
-
-```{r}
-# 
-# cruiselist <- c("EN608", "EN617", "EN627")
-# 
-# for (k in 1:length(cruiselist)) {
-#   gg_check <- growgraze_EDI %>%
-#     select(project:sal) %>%
-#     filter(cruise == cruiselist[k])
-#   unique(gg_check)
-#   print(gg_check)
-# }
-
-```
-
-
 ## QA: Map Sampling Locations
 
-Call the map_locs function from edi-utility.R to map the sampling locations. Perform a visual check.
+Call the map_locs function from ediutilities to map the sampling locations. Perform a visual check.
 
 ```{r, echo=FALSE}
 
 # Map Check
-map_locs(df = pierre_data, xvar = "longitude", yvar = "latitude",
+map_locs(df = grazing_data, xvar = "longitude", yvar = "latitude",
          region = "transect", colorvar = "cruise")
 
 ```
@@ -176,27 +59,29 @@ Step 4: Inserting a custom NES-LTER parent project node
 
 # define input files
 metadata <- "growth-grazing-info"
-#edi_filename <- "nes-lter-growth-grazing-chl"
 pkg_id <- "knb-lter-nes.5.2"
+edi_filename <- "nes-lter-growth-grazing-chl"
 
 # Make EML Templates 
-excel_to_template(here(metadata), edi_filename, rights='CCBY')
+# Specify methods file type as markdown
+excel_to_template(here(metadata), edi_filename, rights='CCBY', file_type=".md")
 
 # Data Coverage
 # isolate date and geospatial columns for input
-date_col <- as.Date(pierre_data$date_time_UTC)
-lat_col <- pierre_data$latitude
-lon_col <- pierre_data$longitude
+#date_col <- as.Date(grazing_data$date_time_UTC)
+date_col <- grazing_data$date_time_utc_sampling
+lat_col <- grazing_data$latitude
+lon_col <- grazing_data$longitude
 # run function to determine geospatial and temporal coverage
 coverage <- data_coverage(dates = date_col, lat = lat_col, lon = lon_col)
 
 # Make EML
 make_eml(here(),
-         dataset.title = "Phytoplankton growth and microzooplankton grazing rates from NES-LTER transect cruises, ongoing since 2017",
+         dataset.title = "Phytoplankton growth and microzooplankton grazing rates from NES-LTER transect cruises, ongoing since 2017.",
          data.table = paste0(edi_filename, ".csv"),
-         data.table.description = "Phytoplankton growth and microzooplankton grazing rates",
-         other.entity = c("NES-LTER_temp_light_incubation_SMD.zip"),
-         other.entity.description = c("Phytoplankton growth and microzooplankton grazing rates contributed by the Menden-Deuer lab", "Temperature and light intensity recorded during the incubation experiments. Each .csv file includes dateTime in UTC, Temp_In (temperature in the incubation tank), Light_In (light in the incubation tank), Temp_Out (temperature out the incubation tank) and Light_Out (light out the incubation tank) with a time step of 5 min."),
+         data.table.description = "Phytoplankton growth and microzooplankton grazing rates with size-fractionated chlorophyll concentration",
+         other.entity = c("chl-grazing-experiment-temp-inc-data.zip"),
+         other.entity.description = c("Temperature and light intensity recorded during the incubation experiments"),
          temporal.coverage = c(coverage$startdate, coverage$enddate),
          geographic.description = "NES-LTER Transect",
          geographic.coordinates = c(coverage$North, coverage$East, coverage$South, coverage$West),
@@ -204,6 +89,12 @@ make_eml(here(),
          user.id = "NES",
          user.domain = "LTER",
          package.id = pkg_id)
+
+#  other.entity.description = c("Temperature and light intensity recorded during the incubation experiments with one .csv file per tank including dateTime in UTC, temperature (C) in the incubation tank, and light in the incubation tank, with a time step of 5 min."),
+
+project_insert(pkg_id, filename='parent_project_RAPID.txt')
+
+issues()
 
 ```
 
@@ -215,8 +106,9 @@ make_eml(here(),
 
 ```{r}
 
+
 ## Insert Custom Project Node
-project_insert(edi_pkg = pkg_id)
+#project_insert(edi_pkg = pkg_id)
 
 ## Truncate Lengthy entityName
 # read in xml
