@@ -40,9 +40,9 @@
       <userId directory="https://orcid.org">https://orcid.org/0000-0002-2903-5851</userId>
       <role>metadata Provider</role>
     </associatedParty>
-    <pubDate>2023-05-11</pubDate>
+    <pubDate>2023-05-12</pubDate>
     <abstract>
-      <para>Phytoplankton growth and microzooplankton grazing rates were measured from incubation experiments using the dilution method in the framework of the Northeast U.S. Shelf Long-Term Ecological Research project. The dataset gathers plankton population dynamics rates obtained during 11 cruises onboard the R/V Endeavor from winter 2018 (EN608) to spring 2022 (AR66) along a north/south transect from Martha’s Vineyard to the shelf-break. Phytoplankton growth and microzooplankton grazing rates were measured for the total phytoplankton community (Chl-a concentrations) and for size fractions (Chl-a size fractionation) less than and greater than 10 µm. Phytoplankton growth and microzooplankton grazing rates, the first trophic interaction between primary producers and higher trophic levels, are essential parameters to assess the cycling and export of carbon in the ocean and to better understand marine food webs.</para>
+      <para>Phytoplankton growth and microzooplankton grazing rates were measured from incubation experiments using the dilution method in the framework of the Northeast U.S. Shelf Long-Term Ecological Research project. The dataset gathers plankton population dynamics rates obtained during 11 cruises onboard the R/V Endeavor from winter 2018 (EN608) to spring 2022 (AR66) along a north/south transect from Martha’s Vineyard to the shelf-break. Phytoplankton growth and microzooplankton grazing rates were measured for the total phytoplankton community (chl-a concentrations) and for size fractions (chl-a size fractionation) less than and greater than 10 µm. Phytoplankton growth and microzooplankton grazing rates, the first trophic interaction between primary producers and higher trophic levels, are essential parameters to assess the cycling and export of carbon in the ocean and to better understand marine food webs.</para>
     </abstract>
     <keywordSet>
       <keyword>Populations</keyword>
@@ -109,115 +109,49 @@
         <description>
           <markdown># Sample Collection&#13;
 &#13;
-At each station, hydrographic data of depth and temperature&#13;
-were collected with a SBE911 (Seabird Electronics Inc.) CTD-rosette&#13;
+At each station, hydrographic data of depth and temperature were collected with a SBE911 (Seabird Electronics Inc.) CTD-rosette&#13;
 system. Seawater for the experiments was collected using multiple Niskin bottles and sometimes from different CTD&#13;
-casts at a given location. Cast and bottle numbers are reported in the&#13;
-data table. Depth and temperature values of the seawater&#13;
-collected for the experiments reported in the data table are averaged&#13;
-from bottle summary files produced with Seabird software onboard ship&#13;
-and have not been corrected to salts.&#13;
+casts at a given location. Cast and bottle numbers are reported in the data table. Depth and temperature values of the seawater&#13;
+collected for the experiments reported in the data table are averaged from bottle summary files produced with Seabird software onboard ship and have not been corrected to salts.&#13;
 &#13;
 # Experimental Set-Up&#13;
 &#13;
-Rates of phytoplankton growth and microzooplankton grazing were&#13;
-quantified using a 2-point modification of the dilution method (Morison&#13;
-and Menden-Deuer, 2017). Whole seawater (WSW) was gently transferred&#13;
-from a Niskin to a 10 L polycarbonate carboy through a 200 µm mesh to&#13;
-remove mesozooplankton predators (e.g.copepods). During summer 2021 (EN668), some extra experiments were performed by screening the water sample through a 10 µm mesh (&gt;0&amp;&lt;10sf code for filtration type in the tables) to remove large microzooplankton grazers. During winter 2019, an experiment was made without screening the water through a 200 µm (&gt;0 code for filtration type in the tables) mesh to study the potential impact of screening.&#13;
+Rates of phytoplankton growth and microzooplankton grazing were quantified using a 2-point modification of the dilution method (Morison and Menden-Deuer, 2017). Whole seawater (WSW) was gently transferred from a Niskin to a 10 L polycarbonate carboy through a 200 µm mesh to remove mesozooplankton predators (e.g.copepods). During summer 2021 (EN668), some extra experiments were performed by screening the water sample through a 10 µm mesh (&gt;0&amp;&lt;10sf code for filtration type in the tables) to remove large microzooplankton grazers. During winter 2019, an experiment was made without screening the water through a 200 µm (&gt;0 code for filtration type in the tables) mesh to study the potential impact of screening.&#13;
 &#13;
-Diluent was prepared by gravity filtration through a 0.2 µm membrane filter capsule (PALL)&#13;
-from the Niskin to the carboys. The appropriate amount of WSW was added&#13;
-to the filtered water to obtain an approximate 20 percent WSW dilution (20WSW). The effective dilution level was calculated from the ratio of the initial chlorophyll-a (Chl-a) concentration in the 20WSW diluted treatment to the initial Chl-a concentration in the WSW treatment.The&#13;
-carboys were covered by black trash bags and gently mixed while water&#13;
-was siphoned into duplicate 1.2 L clear polycarbonate bottles. To ensure&#13;
-the gross growth rate of the phytoplankton was not dependent upon&#13;
-dilution, a central assumption of the dilution method (Landry and&#13;
-Hasset, 1982), incubation bottles were amended with macronutrients (10&#13;
-µM SiO4, 10 µM NO3, 1 µM PO4). An additional set of WSW bottles without&#13;
-additional nutrients was added to assess nutrient limitation or toxicity&#13;
-effects. For each dilution (20WSW and WSW), nutrient (nutrient amended&#13;
-and without nutrient), and light (high and low light, see below)&#13;
-treatment, incubation bottles were duplicated.&#13;
+Diluent was prepared by gravity filtration through a 0.2 µm membrane filter capsule (PALL) from the Niskin to the carboys. The appropriate amount of WSW was added to the filtered water to obtain an approximate 20 percent WSW dilution (20WSW). The effective dilution level was calculated from the ratio of the initial chlorophyll-a (chl-a) concentration in the 20WSW diluted treatment to the initial chl-a concentration in the WSW treatment.The carboys were covered by black trash bags and gently mixed while water&#13;
+was siphoned into duplicate 1.2 L clear polycarbonate bottles. To ensure the gross growth rate of the phytoplankton was not dependent upon dilution, a central assumption of the dilution method (Landry and Hasset, 1982), incubation bottles were amended with macronutrients (10 µM SiO4, 10 µM NO3, 1 µM PO4). An additional set of WSW bottles without additional nutrients was added to assess nutrient limitation or toxicity effects. For each dilution (20WSW and WSW), nutrient (nutrient amended and without nutrient), and light (high and low light, see below) treatment, incubation bottles were duplicated.&#13;
 &#13;
-Bottles were incubated for 24 h in a clear deck-board, flow through, 1&#13;
-m\^3, incubator. Surface water was incubated at two light levels that&#13;
-simulated the contrasting light conditions (e.g. sunny/cloudy weather,&#13;
-well-mixed/stratified water column) under which phytoplankton could be&#13;
-growing in the surface ocean. On cruise EN668 (summer 2021), surface water was incubated only at a 65 percent light level, which simulated the in situ light conditions. Water sampled at deeper depths (not surface) was incubated at lower light levels, which simulated the light conditions at these depths. Mesh bags were used to create High Light (HL) and Low Light (LL) treatments that simulated 100/65 percent and 30/15/5/3/1 percent of light attenuation. The incubator was free of overhead obstructions to avoid shading during the day and covered by a tarp at&#13;
-night to minimize light pollution from deck lighting. Natural movement&#13;
-of the ship kept the bottles in the incubator agitated over the&#13;
-incubation period. Temperature within the incubators was maintained&#13;
-equivalent to current surface temperature through continuous&#13;
-flow-through from the ship seawater system. Temperature and light in the&#13;
-incubators were monitored at 5-minute intervals with a Hobo (Onset) data&#13;
-logger. Temperature and light measurements recorded during each of the&#13;
-incubation experiments are available in .csv files in the data package other entity .zip file. &#13;
+Bottles were incubated for 24 h in a clear deck-board, flow through, 1 m\^3, incubator. Surface water was incubated at two light levels that simulated the contrasting light conditions (e.g. sunny/cloudy weather, well-mixed/stratified water column) under which phytoplankton could be growing in the surface ocean. On cruise EN668 (summer 2021), surface water was incubated only at a 65 percent light level, which simulated the in situ light conditions. Water sampled at deeper depths (not surface) was incubated at lower light levels, which simulated the light conditions at these depths. Mesh bags were used to create High Light (HL) and Low Light (LL) treatments that simulated 100/65 percent and 30/15/5/3/1 percent of light attenuation. The incubator was free of overhead obstructions to avoid shading during the day and covered by a tarp at night to minimize light pollution from deck lighting. Natural movement&#13;
+of the ship kept the bottles in the incubator agitated over the incubation period. Temperature within the incubators was maintained&#13;
+equivalent to current surface temperature through continuous flow-through from the ship seawater system. Temperature and light in the&#13;
+incubators were monitored at 5-minute intervals with a Hobo (Onset) data logger. Temperature (degrees C) and light (lux) measurements recorded during each of the incubation experiments are available in .csv files in the data package other entity .zip file. &#13;
 &#13;
 # Phytoplankton Growth and Protist Grazing Rate Estimates&#13;
 &#13;
-Initial (T0) chlorophyll-a (Chl-a) concentration was determined from&#13;
-triplicate 120-150 mL subsamples from carboys used to fill incubation&#13;
-bottles. Final Chl-a concentration (TF) was determined from triplicate&#13;
-120-150 mL subsamples from bottles at the end of the incubation. The&#13;
-extraction method followed Graff and Rynearson (2011) except here we&#13;
-used 95 percent ethanol as a solvent (Jespersen and Christoffersen,&#13;
-1987). Extracted Chl-a concentration was determined using a Turner AU10&#13;
-fluorometer after a 12-h extraction period. In addition, the size&#13;
-structure of the initial phytoplankton community was characterized from&#13;
-T0 triplicate size-fractionated Chl-a samples (greater than 0.7 µm GF/F,&#13;
-greater than 5 µm, greater than 10 µm, and greater than 20 µm). At TF,&#13;
-size-fractionated Chl-a concentration at 10 µm were also measured for&#13;
-20WSW, WSW without nutrient addition and WSW nutrient-amended bottles. During 2018 cruises (EN608 and EN617) and during winter 2019 cruise (EN627) size fractionation at 10 µm was performed only on nutrient amended samples. &#13;
+Initial (T0) chlorophyll-a (chl-a) concentration was determined from triplicate 120-150 mL subsamples from carboys used to fill incubation bottles. Final chl-a concentration (TF) was determined from triplicate 120-150 mL subsamples from bottles at the end of the incubation. The extraction method followed Graff and Rynearson (2011) except here we used 95 percent ethanol as a solvent (Jespersen and Christoffersen, 1987). Extracted chl-a concentration was determined using a Turner AU10 fluorometer after a 12-h extraction period. In addition, the size structure of the initial phytoplankton community was characterized from T0 triplicate size-fractionated chl-a samples (greater than 0.7 µm GF/F, greater than 5 µm, greater than 10 µm, and greater than 20 µm). At TF, size-fractionated chl-a concentration at 10 µm were also measured for 20WSW, WSW without nutrient addition and WSW nutrient-amended bottles. During 2018 cruises (EN608 and EN617) and during winter 2019 cruise (EN627) size fractionation at 10 µm was performed only on nutrient amended samples. &#13;
 &#13;
-Phytoplankton growth rates and protist grazing rates were estimated from&#13;
-24-h changes in Chl-a concentration. For each incubation bottle, the&#13;
-apparent growth rates (k, d\^-1) were calculated as: k=1⁄t×ln(C_t⁄C_0)&#13;
+Phytoplankton growth rates and protist grazing rates were estimated from 24-h changes in chl-a concentration. For each incubation bottle, the apparent growth rates (k, d\^-1) were calculated as: &#13;
 &#13;
-where t is the incubation time (d) and C_t and C_0 the final and initial&#13;
-Chl-a concentration (µg L\^-1), respectively.&#13;
+k=1⁄t×ln(C_t⁄C_0)&#13;
+&#13;
+where t is the incubation time (d) and C_t and C_0 the final and initial chl-a concentration (µg L\^-1), respectively.&#13;
 &#13;
 Protist grazing rates (g, d\^-1) were estimated with the equation:&#13;
 &#13;
 g=((k_d-k_N))⁄((1-x))&#13;
 &#13;
-where k_d and k_N are the apparent growth rates in 20WSW and WSW&#13;
-nutrient-amended treatments, respectively, and x is the achieved&#13;
-fraction of WSW in the diluted treatment calculated from T0 Chl-a in&#13;
-20WSW and WSW (Landry et al., 1984). Accordingly, the instantaneous, or&#13;
-in situ, growth rate (mu_0, d\^-1) was estimated as in (Landry et al.,&#13;
-2008):&#13;
+where k_d and k_N are the apparent growth rates in 20WSW and WSW nutrient-amended treatments, respectively, and x is the achieved&#13;
+fraction of WSW in the diluted treatment calculated from T0 chl-a in 20WSW and WSW (Landry et al., 1984). Accordingly, the instantaneous, or in situ, growth rate (mu_0, d\^-1) was estimated as in (Landry et al., 2008):&#13;
 &#13;
 mu_0=g+k_NoN&#13;
 &#13;
-where k_NoN is apparent phytoplankton growth rate k without nutrient&#13;
-addition.&#13;
+where k_NoN is apparent phytoplankton growth rate k without nutrient addition.&#13;
 &#13;
-The potential for nutrient limitation was assessed by comparing apparent&#13;
-phytoplankton growth rate k in nutrient-amended (k_N) and nonamended&#13;
-(k_NoN) replicates using a paired t-test. If a significant difference&#13;
-was found (p below 0.05) between k_N and k_NoN, nutrient-amended growth&#13;
-rates (mu_N, d\^-1) were also calculated as mu_N = g + k_N. Otherwise,&#13;
-all k_N and k_NoN triplicate of replicate values were used to calculate&#13;
-both g and mu_0.&#13;
+The potential for nutrient limitation was assessed by comparing apparent phytoplankton growth rate k in nutrient-amended (k_N) and nonamended (k_NoN) replicates using a paired t-test. If a significant difference was found (p below 0.05) between k_N and k_NoN, nutrient-amended growth rates (mu_N, d\^-1) were also calculated as mu_N = g + k_N. Otherwise, all k_N and k_NoN triplicate of replicate values were used to calculate both g and mu_0.&#13;
 &#13;
-Since size fractionation at 10 µm was performed only on nutrient-amended&#13;
-samples, growth rates reported on greater than 10 µm and less than 10 µm&#13;
-fractions in this study were nutrient-amended growth rates (mu_N) when&#13;
-nutrient limitation was observed. If no nutrient limitation was&#13;
-observed, mu_N obtained is equivalent to mu_0.&#13;
+Since size fractionation at 10 µm was performed only on nutrient-amended samples, growth rates reported on greater than 10 µm and less than 10 µm fractions in this study were nutrient-amended growth rates (mu_N) when nutrient limitation was observed. If no nutrient limitation was observed, mu_N obtained is equivalent to mu_0.&#13;
 &#13;
-The uncertainty of g estimates was quantified using the standard error&#13;
-of the slope fit from a linear regression between replicate k values and&#13;
-dilution levels. When the slope obtained was not significantly different&#13;
-from zero (p higher than 0.05), g was set to 0. Thus, the average k_N&#13;
-represented mu_N and the average k_NoN represented mu_0 (Murrell et al.,&#13;
-2002; Chen et al. 2009). A significant positive slope (i.e. higher&#13;
-growth in the WSW treatment than in the diluted) represents a violation&#13;
-of the method's assumption. In such cases, g was reported as&#13;
-undetermined, and k in the undiluted bottles represented mu_N and mu_0.&#13;
-Uncertainties relative to mu_N and mu_0 were estimated from the standard&#13;
-deviations observed on k_N and k_NoN triplicate values.&#13;
+The uncertainty of g estimates was quantified using the standard error of the slope fit from a linear regression between replicate k values and dilution levels. When the slope obtained was not significantly different from zero (p higher than 0.05), g was set to 0. Thus, the average k_N represented mu_N and the average k_NoN represented mu_0 (Murrell et al., 2002; Chen et al. 2009). A significant positive slope (i.e. higher growth in the WSW treatment than in the diluted) represents a violation of the method's assumption. In such cases, g was reported as undetermined, and k in the undiluted bottles represented mu_N and mu_0. Uncertainties relative to mu_N and mu_0 were estimated from the standard deviations observed on k_N and k_NoN triplicate values.&#13;
 &#13;
 # Data Processing &#13;
 &#13;
@@ -230,20 +164,22 @@ https://github.com/pmarrec/nes-lter-rate-calculation-chl&#13;
 &#13;
 ## Raw fluorescence data&#13;
 &#13;
-The raw fluorescence data for each cruise are stored in csv files in the "chl-grazing-experiment-raw" folder. The csv files contain the cast and niskin bottle numbers (in text format, with '' to avoid considering some multiple cast/niskins entries as dates), the measured Fo, Fa, blank, blank_acid data with treatment information (T0_TF, dilution, nutrient_treatment, light_level, replicate_bottle and replicate_chl). The files also include the vol_filtered, the vol_extracted, the calibration coeficient Fs and r and the start/end datetime of the incubations. Empty (NaN) columns for: date_time_utc_sampling, latitude, longitude, depth, temperature_sampling, nearest_station, distance, incubation_tank, temperature_incubation_avg, temperature_incubation_std, are there for retrieving these additional data from the CTD files stored in the REST-API and from the csv files containing the temperature recorded in the incubation tanks during each cruise.&#13;
+The raw fluorescence data for each cruise are stored in csv files in the "chl-grazing-experiment-raw" folder. The csv files contain the cast and Niskin bottle numbers (in text format, with '' to avoid considering some multiple cast/Niskins entries as dates), the measured Fo, Fa, blank, blank_acid data with treatment information (T0_TF, dilution, nutrient_treatment, light_level, replicate_bottle and replicate_chl). The files also include the vol_filtered, the vol_extracted, the calibration coeficient Fs and r and the start/end datetime of the incubations. Empty (NaN) columns for: date_time_utc_sampling, latitude, longitude, depth, temperature_sampling, nearest_station, distance, incubation_tank, temperature_incubation_avg, temperature_incubation_std, are there for retrieving these additional data from the CTD files stored in the REST-API and from the csv files containing the temperature recorded in the incubation tanks during each cruise.&#13;
 &#13;
 ## Retrieving CTD data&#13;
 &#13;
-The chl_grazing_experiment_retrieve_ctd_data Matlab script is used to retrieve the date_time_utc_sampling, latitude, longitude, depth, temperature_sampling, nearest_sation and distance values (still need to find how to get the nearest_station and distance values) directly and automatically from the CTD files stored in the REST-API (except for AR66, data not available yet).&#13;
+The chl_grazing_experiment_retrieve_ctd_data Matlab script is used to retrieve the date_time_utc_sampling, latitude, longitude, depth, and temperature_sampling directly and automatically from the CTD files stored in the REST-API.&#13;
 &#13;
 Inputs: CRUISE-chl-grazing-experiments-raw.csv files&#13;
+&#13;
 Outputs: CRUISE-chla-grazing-experiments-ctd-raw.csv files stored in the chl-grazing-experiment-ctd-raw folder&#13;
 &#13;
 ## Retrieving temperature during incubation&#13;
 &#13;
 The chl_grazing_experiment_retrieve_temp_inc_data.m Matlab script is used to retrieve the mean/std temperature in the tanks during dilution experiments. For each cast/depth, get the mean/std temperature recorded by the HOBO data loggers in the different tanks. Because of the lack of records in terms of which bottles in which tanks (there are up to 3 CRUISE_temp_inc_X.csv files for each cruise), the mean/std in each tank are retrieved and the values with the lowest temperature difference will be kept and saved automatically.&#13;
 &#13;
-Input: CRUISE-chl-grazing-experiments-ctd-raw.csv files and CRUISE_temp_inc_X.csv files&#13;
+Inputs: CRUISE-chl-grazing-experiments-ctd-raw.csv files and CRUISE_temp_inc_X.csv files&#13;
+&#13;
 Outputs: CRUISE-chla-grazing-experiments-temp-inc-raw.csv files.&#13;
 &#13;
 ## Chl-a calculation&#13;
@@ -251,6 +187,7 @@ Outputs: CRUISE-chla-grazing-experiments-temp-inc-raw.csv files.&#13;
 The chl_grazing_experiment_chl_calc.m Matlab script is used to calculate the Chl-a and Phaeopigment concentrations, after calculation of Fo-blank, Fa-blank and Fo/Fa ratios.&#13;
 &#13;
 Inputs: CRUISE-chl-grazing-experiments-raw.csv files with Fo, Fa, blank values and calibration coefficients Fs and r&#13;
+&#13;
 Outputs: CRUISE-chla-grazing-experiments-chl-calc.csv files stored in the chl-grazing-experiment-chl-calc folder&#13;
 &#13;
 ## Chl-a Quality Check&#13;
@@ -260,7 +197,8 @@ The chl_grazing_experiment_fofa_cleaning.m Matlab script is used to perform the 
 2.	Fo/Fa witihn +/- 2 StdDev confidence interval for a given type of filter &#13;
 All the values that don't fit these criteria are flagged as questionable with a iode_quality_flag = 3 All the other values are flagged as good with a iode_quality_flag = 1&#13;
 &#13;
-Input: CRUISE-chl-grazing-experiments-chl-calc.csv files with Chl-a&#13;
+Inputs: CRUISE-chl-grazing-experiments-chl-calc.csv files with Chl-a&#13;
+&#13;
 Outputs: CRUISE-chla-grazing-experiments-fo-fa-clean.csv files stored in the chl-grazing-experiment-fofa-clean folder&#13;
 &#13;
 The chl_grazing_experiment_chl_conc_clean.m Matlab script is used to perform the 2nd step of the cleaning based on the Chl-a concentrations. This second step is based on 2 criteria:&#13;
@@ -269,6 +207,7 @@ The chl_grazing_experiment_chl_conc_clean.m Matlab script is used to perform the
 All the values that don't fit these criteria are flagged as questionable with a iode_quality_flag = 3 All the other values are flagged as good with a iode_quality_flag = 1&#13;
 &#13;
 Input: CRUISE-chl-grazing-experiments-fofa-clean.csv files&#13;
+&#13;
 Outputs: CRUISE-chla-grazing-experiments-chl-conc-clean.csv files.&#13;
 &#13;
 The chl_grazing_experiment_chl_conc_clean_special.m Matlab script is to correct some T0 Chl-a concentration for few stations. In some cases (described below), the values of the T0 dil were missing, making the rates calculation impossible. In these case, the dilution values obtained from the other filters or from Flow-Cytometry (FCM) were used:&#13;
@@ -276,38 +215,52 @@ The chl_grazing_experiment_chl_conc_clean_special.m Matlab script is to correct 
 2.	EN668 - L6-D2: All T0 dil values (&gt;0&amp;&lt;200, &gt;10&amp;&lt;200 and &gt;0&amp;&lt;10) were questionable with dilution ranging from 43% to 76%, while according to the FCM we had 20% dilution. T0 wsw &gt;0&amp;&lt;200 values looks correct when compared to post-calibrated underway fluorescence. All the T0 wsw values are then considered good and are set as T0 dil = 20% T0 wsw.&#13;
 &#13;
 Input: CRUISE-chl-grazing-experiments-chl-conc-clean.csv files&#13;
+&#13;
 Outputs: CRUISE-chla-grazing-experiments-clean.csv files.&#13;
 &#13;
 ## Apparent growth rates “k” calculation&#13;
 &#13;
 The chl_grazing_experiment_k_values.m Matlab script is used to compute the apparent growth rates k obtained during the dilution (grazing) experiments.&#13;
+&#13;
 Create a new table for each cruise gathering all the calculated k-values (apparent growth rates) for each treatment and filter type.&#13;
 The duration of each incubation is calculated from the date_time_utc_end and the date_time_utc_start for each experiment.&#13;
 All the triplicate T0 Chl-a conc are calculated (only those with iode_quality_flag = 1).&#13;
+&#13;
 T0 WSW mean Chla (Total = Chla, &gt;10um = Chlau10, &lt;10um = Chlad10) are reported in the new table, in addition to the % of Chl-a &lt;/&gt;10um (Chlad10per and Chlau10per). Chlad10 = Chla - Chlau10. If Chlad10 &lt; 0, Chlad10 = 0, Chlad10per = 0% and Chlau10per = 100%.&#13;
 k are calculated from each TF value. Up to 6 k values are then obtained for each treatment (dilution/nutrient/light) and filter type (&gt;0&amp;&lt;200, &gt;10&amp;&lt;200, &gt;0 and &gt;0&amp;&lt;10 ).&#13;
+&#13;
 Based on &gt;0&amp;200 (GFF) and &gt;10&amp;&lt;200 (10um filters, u10 = up 10), &gt;0&amp;&lt;10 (d10 = down 10) Chl-a values are calculated and then corresponding k values. For each triplicate, Chl-a d10 triplcate values are calculated as the difference between the mean Chl-a value on &gt;0&amp;&lt;200 and individual triplicate Chl-a values of &gt;10&amp;&lt;200. Only data with QC = 1 are considered. If Chl-a d10 &lt;0, then Chl-a conc and k = NaN.&#13;
 &#13;
-Input: CRUISE-chl-grazing-experiments-clean.csv files&#13;
+Inputs: CRUISE-chl-grazing-experiments-clean.csv files&#13;
+&#13;
 Outputs: CRUISE-chla-grazing-experiments-k-values.csv files.&#13;
 &#13;
 ## Phytoplankton growth and microzooplankton grazing calculation&#13;
 &#13;
 The chl-grazing_experiment_rates.m Matlab script is used to compute phytoplankton growth rates (mu0), microzooplankton grazing rates (g), apparent growth rates in nonamended nutrient treatment (wsw NoN, kNoN) and phytoplankton growth rates in nutrient-amended treatments (muN = g + kN). Associated errors (std) were estimated for all these rates. Note that kNoN and muN were estimated only when there was apparent nutrient limitation.&#13;
+&#13;
 Create a new table for each cruise gathering all the calculated rates for each treatment and filter type from the k (apparent growth rates) values and the associated data and metadata.&#13;
 &#13;
-Phytoplankton growth rates and protist grazing rates were estimated from 24-h changes in Chl-a concentration. For each incubation bottle, the apparent growth rates (k, d^-1) were calculated as: k=1⁄t×ln(C_t⁄C_0)&#13;
+Phytoplankton growth rates and protist grazing rates were estimated from 24-h changes in Chl-a concentration. For each incubation bottle, the apparent growth rates (k, d^-1) were calculated as:&#13;
+&#13;
+k=1⁄t×ln(C_t⁄C_0)&#13;
+&#13;
 where t is the incubation time (d) and C_t and C_0 the final and initial Chl-a concentration (µg L^-1), respectively.&#13;
 &#13;
 Protist grazing rates (g, d^-1) were estimated with the equation:&#13;
+&#13;
 g=((k_d-k_N))⁄((1-x))&#13;
-where k_d and k_N are the apparent growth rates in 20WSW and WSW nutrient amended treatments, respectively, and x is the achieved fraction of WSW in the diluted treatment calculated from T0 Chl-a in 20WSW and WSW.&#13;
-Accordingly, the instantaneous, or in situ, growth rate (mu_0, d^-1) was estimated as:&#13;
+&#13;
+where k_d and k_N are the apparent growth rates in 20WSW and WSW nutrient amended treatments, respectively, and x is the achieved fraction of WSW in the diluted treatment calculated from T0 Chl-a in 20WSW and WSW. Accordingly, the instantaneous, or in situ, growth rate (mu_0, d^-1) was estimated as:&#13;
+&#13;
 mu_0=g+k_NoN&#13;
+&#13;
 where k_NoN is apparent phytoplankton growth rate k without nutrient addition.&#13;
 &#13;
 The potential for nutrient limitation was assessed by comparing apparent phytoplankton growth rates k in nutrient amended (k_N) and nonamended (k_NoN) replicates using a paired t-test. If a significant difference was found (p below 0.05) between k_N and k_NoN, nutrient-amended growth rates (mu_N, d^-1) were also calculated as:&#13;
+&#13;
 mu_N = g + k_N.&#13;
+&#13;
 Otherwise, all k_N and k_NoN triplicate of replicate values were used to calculate both g and mu_0.&#13;
 &#13;
 When size fractionation at 10 µm was performed only on nutrient-amended samples, growth rates reported on greater than 10 µm and less than 10 µm fractions in this study were nutrient-amended growth rates (mu_N) when nutrient limitation was observed. If no nutrient limitation was observed, mu_N obtained is equivalent to mu_0.&#13;
@@ -315,11 +268,11 @@ When size fractionation at 10 µm was performed only on nutrient-amended samples
 The uncertainty of g estimates was quantified using the standard error of the slope fit from a linear regression between replicate k values and dilution levels. When the slope obtained was not significantly different from zero (p higher than 0.05), g was set to 0.&#13;
 Thus, the average k_N represented mu_N and the average k_NoN represented mu_0.&#13;
 &#13;
-A significant positive slope (i.e. higher growth in the WSW treatment than in the diluted) represents a violation of the method’s assumption.&#13;
-In such cases, g was reported as undetermined, and k in the undiluted bottles represented mu_N and mu_0. Uncertainties relative to mu_N and mu_0 were estimated from the standard deviations observed on k_N and k_NoN triplicate values.&#13;
+A significant positive slope (i.e. higher growth in the WSW treatment than in the diluted) represents a violation of the method’s assumption. In such cases, g was reported as undetermined, and k in the undiluted bottles represented mu_N and mu_0. Uncertainties relative to mu_N and mu_0 were estimated from the standard deviations observed on k_N and k_NoN triplicate values.&#13;
 &#13;
 Input: CRUISE-chl-grazing-experiments-k-values.csv files&#13;
-Outputs: CRUISE-chla-grazing-experiments-rates.csv files.&#13;
+&#13;
+Outputs: CRUISE-chla-grazing-experiments-rates.csv files&#13;
 &#13;
 The chl_grazing_experiment_concatenate_order_rates.m Matlab script is used to concatenation of the CRUISE rate table to get one final table with all the cruises together, and reorganization of the table by cruise and by inverse latitude (station nb).&#13;
 &#13;
@@ -327,6 +280,7 @@ Concatenation of the 11 tables with rates.&#13;
 Rearrangement of the table by cruise, from the oldest (EN608) to the most recent (EN687), by inverse latitude (station nb) and by size fraction (&gt;0&amp;&lt;200, &gt;10&amp;&lt;200, &gt;0&amp;&lt;10 (from difference between &gt;0&amp;&lt;200 and &gt;10&amp;&lt;200 Chl-a conc), &gt;0 (no mesh, en627) and &gt;0&amp;&lt;10sf (size fractionated dilution experiments during en668).&#13;
 &#13;
 Input: CRUISE-chl-grazing-experiments-rates.csv files&#13;
+&#13;
 Outputs: NES-LTER-chla-grazing-experiments-rates.csv file&#13;
 &#13;
 The chl_grazing_experiment_rates_QC.m Matlab file is used to Quality Check (QC) and rename of some values of the rate data based on the following criteria:&#13;
@@ -340,6 +294,7 @@ The chl_grazing_experiment_rates_QC.m Matlab file is used to Quality Check (QC) 
 8.	If Chlad10per (&lt;10um) or Chlau10per (&gt;10um) relative contribution to total Chl-a are &lt; 0.02 (2%), the rates for these size fractions are considered questionable (iode_quality_flag (QC flag) = 3)&#13;
 &#13;
 Input: NES-LTER-chla-grazing-experiments-rates.csv file&#13;
+&#13;
 Outputs: NES-LTER-chla-grazing-experiments-rates-qc.csv file&#13;
 &#13;
 # Reuse of chlorophyll data&#13;
@@ -355,16 +310,14 @@ https://github.com/WHOIGit/nes-lter-growth-grazing-chl.&#13;
 &#13;
 # Quality Assurance&#13;
 &#13;
-We assured that all values reported in the clean data table for&#13;
-geographic (latitude, longitude, depth, station), temporal&#13;
-(date_time_sampling), and other cruise metadata and data (cast, Niskin, temperature_samplnig) were aligned with&#13;
-other NES-LTER data products.&#13;
+We assured that all values reported in the clean data table for geographic (latitude, longitude, depth, station), temporal&#13;
+(date_time_sampling), and other cruise metadata and data (cast, Niskin, temperature_sampling) were aligned with other NES-LTER data products.&#13;
 &#13;
 # Differences from previous version&#13;
 &#13;
 In Version 2: &#13;
 - Data for 9 cruises were added. &#13;
-- There has been a change in the data table, mainly that it is now structured in long format as opposed to wide format. &#13;
+- There has been a change in the organization of the data table, mainly that it is now structured in long format as opposed to wide format. &#13;
 - Columns removed from previous version: project, sal, grazing_mv and grazing_Std_mv, mu_N_mv and mu_N_Std_mv, the following now accommodated by categorical variable: mu_10d	mu_10d_mv	mu_10d_Std	mu_10d_Std_mv	grazing_10d	grazing_10d_mv	grazing_10d_Std	grazing_10d_Std_mv	mu_10u	mu_10u_mv	mu_10u_Std	mu_10u_Std_mv	grazing_10u	grazing_10u_mv	grazing_10u_Std	grazing_10u_Std_mv, temp_light_inc_filename&#13;
 - Columns renamed from previous version: bottle is now niskin, date_time_UTC is now date_time_utc_sampling, temp is now temperature_sampling, light_treatment is now light_level, mu_0 and mu_0_Std are now mu0 and mu0_std, grazing and grazing_Std are now g and g_std, mu_N and mu_N_Std are now muN and muN_std&#13;
 - Columns added: incubation_tank, temperature_incubation_avg, temperature_incubation_std, size_fraction, Chla, Chlad10, Chlau10, Chlad10per, Chlau10per, duration_incubation, dilution, iode_quality_flag&#13;
@@ -531,8 +484,8 @@ Oceanography: Methods 15, 794--809. https://doi.org/10.1002/lom3.10200&#13;
       <entityDescription>Phytoplankton growth and microzooplankton grazing rates with size-fractionated chlorophyll concentration</entityDescription>
       <physical>
         <objectName>nes-lter-growth-grazing-chl.csv</objectName>
-        <size unit="bytes">88813</size>
-        <authentication method="MD5">4c6768ab1866038a10c30a0f95ee1beb</authentication>
+        <size unit="bytes">87681</size>
+        <authentication method="MD5">c3ba5ef1b042c55f5f1365e4abb24b66</authentication>
         <dataFormat>
           <textFormat>
             <numHeaderLines>1</numHeaderLines>
@@ -561,13 +514,13 @@ Oceanography: Methods 15, 794--809. https://doi.org/10.1002/lom3.10200&#13;
         </attribute>
         <attribute>
           <attributeName>cast</attributeName>
-          <attributeDefinition>CTD rosette cast number chronological by cruise. Sometimes seawater was sampled during multiple casts at a given station. In this case, cast numbers are seprated by -</attributeDefinition>
+          <attributeDefinition>CTD rosette cast number chronological by cruise. When seawater was sampled during multiple casts at a given station, cast numbers are seprated by |</attributeDefinition>
           <storageType>string</storageType>
           <measurementScale>
             <nominal>
               <nonNumericDomain>
                 <textDomain>
-                  <definition>CTD rosette cast number chronological by cruise. Sometimes seawater was sampled during multiple casts at a given station. In this case, cast numbers are seprated by -</definition>
+                  <definition>CTD rosette cast number chronological by cruise. When seawater was sampled during multiple casts at a given station, cast numbers are seprated by |</definition>
                 </textDomain>
               </nonNumericDomain>
             </nominal>
@@ -575,13 +528,13 @@ Oceanography: Methods 15, 794--809. https://doi.org/10.1002/lom3.10200&#13;
         </attribute>
         <attribute>
           <attributeName>niskin</attributeName>
-          <attributeDefinition>Niskin bottle number on the CTD rosette used to sample seawater. Most of the time multiple bottles were used to sample seawater. In this case cast numbers are separated by -. When multiple casts were performed, Niskin bottle numbers in this column are the Niskin bottle numbers of the first cast</attributeDefinition>
+          <attributeDefinition>Rosette bottle position number. When multiple bottles were used to collect seawater, they are separated by -. When Niskins from multiple casts were combined, casts are separated by |</attributeDefinition>
           <storageType>string</storageType>
           <measurementScale>
             <nominal>
               <nonNumericDomain>
                 <textDomain>
-                  <definition>Niskin bottle number on the CTD rosette used to sample seawater. Most of the time multiple bottles were used to sample seawater. In this case cast numbers are separated by -. When multiple casts were performed, Niskin bottle numbers in this column are the Niskin bottle numbers of the first cast</definition>
+                  <definition>Rosette bottle position number. When multiple bottles were used to collect seawater, they are separated by -. When Niskins from multiple casts were combined, casts are separated by |</definition>
                 </textDomain>
               </nonNumericDomain>
             </nominal>
@@ -607,7 +560,7 @@ Oceanography: Methods 15, 794--809. https://doi.org/10.1002/lom3.10200&#13;
           <storageType>date</storageType>
           <measurementScale>
             <dateTime>
-              <formatString>yyyy-mm-dd HH:MM:ss+HH:MM</formatString>
+              <formatString>YYYY-MM-DD hh:mm:ss</formatString>
               <dateTimeDomain/>
             </dateTime>
           </measurementScale>
@@ -618,7 +571,7 @@ Oceanography: Methods 15, 794--809. https://doi.org/10.1002/lom3.10200&#13;
           <storageType>date</storageType>
           <measurementScale>
             <dateTime>
-              <formatString>yyyy-mm-dd HH:MM:ss+HH:MM</formatString>
+              <formatString>YYYY-MM-DD hh:mm:ss</formatString>
               <dateTimeDomain/>
             </dateTime>
           </measurementScale>
@@ -629,7 +582,7 @@ Oceanography: Methods 15, 794--809. https://doi.org/10.1002/lom3.10200&#13;
           <storageType>date</storageType>
           <measurementScale>
             <dateTime>
-              <formatString>yyyy-mm-dd HH:MM:ss+HH:MM</formatString>
+              <formatString>YYYY-MM-DD hh:mm:ss</formatString>
               <dateTimeDomain/>
             </dateTime>
           </measurementScale>
@@ -674,7 +627,7 @@ Oceanography: Methods 15, 794--809. https://doi.org/10.1002/lom3.10200&#13;
         </attribute>
         <attribute>
           <attributeName>depth</attributeName>
-          <attributeDefinition>Depth of sample below sea surface. The value given here is the mean depth at which each bottle was fired</attributeDefinition>
+          <attributeDefinition>Depth of sample below sea surface. The value provided is the mean depth at which the rosette bottles were fired</attributeDefinition>
           <storageType>float</storageType>
           <measurementScale>
             <ratio>
@@ -693,7 +646,7 @@ Oceanography: Methods 15, 794--809. https://doi.org/10.1002/lom3.10200&#13;
         </attribute>
         <attribute>
           <attributeName>temperature_sampling</attributeName>
-          <attributeDefinition>Temperature of sampling. The value given here is the mean temperature at which each bottle was fired</attributeDefinition>
+          <attributeDefinition>Temperature of sampling. The value provided is the mean temperature at which the rosette bottles were fired</attributeDefinition>
           <storageType>float</storageType>
           <measurementScale>
             <ratio>
@@ -853,7 +806,7 @@ Oceanography: Methods 15, 794--809. https://doi.org/10.1002/lom3.10200&#13;
         </attribute>
         <attribute>
           <attributeName>Chla</attributeName>
-          <attributeDefinition>Concentration of chlorophyll a per unit volume of the water body http://vocab.nerc.ac.uk/collection/P01/current/CPHLZZXX/ corresponding to BCO-DMO chl_a SeaBASS Chl and CF mass_concentration_of_ chlorophyll_a_in_sea_water. Chlorophyll-a concentration at the start of the experiment (initial Chl-a &gt;0&amp;&lt;200 at the sampling depth).</attributeDefinition>
+          <attributeDefinition>Concentration of chlorophyll a per unit volume of the water body http://vocab.nerc.ac.uk/collection/P01/current/CPHLZZXX/ corresponding to BCO-DMO chl_a SeaBASS Chl and CF mass_concentration_of_ chlorophyll_a_in_sea_water. Chlorophyll-a concentration at the start of the experiment (initial Chl-a &gt;0&amp;&lt;200 at the sampling depth)</attributeDefinition>
           <storageType>float</storageType>
           <measurementScale>
             <ratio>
@@ -872,7 +825,7 @@ Oceanography: Methods 15, 794--809. https://doi.org/10.1002/lom3.10200&#13;
         </attribute>
         <attribute>
           <attributeName>Chlad10</attributeName>
-          <attributeDefinition>Chlorophyll-a &lt;10 µm concentration at the start of the experiment (initial Chl-a 0&gt;&amp;&lt;10 at the sampling depth).Obtained by difference between measured total Chl-a (GFF, &gt;0&amp;&lt;200) and Chl-a &gt;10 µm (10 µm filter, &gt;10&amp;&lt;200)</attributeDefinition>
+          <attributeDefinition>Chlorophyll-a &lt;10 µm concentration at the start of the experiment (initial Chl-a 0&gt;&amp;&lt;10 at the sampling depth). Obtained by difference between measured total Chl-a (GFF, &gt;0&amp;&lt;200) and Chl-a &gt;10 µm (10 µm filter, &gt;10&amp;&lt;200)</attributeDefinition>
           <storageType>float</storageType>
           <measurementScale>
             <ratio>
@@ -888,10 +841,14 @@ Oceanography: Methods 15, 794--809. https://doi.org/10.1002/lom3.10200&#13;
               </numericDomain>
             </ratio>
           </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>Not available</codeExplanation>
+          </missingValueCode>
         </attribute>
         <attribute>
           <attributeName>Chlau10</attributeName>
-          <attributeDefinition>Chlorophyll-a &gt;10 µm concentration at the start of the experiment (initial Chl-a &gt;10&amp;&lt;200 at the sampling depth).</attributeDefinition>
+          <attributeDefinition>Chlorophyll-a &gt;10 µm concentration at the start of the experiment (initial Chl-a &gt;10&amp;&lt;200 at the sampling depth)</attributeDefinition>
           <storageType>float</storageType>
           <measurementScale>
             <ratio>
@@ -907,6 +864,10 @@ Oceanography: Methods 15, 794--809. https://doi.org/10.1002/lom3.10200&#13;
               </numericDomain>
             </ratio>
           </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>Not available</codeExplanation>
+          </missingValueCode>
         </attribute>
         <attribute>
           <attributeName>Chlad10per</attributeName>
@@ -926,6 +887,10 @@ Oceanography: Methods 15, 794--809. https://doi.org/10.1002/lom3.10200&#13;
               </numericDomain>
             </ratio>
           </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>Not available</codeExplanation>
+          </missingValueCode>
         </attribute>
         <attribute>
           <attributeName>Chlau10per</attributeName>
@@ -945,6 +910,10 @@ Oceanography: Methods 15, 794--809. https://doi.org/10.1002/lom3.10200&#13;
               </numericDomain>
             </ratio>
           </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>Not available</codeExplanation>
+          </missingValueCode>
         </attribute>
         <attribute>
           <attributeName>duration_incubation</attributeName>
@@ -986,7 +955,7 @@ Oceanography: Methods 15, 794--809. https://doi.org/10.1002/lom3.10200&#13;
         </attribute>
         <attribute>
           <attributeName>mu_0</attributeName>
-          <attributeDefinition>In-situ phytoplankton growth rate. When nutrient limitation, µ0 = g + kNoN, with kNoN = apparent (or net) growth rates in the 100% non-nutrient-unamended bottles. When no-nutrient limitation, µ0 = g + average(kNoN, kN), with kN is apparent (or net) phytoplankton growth rate in the 100% nutrient-amended bottles.</attributeDefinition>
+          <attributeDefinition>In situ phytoplankton growth rate. When nutrient limitation, µ0 = g + kNoN, with kNoN = apparent (or net) growth rates in the 100% non-nutrient-unamended bottles. When no nutrient limitation, µ0 = g + average(kNoN, kN), with kN is apparent (or net) phytoplankton growth rate in the 100% nutrient-amended bottles</attributeDefinition>
           <storageType>float</storageType>
           <measurementScale>
             <ratio>
@@ -1003,13 +972,13 @@ Oceanography: Methods 15, 794--809. https://doi.org/10.1002/lom3.10200&#13;
             </ratio>
           </measurementScale>
           <missingValueCode>
-            <code>n/d</code>
-            <codeExplanation>n/d = Non determined because no Chl-a data with iode_guality_flag = 1 or because experiment only performed with nutrient addition (no control).</codeExplanation>
+            <code>NaN</code>
+            <codeExplanation>Not determined because no chl-a data with iode_guality_flag = 1 or because experiment only performed with nutrient addition (no control).</codeExplanation>
           </missingValueCode>
         </attribute>
         <attribute>
           <attributeName>mu_0_std</attributeName>
-          <attributeDefinition>Uncertainty relative to µ0 estimated from the standard deviation observed on the apparent phytoplankton growth rate kNoN in nutrient-unamended treatment (see associated computation methods)</attributeDefinition>
+          <attributeDefinition>Uncertainty relative to µ0 estimated from the standard deviation observed on the apparent phytoplankton growth rate kNoN in nonamended nutrient treatment (see associated computation methods)</attributeDefinition>
           <storageType>float</storageType>
           <measurementScale>
             <ratio>
@@ -1026,8 +995,8 @@ Oceanography: Methods 15, 794--809. https://doi.org/10.1002/lom3.10200&#13;
             </ratio>
           </measurementScale>
           <missingValueCode>
-            <code>n/d</code>
-            <codeExplanation>n/d = Non determined because no Chl-a data with iode_guality_flag = 1 or because experiment only performed with nutrient addition (no control).</codeExplanation>
+            <code>NaN</code>
+            <codeExplanation>Not determined because no chl-a data with iode_guality_flag = 1 or because experiment only performed with nutrient addition (no control).</codeExplanation>
           </missingValueCode>
         </attribute>
         <attribute>
@@ -1049,8 +1018,8 @@ Oceanography: Methods 15, 794--809. https://doi.org/10.1002/lom3.10200&#13;
             </ratio>
           </measurementScale>
           <missingValueCode>
-            <code>n/d</code>
-            <codeExplanation>n/d = Non determined because g &lt; 0, which is a violation of dilution method's assumption.</codeExplanation>
+            <code>NaN</code>
+            <codeExplanation>Not determined because g &lt; 0, which is a violation of dilution method's assumption.</codeExplanation>
           </missingValueCode>
         </attribute>
         <attribute>
@@ -1072,13 +1041,13 @@ Oceanography: Methods 15, 794--809. https://doi.org/10.1002/lom3.10200&#13;
             </ratio>
           </measurementScale>
           <missingValueCode>
-            <code>n/d</code>
-            <codeExplanation>n/d = Non determined because g &lt; 0, which is a violation of dilution method's assumption.</codeExplanation>
+            <code>NaN</code>
+            <codeExplanation>Not determined because g &lt; 0, which is a violation of dilution method's assumption.</codeExplanation>
           </missingValueCode>
         </attribute>
         <attribute>
           <attributeName>mu_N</attributeName>
-          <attributeDefinition>Phytoplankton growth rate in nutrient-amended treatments (µN = g + kN, with kN = net growth rates in the 100% nutrient amended bottles). The presence of a value in the row indicates that the incubation (row) was nutrient limited</attributeDefinition>
+          <attributeDefinition>Phytoplankton growth rate in nutrient-amended treatments (µN = g + kN, with kN = net growth rates in the 100% nutrient-amended bottles). The presence of a value in the row indicates that the incubation (row) was nutrient-limited</attributeDefinition>
           <storageType>float</storageType>
           <measurementScale>
             <ratio>
@@ -1096,7 +1065,7 @@ Oceanography: Methods 15, 794--809. https://doi.org/10.1002/lom3.10200&#13;
           </measurementScale>
           <missingValueCode>
             <code>n/n</code>
-            <codeExplanation>n/n = Non nutrient limited, thus no value.</codeExplanation>
+            <codeExplanation>Not nutrient-limited, thus no value.</codeExplanation>
           </missingValueCode>
         </attribute>
         <attribute>
@@ -1119,7 +1088,7 @@ Oceanography: Methods 15, 794--809. https://doi.org/10.1002/lom3.10200&#13;
           </measurementScale>
           <missingValueCode>
             <code>n/n</code>
-            <codeExplanation>n/n = Non nutrient limited, thus no value.</codeExplanation>
+            <codeExplanation>Not nutrient-limited, thus no value.</codeExplanation>
           </missingValueCode>
         </attribute>
         <attribute>
