@@ -88,10 +88,10 @@
       <temporalCoverage>
         <rangeOfDates>
           <beginDate>
-            <calendarDate>2018-01-31 19:44:59</calendarDate>
+            <calendarDate>2018-01-31</calendarDate>
           </beginDate>
           <endDate>
-            <calendarDate>2022-08-02 03:47:49</calendarDate>
+            <calendarDate>2022-08-02</calendarDate>
           </endDate>
         </rangeOfDates>
       </temporalCoverage>
@@ -484,8 +484,8 @@ Oceanography: Methods 15, 794--809. https://doi.org/10.1002/lom3.10200&#13;
       <entityDescription>Phytoplankton growth and microzooplankton grazing rates with size-fractionated chlorophyll concentration</entityDescription>
       <physical>
         <objectName>nes-lter-growth-grazing-chl.csv</objectName>
-        <size unit="bytes">87681</size>
-        <authentication method="MD5">c3ba5ef1b042c55f5f1365e4abb24b66</authentication>
+        <size unit="bytes">88813</size>
+        <authentication method="MD5">4c6768ab1866038a10c30a0f95ee1beb</authentication>
         <dataFormat>
           <textFormat>
             <numHeaderLines>1</numHeaderLines>
@@ -560,7 +560,7 @@ Oceanography: Methods 15, 794--809. https://doi.org/10.1002/lom3.10200&#13;
           <storageType>date</storageType>
           <measurementScale>
             <dateTime>
-              <formatString>YYYY-MM-DD hh:mm:ss</formatString>
+              <formatString>YYYY-MM-DD hh:mm:ss+hh:mm</formatString>
               <dateTimeDomain/>
             </dateTime>
           </measurementScale>
@@ -571,7 +571,7 @@ Oceanography: Methods 15, 794--809. https://doi.org/10.1002/lom3.10200&#13;
           <storageType>date</storageType>
           <measurementScale>
             <dateTime>
-              <formatString>YYYY-MM-DD hh:mm:ss</formatString>
+              <formatString>YYYY-MM-DD hh:mm:ss+hh:mm</formatString>
               <dateTimeDomain/>
             </dateTime>
           </measurementScale>
@@ -582,7 +582,7 @@ Oceanography: Methods 15, 794--809. https://doi.org/10.1002/lom3.10200&#13;
           <storageType>date</storageType>
           <measurementScale>
             <dateTime>
-              <formatString>YYYY-MM-DD hh:mm:ss</formatString>
+              <formatString>YYYY-MM-DD hh:mm:ss+hh:mm</formatString>
               <dateTimeDomain/>
             </dateTime>
           </measurementScale>

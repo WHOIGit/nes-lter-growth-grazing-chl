@@ -16,33 +16,17 @@ knitr::opts_chunk$set(message = FALSE, warning = FALSE)
 library(EMLassemblyline)
 library(ediutilities)
 library(here)
-library(lubridate)
-library(tidyverse)
-require(readxl)
-require(lubridate)
-require(devtools)
-require(EML)
-require(maps)
-require(xml2)
+#library(tidyverse)
+library(EML)
+library(xml2)
 
 ```
 
-## Preparing Provided Data for EDI
+## Read in Data Table
 
 ```{r}
 
-edi_filename <- "nes-lter-growth-grazing-chl"
-
-# set filename to variable
-grazing_data <- read_csv("NES-LTER-chla-grazing-experiments-rates-qc-noquote.csv")
-
-#write_csv(grazing_data, paste0(edi_filename, ".csv"))
-# this inserts T and Z into datetime format
-
-write.csv(grazing_data, paste0(edi_filename, ".csv"), row.names = FALSE)
-
 grazing_data <- read_csv("nes-lter-growth-grazing-chl.csv")
-
 
 ```
 ## QA: Map Sampling Locations
@@ -69,6 +53,7 @@ Step 4: Inserting a custom NES-LTER parent project node
 ```{r}
 
 # define input files
+edi_filename <- "nes-lter-growth-grazing-chl"
 metadata <- "nes-lter-growth-grazing-chl-info"
 pkg_id <- "knb-lter-nes.5.2"
 
@@ -78,8 +63,8 @@ excel_to_template(here(metadata), edi_filename, rights='CCBY', file_type=".md")
 
 # Data Coverage
 # isolate date and geospatial columns for input
-#date_col <- as.Date(grazing_data$date_time_UTC)
-date_col <- grazing_data$date_time_utc_sampling
+date_col <- as.Date(grazing_data$date_time_utc_sampling)
+#date_col <- grazing_data$date_time_utc_sampling
 lat_col <- grazing_data$latitude
 lon_col <- grazing_data$longitude
 # run function to determine geospatial and temporal coverage
@@ -100,17 +85,8 @@ make_eml(here(),
          user.domain = "LTER",
          package.id = pkg_id)
 
-#  other.entity.description = c("Temperature and light intensity recorded during the incubation experiments with one .csv file per tank including dateTime in UTC, temperature (C) in the incubation tank, and light (lux) in the incubation tank, with a time step of 5 min."),
-
 project_insert(pkg_id, filename='parent_project_RAPID.txt')
 
 ```
 
-## Check for issues
-
-```{r}
-
-issues()
-
-```
 
