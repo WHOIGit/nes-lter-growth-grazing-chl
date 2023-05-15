@@ -26,7 +26,7 @@ library(xml2)
 
 ```{r}
 
-grazing_data <- read_csv("nes-lter-growth-grazing-chl.csv")
+grazing_data <- read.csv("nes-lter-growth-grazing-chl.csv")
 
 ```
 ## QA: Map Sampling Locations
