@@ -17,6 +17,7 @@ library(EMLassemblyline)
 library(ediutilities)
 library(here)
 #library(tidyverse)
+library(readr)
 library(EML)
 library(xml2)
 
@@ -26,7 +27,7 @@ library(xml2)
 
 ```{r}
 
-grazing_data <- read.csv("nes-lter-growth-grazing-chl.csv")
+grazing_data <- read_csv("nes-lter-growth-grazing-chl.csv")
 
 ```
 ## QA: Map Sampling Locations
@@ -38,6 +39,18 @@ Call the map_locs function from ediutilities to map the sampling locations. Perf
 # Map Check
 map_locs(df = grazing_data, xvar = "longitude", yvar = "latitude",
          region = "transect", colorvar = "cruise")
+
+```
+## Generate basic summary of data table
+
+```{r}
+# Just for inspecting the summary: change all character columns to factor
+DF <- grazing_data
+DF[sapply(DF, is.character)] <- lapply(DF[sapply(DF, is.character)], as.factor)
+summary(DF)
+
+unique(DF$cruise)
+unique(DF$station)
 
 ```
 
