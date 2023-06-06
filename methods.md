@@ -7,21 +7,21 @@ collected for the experiments reported in the data table are averaged from bottl
 
 # Experimental Set-Up
 
-Rates of phytoplankton growth and microzooplankton grazing were quantified using a 2-point modification of the dilution method (Morison and Menden-Deuer, 2017). Whole seawater (WSW) was gently transferred from a Niskin to a 10-L polycarbonate carboy through a 200-µm mesh to remove mesozooplankton predators (e.g.copepods). During summer 2021 (EN668), some extra experiments were performed by screening the water sample through a 10-µm mesh (>0&<10sf code for filtration type in the tables) to remove large microzooplankton grazers. During winter 2019, an experiment was made without screening the water through a 200-µm (>0 code for filtration type in the tables) mesh to study the potential impact of screening.
+Rates of phytoplankton growth and microzooplankton grazing were quantified using a 2-point modification of the dilution method (Morison and Menden-Deuer, 2017). Whole seawater (WSW) was gently transferred from a Niskin to a 10-L polycarbonate carboy through a 200-µm mesh to remove mesozooplankton predators (e.g. copepods). During summer 2021 (EN668), some extra experiments were performed by screening the water sample through a 10-µm mesh (>0&<10sf code for filtration type in the tables) to remove large microzooplankton grazers. During winter 2019, an experiment was made without screening the water through a 200-µm (>0 code for filtration type in the tables) mesh to study the potential impact of screening.
 
-Diluent was prepared by gravity filtration through a 0.2-µm membrane filter capsule (PALL) from the Niskin to the carboys. The appropriate amount of WSW was added to the filtered water to obtain an approximate 20 percent WSW dilution (20WSW). The effective dilution level was calculated from the ratio of the initial chlorophyll-a (chl-a) concentration in the 20WSW diluted treatment to the initial chl-a concentration in the WSW treatment.The carboys were covered by black trash bags and gently mixed while water was siphoned into duplicate 1.2-L clear polycarbonate bottles. To ensure the gross growth rate of the phytoplankton was not dependent upon dilution, a central assumption of the dilution method (Landry and Hasset, 1982), incubation bottles were amended with macronutrients (10 µM SiO4, 10 µM NO3, 1 µM PO4). An additional set of WSW bottles without additional nutrients was added to assess nutrient limitation or toxicity effects. For each dilution (20WSW and WSW), nutrient (nutrient amended and without nutrient), and light (high and low light, see below) treatment, incubation bottles were duplicated.
+Diluent was prepared by gravity filtration through a 0.2-µm membrane filter capsule (PALL) from the Niskin to the carboys. The appropriate amount of WSW was added to the filtered water to obtain an approximate 20 percent WSW dilution (20WSW). The effective dilution level was calculated from the ratio of the initial chlorophyll-a (chl-a) concentration in the 20WSW diluted treatment to the initial chl-a concentration in the WSW treatment.The carboys were covered by black trash bags and gently mixed while water was siphoned into duplicate 1.2-L clear polycarbonate bottles. To ensure the gross growth rate of the phytoplankton was not dependent upon dilution, a central assumption of the dilution method (Landry and Hasset, 1982), incubation bottles were amended with macronutrients (10 µM SiO4, 10 µM NO3, 1 µM PO4). An additional set of WSW bottles without additional nutrients was added to assess nutrient limitation or toxicity effects. For each dilution (20WSW and WSW), nutrient treatment (nutrient amended and without nutrient), and light treatment (as percent of available light, see below), incubation bottles were collected in duplicate (in triplicate on cruise EN687, summer 2022).
 
-Bottles were incubated for 24 h in a clear, deck-board, flow-through, 1-m3 incubator. Surface water was incubated at two light levels that simulated the contrasting light conditions (e.g. sunny/cloudy weather, well-mixed/stratified water column) under which phytoplankton could be growing in the surface ocean. On cruise EN668 (summer 2021), surface water was incubated only at a 65 percent light level, which simulated the in situ light conditions. Water sampled at deeper depths (not surface) was incubated at lower light levels, which simulated the light conditions at these depths. Mesh bags were used to create High Light (HL) and Low Light (LL) treatments that simulated 100/65 percent and 30/15/5/3/1 percent of light attenuation. The incubator was free of overhead obstructions to avoid shading during the day and covered by a tarp at night to minimize light pollution from deck lighting. Natural movement of the ship kept the bottles in the incubator agitated over the incubation period. Temperature within the incubators was maintained equivalent to current surface temperature through continuous flow-through from the ship seawater system. Temperature and light in the incubators were monitored at 5-minute intervals with a Hobo (Onset) data logger. Temperature (°C) and light (lux) measurements recorded during each of the incubation experiments are available in .csv files in the data package other entity .zip file. 
+Bottles were incubated for 24 h in a clear, deck-board, flow-through, 1-m3 incubator. During some cruises, surface water was incubated at different light levels to simulate the contrasting light conditions (e.g. sunny/cloudy weather, well-mixed/stratified water column) under which phytoplankton could be growing in the surface ocean and to study the effect of light on phytoplankton growth and microzooplankton grazing rates. Beginning with cruise EN668 (summer 2021), surface water was incubated only at a 65 percent light level, which simulated the in situ light conditions. Water sampled at deeper depths (not surface) was incubated at lower light levels, which simulated the light conditions at these depths. Mesh bags were used to create the different light treatments. The incubator was free of overhead obstructions to avoid shading during the day and covered by a tarp at night to minimize light pollution from deck lighting. Natural movement of the ship kept the bottles in the incubator agitated over the incubation period. Temperature within the incubators was maintained equivalent to current surface temperature through continuous flow-through from the ship seawater system. Beginning with cruise EN655 (summer 2021), chillers were used in some tanks to get better temperature control during the incubation and to better reproduce the temperature conditions observed at deeper depths. Temperature and light in the incubators were monitored at 5-minute intervals with a Hobo (Onset) data logger. Temperature (°C) and light (lux) measurements recorded during each of the incubation experiments are available in .csv files in the data package other entity .zip file. 
 
 # Phytoplankton Growth and Protist Grazing Rate Estimates
 
-Initial (T0) chlorophyll-a (chl-a) concentration was determined from triplicate 120-150 mL subsamples from carboys used to fill incubation bottles. Final chl-a concentration (TF) was determined from triplicate 120-150 mL subsamples from bottles at the end of the incubation. The extraction method followed Graff and Rynearson (2011) except here we used 95 percent ethanol as a solvent (Jespersen and Christoffersen, 1987). Extracted chl-a concentration was determined using a Turner AU10 fluorometer after a 12-h extraction period. In addition, the size structure of the initial phytoplankton community was characterized from T0 triplicate size-fractionated chl-a samples (greater than 0.7 µm GF/F, greater than 5 µm, greater than 10 µm, and greater than 20 µm). At TF, size-fractionated chl-a concentration at 10 µm were also measured for 20WSW, WSW without nutrient addition and WSW nutrient-amended bottles. During 2018 cruises (EN608 and EN617) and during winter 2019 cruise (EN627) size fractionation at 10 µm was performed only on nutrient amended samples. 
+Initial (T0) chlorophyll-a (chl-a) concentration was determined from triplicate 120-150 mL subsamples from carboys used to fill incubation bottles. Final chl-a concentration (TF) was determined from triplicate 120-150 mL subsamples from bottles at the end of the incubation. The extraction method followed Graff and Rynearson (2011) except here we used 95 percent ethanol as a solvent (Jespersen and Christoffersen, 1987). Extracted chl-a concentration was determined using a Turner AU10 fluorometer after a 12-h extraction period. In addition, the size structure of the initial phytoplankton community was characterized from T0 triplicate size-fractionated chl-a samples (greater than 0.7 µm GF/F and greater than 10 µm). At TF, size-fractionated chl-a concentration at 10 µm were also measured for 20WSW, WSW without nutrient addition and WSW nutrient-amended bottles. During 2018 cruises (EN608 and EN617) and during winter 2019 cruise (EN627) size fractionation at 10 µm was performed only on nutrient amended samples. 
 
 Phytoplankton growth rates and protist grazing rates were estimated from 24-h changes in chl-a concentration. For each incubation bottle, the apparent growth rates (k, 1/d) were calculated as: 
 
 k=1⁄t×ln(C\_t⁄C\_0)
 
-where t is the incubation time (d) and C\_t and C\_0 the final and initial chl-a concentration (µg/L), respectively.
+where t is the incubation time (d) and C\_t and C\_0 the final and initial chl-a concentration (mg/m^3), respectively.
 
 Protist grazing rates (g, 1/d) were estimated with the equation:
 
@@ -35,7 +35,7 @@ where k_NoN is apparent phytoplankton growth rate k without nutrient addition.
 
 The potential for nutrient limitation was assessed by comparing apparent phytoplankton growth rate k in nutrient-amended (k\_N) and nonamended (k\_NoN) replicates using a paired t-test. If a significant difference was found (p below 0.05) between k\_N and k\_NoN, nutrient-amended growth rates (mu\_N, 1/d) were also calculated as mu\_N = g + k\_N. Otherwise, all k\_N and k\_NoN triplicate of replicate values were used to calculate both g and mu\_0.
 
-Since size fractionation at 10 µm was performed only on nutrient-amended samples, growth rates reported on greater than 10 µm and less than 10 µm fractions in this study were nutrient-amended growth rates (mu\_N) when nutrient limitation was observed. If no nutrient limitation was observed, mu\_N obtained is equivalent to mu_0.
+Since size fractionation at 10 µm was performed only on nutrient-amended samples during cruises EN608, EN617, and EN627, growth rates reported on greater than 10 µm and less than 10 µm fractions in this study were nutrient-amended growth rates (mu\_N) when nutrient limitation was observed. If no nutrient limitation was observed, mu\_N obtained is equivalent to mu_0.
 
 The uncertainty of g estimates was quantified using the standard error of the slope fit from a linear regression between replicate k values and dilution levels. When the slope obtained was not significantly different from zero (p higher than 0.05), g was set to 0. Thus, the average k\_N represented mu\_N and the average k\_NoN represented mu\_0 (Murrell et al., 2002; Chen et al. 2009). A significant positive slope (i.e. higher growth in the WSW treatment than in the diluted) represents a violation of the method's assumption. In such cases, g was reported as undetermined, and k in the undiluted bottles represented mu\_N and mu\_0. Uncertainties relative to mu\_N and mu\_0 were estimated from the standard deviations observed on k\_N and k\_NoN triplicate values.
 
@@ -76,7 +76,7 @@ Inputs: CRUISE-chl-grazing-experiments-raw.csv files with Fo, Fa, blank values a
 
 Outputs: CRUISE-chla-grazing-experiments-chl-calc.csv files stored in the chl-grazing-experiment-chl-calc folder
 
-## Chl-a Quality Check
+## Chl-a quality check
 
 The chl\_grazing\_experiment\_fofa\_cleaning.m Matlab script is used to perform the 1st step of data quality check (aka cleaning). This first step is based on 2 criteria:
 1.	Fo/Fa within 1-3 range,
@@ -112,7 +112,7 @@ Create a new table for each cruise gathering all the calculated k-values (appare
 The duration of each incubation is calculated from the date\_time\_utc\_end and the date\_time\_utc\_start for each experiment.
 All the triplicate T0 Chl-a conc are calculated (only those with iode\_quality\_flag = 1).
 T0 WSW mean Chla (Total = Chla, >10um = Chlau10, <10um = Chlad10) are reported in the new table, in addition to the % of Chl-a </>10um (Chlad10per and Chlau10per). Chlad10 = Chla - Chlau10. If Chlad10 < 0, Chlad10 = 0, Chlad10per = 0% and Chlau10per = 100%.
-k are calculated from each TF value. Up to 6 k values are then obtained for each treatment (dilution/nutrient/light) and filter type (>0&<200, >10&<200, >0 and >0&<10).
+k are calculated from each TF value. Up to 6 k values are then obtained for each treatment (dilution/nutrient/light) and filter type (>0&<200, >10&<200, >0 and >0&<10). Note that from cruise EN687 onward, up to 9 k values were obtained for 20WSW and WSW+N treatments (triplicate incubation bottles a, b, and c).
 
 Based on >0&200 (GFF) and >10&<200 (10um filters, u10 = up 10), >0&<10 (d10 = down 10) Chl-a values and then corresponding k values are calculated. For each triplicate, Chl-a d10 tripilcate values are calculated as the difference between the mean Chl-a value on >0&<200 and individual triplicate Chl-a values of >10&<200. Only data with QC = 1 are considered. If Chl-a d10 <0, then Chl-a conc and k are set to NaN.
 
@@ -124,7 +124,7 @@ Outputs: CRUISE-chla-grazing-experiments-k-values.csv files.
 
 The chl-grazing\_experiment\_rates.m Matlab script is used to compute phytoplankton growth rates (mu0), microzooplankton grazing rates (g), apparent growth rates in nonamended nutrient treatment (wsw NoN, kNoN) and phytoplankton growth rates in nutrient-amended treatments (muN = g + kN). Associated errors (std) were estimated for all these rates. Note that kNoN and muN were estimated only when there was apparent nutrient limitation.
 
-Create a new table for each cruise gathering all the calculated rates for each treatment and filter type from the k (apparent growth rates) values and the associated data and metadata.
+A new table for each cruise gathering all the calculated rates for each treatment and filter type from the k (apparent growth rates) values and the associated data and metadata was created.
 
 Phytoplankton growth rates and protist grazing rates were estimated from 24-h changes in Chl-a concentration. For each incubation bottle, the apparent growth rates (k, 1/d) were calculated as:
 
@@ -184,18 +184,22 @@ Output: NES-LTER-chla-grazing-experiments-rates-qc.csv file
 
 # Reuse of chlorophyll data
 
-Chlorophyll data in this package are re-used from the following package, which should be considered the authoritative source: 
+Chlorophyll data in this product are re-used from the NES chlorophyll transect rosette package (knb-lter-nes.8), which should be considered the authoritative source: 
 
 Sosik, H.M., T. Rynearson, S. Menden-Deuer, and OOI CGSN Data Team. 2021. Size-fractionated chlorophyll from water column bottle samples collected during NES-LTER Transect cruises, ongoing since 2017. ver 1. Environmental Data Initiative. https://doi.org/10.6073/pasta/798bda0e9ddfeba20f2266e64cf4dd40 (Accessed 2023-05-11).
 
-# Data Package Assembly
+The most recent version of the chlorophyll transect rosette package can be found here: https://portal.edirepository.org/nis/mapbrowse?scope=knb-lter-nes&identifier=8
+
+Columns Chla and Chlau10 in this growth and grazing product are equivalent to the average of chl replicates for size fractions >0&<200 and >10&<200 in the chlorophyll transect rosette package. Note that in this growth and grazing product, chlorophyll values are repeated for all rows of each station. 
+
+# Data package assembly
 
 Package assembly was performed in R Markdown. Further documentation can be found on GitHub, at
 https://github.com/WHOIGit/nes-lter-growth-grazing-chl.
 
-# Quality Assurance
+# Quality assurance
 
-We assured that all geographic (latitude, longitude, depth, station) and temporal (date\_time\_utc_sampling) values, as well as other metadata (cast, Niskin, temperature_sampling) were as expected.
+We assured that all geographic (latitude, longitude, depth, station) and temporal (date\_time\_utc\_sampling) values, as well as other metadata (cast, Niskin, temperature_sampling) were as expected, and that chlorophyll values matched those contributed to the forthcoming version 2 of the chlorophyll transect rosette product mentioned above.
 
 # Differences from previous version
 
@@ -241,7 +245,7 @@ Landry, M.R., Hassett, R.P., 1982. Estimating the grazing impact of
 marine micro-zooplankton. Marine Biology 67, 283--288.
 https://doi.org/10.1007/BF00397668
 
-Landry, M., Haas, L., Fagerness, V., 1984. Dynamics of microbial
+Landry, M.R., Haas, L.W., Fagerness, V.L., 1984. Dynamics of microbial
 plankton communities: experiments in Kaneohe Bay, Hawaii. Marine Ecology
 Progress Series 16, 127--133. https://doi.org/10.3354/meps016127
 

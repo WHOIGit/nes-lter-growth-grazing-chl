@@ -16,7 +16,7 @@ knitr::opts_chunk$set(message = FALSE, warning = FALSE)
 library(EMLassemblyline)
 library(ediutilities)
 library(here)
-#library(tidyverse)
+library(tidyverse)
 library(readr)
 library(EML)
 library(xml2)
@@ -53,6 +53,45 @@ unique(DF$cruise)
 unique(DF$station)
 
 ```
+## Compare to chlorophyll transect rosette data
+
+```{r} 
+
+chlor <- read_csv("NES-LTER-chla-T0-SMD.csv")
+
+chl_avg <- chlor %>%
+group_by(cruise, cast, niskin, filter_size) %>%
+  summarise(chl = mean(chl)) %>%
+  mutate(chl = round(chl, 2))
+
+grazing_chl <- left_join(grazing_data, chl_avg, by = c("cruise", "cast", "niskin", "size_fraction" = "filter_size"))
+
+grazing_chl <- grazing_chl %>%
+  select(-date_time_utc_start, -date_time_utc_end, -temperature_incubation_avg, -temperature_incubation_std, -duration_incubation, -dilution, -mu_0, -mu_0_std, -mu_N, -mu_N_std, -grazing, -grazing_std, -iode_quality_flag)  %>% 
+  mutate(chl_diff = Chla - chl) 
+
+ggplot(grazing_chl, aes(x=as.factor(size_fraction), y=chl, color = "chlorophyll")) + 
+  geom_boxplot() + xlab('size_fraction') + geom_boxplot(aes(x = as.factor(size_fraction), y = Chla, color = "grazing"))
+
+ggplot(grazing_chl, aes(x=as.factor(size_fraction), y=Chla)) + 
+  geom_boxplot() + xlab('size_fraction')
+ggsave("grazing-chl-by-filter-size.png")
+
+ggplot(grazing_chl, aes(x=as.factor(size_fraction), y=chl)) + 
+  geom_boxplot() + xlab('size_fraction')
+ggsave("chl-chl-by-filter-size.png")
+
+summary(grazing_chl)
+
+chl_diff_summary <- grazing_chl %>%
+group_by(size_fraction) %>%
+  summarise(chl_diff_mean = mean(chl_diff), 
+            chl_diff_min = min(chl_diff),
+            chl_diff_max = max(chl_diff)) 
+
+
+```
+
 
 ## EML Assembly
 
