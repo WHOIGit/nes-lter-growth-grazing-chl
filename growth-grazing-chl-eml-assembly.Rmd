@@ -27,7 +27,14 @@ library(xml2)
 
 ```{r}
 
-grazing_data <- read_csv("nes-lter-growth-grazing-chl.csv")
+grazing_data <- read_csv("NES-LTER-chla-grazing-experiments-rates-qc-noquote.csv")
+
+grazing_data$mu_N <- as.numeric(grazing_data$mu_N)
+grazing_data$mu_N_std <- as.numeric(grazing_data$mu_N_std)
+
+# write csv with missing values as NaN
+write.csv(grazing_data, here("nes-lter-growth-grazing-chl.csv"), na = "NaN", row.names = FALSE)
+#write_csv(grazing_data, here("nes-lter-growth-grazing-chl.csv"), na = "NaN")
 
 ```
 ## QA: Map Sampling Locations
