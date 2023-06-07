@@ -182,6 +182,10 @@ Input: NES-LTER-chla-grazing-experiments-rates.csv file
 
 Output: NES-LTER-chla-grazing-experiments-rates-qc.csv file
 
+## Note about missing value codes
+
+As documented in the data table column descriptions, the meaning of a missing value differs by column. For the chlorophyll columns, a missing value indicates that chlorophyll sample data are not available. For mu\_0 and mu\_0_std, a missing value results when mu\_0 can not be determined due to lack of chlorophyll data with IODE guality flag = 1 or because the experiment was performed only with nutrient addition (no control). For grazing and grazing\_std, a missing value indicates the parameter is not determined because g < 0, which is a violation of the dilution method's assumption. For mu\_N and mu\_N\_std, a missing value indicates the experiment was not nutrient-limited.
+
 # Reuse of chlorophyll data
 
 Chlorophyll data in this product are re-used from the NES chlorophyll transect rosette package (knb-lter-nes.8), which should be considered the authoritative source: 
@@ -217,8 +221,8 @@ In Version 2:
   | date\_time\_UTC | date_time\_utc\_sampling |
   | temp | temperature_sampling |
   | light\_treatment | light\_level |
-  | mu_N_Std | mu_N_std |
-  | grazing_N_Std | grazing_N_std |
+  | mu\_N\_Std | mu\_N\_std |
+  | grazing\_N\_Std | grazing\_N\_std |
   
 
 

@@ -40,7 +40,7 @@
       <userId directory="https://orcid.org">https://orcid.org/0000-0002-2903-5851</userId>
       <role>metadata Provider</role>
     </associatedParty>
-    <pubDate>2023-06-06</pubDate>
+    <pubDate>2023-06-07</pubDate>
     <abstract>
       <para>Phytoplankton growth and microzooplankton grazing rates were measured from incubation experiments using the dilution method in the framework of the Northeast U.S. Shelf Long-Term Ecological Research project. The data set gathers plankton population dynamics rates obtained during 12 cruises from winter 2018 (EN608) to summer 2022 (EN687) along a north/south transect from Martha’s Vineyard to the shelf-break. Phytoplankton growth and microzooplankton grazing rates were measured for the total phytoplankton community (chl-a concentrations) and for size fractions (chl-a size fractionation) less than and greater than 10 µm. Phytoplankton growth and microzooplankton grazing rates, the first trophic interaction between primary producers and higher trophic levels, are essential parameters to assess the cycling and export of carbon in the ocean and to better understand marine food webs.</para>
     </abstract>
@@ -291,6 +291,10 @@ Input: NES-LTER-chla-grazing-experiments-rates.csv file&#13;
 &#13;
 Output: NES-LTER-chla-grazing-experiments-rates-qc.csv file&#13;
 &#13;
+## Note about missing value codes&#13;
+&#13;
+As documented in the data table column descriptions, the meaning of a missing value differs by column. For the chlorophyll columns, a missing value indicates that chlorophyll sample data are not available. For mu\_0 and mu\_0_std, a missing value results when mu\_0 can not be determined due to lack of chlorophyll data with IODE guality flag = 1 or because the experiment was performed only with nutrient addition (no control). For grazing and grazing\_std, a missing value indicates the parameter is not determined because g &lt; 0, which is a violation of the dilution method's assumption. For mu\_N and mu\_N\_std, a missing value indicates the experiment was not nutrient-limited.&#13;
+&#13;
 # Reuse of chlorophyll data&#13;
 &#13;
 Chlorophyll data in this product are re-used from the NES chlorophyll transect rosette package (knb-lter-nes.8), which should be considered the authoritative source: &#13;
@@ -326,8 +330,8 @@ In Version 2: &#13;
   | date\_time\_UTC | date_time\_utc\_sampling |&#13;
   | temp | temperature_sampling |&#13;
   | light\_treatment | light\_level |&#13;
-  | mu_N_Std | mu_N_std |&#13;
-  | grazing_N_Std | grazing_N_std |&#13;
+  | mu\_N\_Std | mu\_N\_std |&#13;
+  | grazing\_N\_Std | grazing\_N\_std |&#13;
   &#13;
 &#13;
 &#13;
