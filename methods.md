@@ -1,17 +1,14 @@
 # Sample Collection
 
-At each station, hydrographic data of depth and temperature were collected with an SBE911 (Seabird Electronics Inc.) CTD-rosette
-system. Seawater for the experiments was collected using multiple Niskin bottles and sometimes from different CTD
-casts at a given location. Cast and bottle numbers are reported in the data table. Depth and temperature values of the seawater
-collected for the experiments reported in the data table are averaged from bottle summary files produced with Seabird software onboard ship and have not been corrected to salts.
+At each station, hydrographic data of depth and temperature were collected with an SBE911 (Seabird Electronics Inc.) CTD-rosette system. Seawater for the experiments was collected using multiple Niskin bottles and sometimes from different CTD casts at a given location. Cast and bottle numbers are reported in the data table. Depth and temperature values of the seawater collected for the experiments reported in the data table are averaged from bottle summary files produced with Seabird software onboard ship and have not been corrected to salts.
 
 # Experimental Set-Up
 
-Rates of phytoplankton growth and microzooplankton grazing were quantified using a 2-point modification of the dilution method (Morison and Menden-Deuer, 2017). Whole seawater (WSW) was gently transferred from a Niskin to a 10-L polycarbonate carboy through a 200-µm mesh to remove mesozooplankton predators (e.g. copepods). During summer 2021 (EN668), some extra experiments were performed by screening the water sample through a 10-µm mesh (>0&<10sf code for filtration type in the tables) to remove microzooplankton grazers and investigate the role of heterotrophic nanoflagellates (5-10 µm). During winter 2019, an experiment was made without screening the water through a 200-µm (>0 code for filtration type in the tables) mesh to study the potential impact of screening.
+Rates of phytoplankton growth and microzooplankton grazing were quantified using a 2-point modification of the dilution method (Morison and Menden-Deuer, 2017). Whole seawater (WSW) was gently transferred from a Niskin to a 10-L polycarbonate carboy through a 200-µm mesh to remove mesozooplankton predators (e.g. copepods). In summer 2021 (EN668), additional experiments were performed by screening the sample water through a 10-µm mesh (>0&<10sf code for filtration type in the tables) to remove microzooplankton grazers and investigate the role of heterotrophic nanoflagellates (5-10 µm). In winter 2019 (EN627), one experiment omitted screening the water through a 200-µm mesh to study the potential impact of screening (>0 code for filtration type in the tables).
 
-Diluent was prepared by gravity filtration through a 0.2-µm membrane filter capsule (PALL) from the Niskin to the carboys. The appropriate amount of WSW was added to the filtered water to obtain an approximate 20 percent WSW dilution (20WSW). The effective dilution level was calculated from the ratio of the initial chlorophyll-a (chl-a) concentration in the 20WSW diluted treatment to the initial chl-a concentration in the WSW treatment.The carboys were covered by black trash bags and gently mixed while water was siphoned into duplicate 1.2-L clear polycarbonate bottles. To ensure the gross growth rate of the phytoplankton was not dependent upon dilution, a central assumption of the dilution method (Landry and Hasset, 1982), incubation bottles were amended with macronutrients (10 µM SiO4, 10 µM NO3, 1 µM PO4). An additional set of WSW bottles without additional nutrients was added to assess nutrient limitation or toxicity effects. For each dilution (20WSW and WSW), nutrient treatment (nutrient amended and without nutrient), and light treatment (as percent of available light, see below), incubation bottles were collected in duplicate (in triplicate on cruise EN687, summer 2022).
+Diluent was prepared by gravity filtration through a 0.2-µm membrane filter capsule (PALL) from the Niskin to the carboys. The appropriate amount of WSW was added to the filtered water to obtain an approximate 20 percent WSW dilution (20WSW). The effective dilution level was calculated from the ratio of the initial chlorophyll-a (chl-a) concentration in the 20WSW diluted treatment to the initial chl-a concentration in the WSW treatment. The carboys were light-protected by black trash bags and gently mixed while water was siphoned into duplicate 1.2-L clear polycarbonate bottles. To ensure the gross growth rate of the phytoplankton was not nutrient limited, a central assumption of the dilution method (Landry and Hasset, 1982), incubation bottles were amended with macronutrients (10 µM SiO4, 10 µM NO3, 1 µM PO4). An additional set of WSW bottles without additional nutrients was added to assess nutrient limitation or toxicity effects. For each dilution (20WSW and WSW), nutrient treatment (nutrient amended and without nutrient), and light treatment (as percent of available light, see below), incubation bottles were collected in duplicate (in triplicate on cruise EN687, summer 2022).
 
-Bottles were incubated for 24 h in a clear, deck-board, flow-through, 1-m^3 incubator. During some cruises, surface water was incubated at different light levels to simulate the contrasting light conditions (e.g. sunny/cloudy weather, well-mixed/stratified water column) under which phytoplankton could be growing in the surface ocean and to study the effect of light on phytoplankton growth and microzooplankton grazing rates. Beginning with cruise EN668 (summer 2021), surface water was incubated only at a 65 percent light level, which simulated the in situ light conditions. Water sampled at deeper depths (not surface) was incubated at lower light levels, which simulated the light conditions at these depths. Mesh bags were used to create the different light treatments. The incubator was free of overhead obstructions to avoid shading during the day and covered by a tarp at night to minimize light pollution from deck lighting. Natural movement of the ship kept the bottles in the incubator agitated over the incubation period. Temperature within the incubators was maintained equivalent to surface temperature through continuous flow-through from the ship seawater system. Beginning with cruise EN655 (summer 2021), chillers were used in some tanks to get better temperature control during the incubation and to better reproduce the temperature conditions observed at deeper depths. Temperature and light in the incubators were monitored at 5-minute intervals with a Hobo (Onset) data logger. Temperature (°C) and light (lux) measurements recorded during each of the incubation experiments are available in .csv files in the data package other entity .zip file. 
+Bottles were incubated for 24 h in clear, deck-board, flow-through, 1-m^3 incubators. During some cruises, surface water was incubated at different light levels to simulate the contrasting light conditions (e.g. sunny/cloudy weather, well-mixed/stratified water column) under which phytoplankton could be growing in the surface ocean and to study the effect of light on phytoplankton growth and microzooplankton grazing rates. Due to persistent lack of differences in growth as a function of the two light levels, the light treatment was omitted in later cruises. Beginning with cruise EN668 (summer 2021), surface water was incubated only at a 65 percent light level, which simulated the in situ light conditions. Water sampled at deeper depths (not surface) was incubated at lower light levels, which simulated the light conditions at these depths. Mesh bags were used to create the different light treatments. The incubator was free of overhead obstructions to avoid shading during the day and covered by a tarp at night to minimize light pollution from deck lighting. Natural movement of the ship kept the bottles in the incubator agitated over the incubation period. Temperature within the incubators was maintained equivalent to surface temperature through continuous flow-through from the ship seawater system. Beginning with cruise EN655 (summer 2020), chillers were used in some tanks to get better temperature control during the incubation and to better reproduce the temperature conditions observed at deeper depths. Temperature and light in the incubators were monitored at 5-minute intervals with a Hobo (Onset) data logger. Temperature (°C) and light (lux) measurements recorded during each of the incubation experiments are available in .csv files in the data package other entity .zip file. 
 
 # Phytoplankton Growth and Protist Grazing Rate Estimates
 
@@ -56,25 +53,13 @@ The raw fluorescence data for each cruise are stored in csv files in the "chl-gr
 
 The chl\_grazing\_experiment\_retrieve\_ctd\_data Matlab script is used to retrieve the date\_time\_utc\_sampling, latitude, longitude, depth, and temperature\_sampling directly and automatically from the CTD files stored in the REST-API.
 
-Inputs: CRUISE-chl-grazing-experiments-raw.csv files
-
-Outputs: CRUISE-chla-grazing-experiments-ctd-raw.csv files stored in the chl-grazing-experiment-ctd-raw folder
-
 ### Retrieving temperature during incubation
 
-The chl\_grazing\_experiment\_retrieve\_temp\_inc\_data.m Matlab script is used to retrieve the mean/std temperature in the tanks during dilution experiments. For each cast/depth, get the mean/std temperature recorded by the HOBO data loggers in the different tanks. Because of the lack of records in terms of which bottles in which tanks (there are up to 3 CRUISE\_temp\_inc_X.csv files for each cruise), the mean/std in each tank are retrieved and the values with the lowest temperature difference will be kept and saved automatically.
-
-Inputs: CRUISE-chl-grazing-experiments-ctd-raw.csv files and CRUISE\_temp\_inc_X.csv files
-
-Outputs: CRUISE-chla-grazing-experiments-temp-inc-raw.csv files.
+The chl\_grazing\_experiment\_retrieve\_temp\_inc\_data.m Matlab script is used to retrieve the mean/std temperature in the tanks during dilution experiments. For each it cast/depth, gets the mean/std temperature recorded by the HOBO data loggers in the different tanks. Because of the lack of records in terms of which bottles in which tanks (there are up to 3 CRUISE\_temp\_inc_X.csv files for each cruise), the mean/std in each tank are retrieved and the values with the lowest temperature difference will be kept and saved automatically. 
 
 ### Chl-a calculation
 
 The chl\_grazing\_experiment\_chl\_calc.m Matlab script is used to calculate the Chl-a and Phaeopigment concentrations, after calculation of Fo-blank, Fa-blank and Fo/Fa ratios.
-
-Inputs: CRUISE-chl-grazing-experiments-raw.csv files with Fo, Fa, blank values and calibration coefficients Fs and r
-
-Outputs: CRUISE-chla-grazing-experiments-chl-calc.csv files stored in the chl-grazing-experiment-chl-calc folder
 
 ### Chl-a quality check
 
@@ -83,58 +68,36 @@ The chl\_grazing\_experiment\_fofa\_cleaning.m Matlab script is used to perform 
 2.	Fo/Fa witihn +/- 2 StdDev confidence interval for a given type of filter 
 All the values that don't fit these criteria are flagged as questionable with a iode\_quality\_flag = 3. All the other values are flagged as good with a iode\_quality\_flag = 1
 
-Inputs: CRUISE-chl-grazing-experiments-chl-calc.csv files with Chl-a
-
-Outputs: CRUISE-chla-grazing-experiments-fo-fa-clean.csv files stored in the chl-grazing-experiment-fofa-clean folder
 
 The chl\_grazing\_experiment\_chl\_conc_clean.m Matlab script is used to perform the 2nd step of the cleaning based on the Chl-a concentrations. This second step is based on 2 criteria:
 1.	All negative Chl-a conc are flagged as questionable/suspect with iode\_quality\_flag = 3
-2.	For each station/depth/treatment/triplicate value: Each triplicate value should stand in the +/- 2 x %CV of the mean value of the triplicate with a QC flag = 1. %CV is considered as the mean %CV obtained on a given type of filter (GFF/10µm) at T0 and at TF. 
-All the values that don't fit these criteria are flagged as questionable with iode\_quality\_flag = 3. All the other values are flagged as good with iode\_quality\_flag = 1
+2.	For each station/depth/treatment/triplicate value: Each triplicate value should fall within 2 %CV of the mean value of the triplicate with a QC flag = 1. %CV is considered as the mean %CV obtained with a given type of filter (GFF/10µm) at T0 and at TF. 
+All the values that don't fit these criteria are flagged as questionable with iode\_quality\_flag = 3. All the other values are flagged as good with iode\_quality\_flag = 1.
 
-Input: CRUISE-chl-grazing-experiments-fofa-clean.csv files
-
-Outputs: CRUISE-chla-grazing-experiments-chl-conc-clean.csv files.
 
 The chl\_grazing\_experiment\_chl\_conc\_clean\_special.m Matlab script is to correct some T0 Chl-a concentration for few stations. In some cases (described below), the values of the T0 dil were missing, making the rates calculation impossible. In these case, the dilution values obtained from the other filters or from Flow-Cytometry (FCM) were used:
-1.	EN661 - L2: T0 dil >0&<200 (GFF) Chl-a conc values were way too high (>60%), while the dilution obtained from FCM and 10um filters gave the same dilution values = 23%. T0 dil >0&<200 Chl-a conc are then set as 23% of T0 wsw >0&<200 Chl-a conc.
-2.	EN668 - L6-D2: All T0 dil values (>0&<200, >10&<200 and >0&<10) were questionable with dilution ranging from 43% to 76%, while according to the FCM we had 20% dilution. T0 wsw >0&<200 values looks correct when compared to post-calibrated underway fluorescence. All the T0 wsw values are then considered good and are set as T0 dil = 20% T0 wsw.
+1.	EN661 - L2: T0 dil >0&<200 (GFF) Chl-a conc values were way too high (>60%), while the dilution obtained from FCM and 10um filters gave the same dilution values = 23%. T0 dil >0&<200 Chl-a conc are then set as 23% of T0 WSW >0&<200 Chl-a conc.
+2.	EN668 - L6-D2: All T0 dil values (>0&<200, >10&<200 and >0&<10) were questionable with dilution ranging from 43% to 76%, while according to the FCM we had 20% dilution. T0 WSW >0&<200 values looks correct when compared to post-calibrated underway fluorescence. All the T0 WSW values are then considered good and are set as T0 dil = 20% T0 WSW.
 
-Input: CRUISE-chl-grazing-experiments-chl-conc-clean.csv files
-
-Outputs: CRUISE-chla-grazing-experiments-clean.csv files.
 
 ### Apparent growth rates “k” calculation
 
 The chl\_grazing\_experiment\_k\_values.m Matlab script is used to compute the apparent growth rates k obtained during the dilution (grazing) experiments.
 
-Create a new table for each cruise gathering all the calculated k-values (apparent growth rates) for each treatment and filter type.
+It creates a new table for each cruise gathering all the calculated k-values (apparent growth rates) for each treatment and filter type.
 The duration of each incubation is calculated from the date\_time\_utc\_end and the date\_time\_utc\_start for each experiment.
-All the triplicate T0 Chl-a conc are calculated (only those with iode\_quality\_flag = 1).
-T0 WSW mean Chla (Total = Chla, >10um = Chlau10, <10um = Chlad10) are reported in the new table, in addition to the % of Chl-a </>10um (Chlad10per and Chlau10per). Chlad10 = Chla - Chlau10. If Chlad10 < 0, Chlad10 = 0, Chlad10per = 0% and Chlau10per = 100%.
+Mean T0 chl-a concentration is calculated from replicates with iode\_quality\_flag = 1. T0 WSW mean Chla (Total = Chla, >10um = Chlau10, <10um = Chlad10) are reported in the new table, in addition to the % of Chl-a </>10um (Chlad10per and Chlau10per). Chlad10 = Chla - Chlau10. If Chlad10 < 0, Chlad10 = 0, Chlad10per = 0% and Chlau10per = 100%.
 k are calculated from each TF value. Up to 6 k values are then obtained for each treatment (dilution/nutrient/light) and filter type (>0&<200, >10&<200, >0 and >0&<10). Note that from cruise EN687 onward, up to 9 k values were obtained for 20WSW and WSW+N treatments (triplicate incubation bottles a, b, and c).
 
 Based on >0&200 (GFF) and >10&<200 (10um filters, u10 = up 10), >0&<10 (d10 = down 10) Chl-a values and then corresponding k values are calculated. For each triplicate, Chl-a d10 tripilcate values are calculated as the difference between the mean Chl-a value on >0&<200 and individual triplicate Chl-a values of >10&<200. Only data with QC = 1 are considered. If Chl-a d10 <0, then Chl-a conc and k are set to NaN.
 
-Inputs: CRUISE-chl-grazing-experiments-clean.csv files
-
-Outputs: CRUISE-chla-grazing-experiments-k-values.csv files.
-
 ### Phytoplankton growth and microzooplankton grazing calculation
 
-The chl-grazing\_experiment\_rates.m Matlab script is used to compute phytoplankton growth rates (mu\_0), microzooplankton grazing rates (g; column 'grazing' in the product data table), apparent growth rates in nonamended nutrient treatment (wsw NoN, k\_NoN) and phytoplankton growth rates in nutrient-amended treatments (mu\_N = g + k\_N). Associated errors (std) were estimated for all these rates. Note that k\_NoN and mu\_N were estimated only when there was apparent nutrient limitation.
+The chl-grazing\_experiment\_rates.m Matlab script is used to compute phytoplankton growth rates (mu\_0), microzooplankton grazing rates (g; column 'grazing' in the product data table), apparent growth rates in nonamended nutrient treatment (WSW NoN, k\_NoN) and phytoplankton growth rates in nutrient-amended treatments (mu\_N = g + k\_N). Associated errors (std) were estimated for all these rates. Note that k\_NoN and mu\_N were estimated only when there was apparent nutrient limitation.
 
-A new table for each cruise gathering all the calculated rates for each treatment and filter type from the k (apparent growth rates) values and the associated data and metadata was created.
-
-Input: CRUISE-chl-grazing-experiments-k-values.csv files
-
-Outputs: CRUISE-chla-grazing-experiments-rates.csv files
+A new table for each cruise gathering all the calculated rates for each treatment and filter type from the k (apparent growth rates) values and the associated data and metadata is created.
 
 The chl\_grazing\_experiment\_concatenate\_order_rates.m Matlab script is used to concatenate the CRUISE rate table to get one final table with all the cruises together and reorganize the table by cruise, inverse latitude (station nb), and size fraction. 
-
-Input: CRUISE-chl-grazing-experiments-rates.csv files
-
-Outputs: NES-LTER-chla-grazing-experiments-rates.csv file
 
 The chl\_grazing\_experiment\_rates\_QC.m Matlab file is used to Quality Check (QC) and rename some values of the rate data based on the following criteria:
 1.	Change grazing rates < 0 (and g_std) to n/d
@@ -145,10 +108,6 @@ The chl\_grazing\_experiment\_rates\_QC.m Matlab file is used to Quality Check (
 6.	If dilution (dilution level for the dilution experiment) > 0.4 (40%), iode\_quality\_flag = 3 (questionable). The optimal dilution level for the 2-points method is <40% (Morison and Menden-Deuer, 2017)
 7.	If Chlad10 (>0&<10 µm) or Chlau10 (>10&<200 µm) concentrations are < 0.02 mg/m^3, the rates for these size fractions are considered questionable (iode\_quality\_flag = 3)
 8.	If Chlad10per (<10um) or Chlau10per (>10um) relative contribution to total Chl-a are < 0.02 (2%), the rates for these size fractions are considered questionable (iode\_quality\_flag = 3)
-
-Input: NES-LTER-chla-grazing-experiments-rates.csv file
-
-Output: NES-LTER-chla-grazing-experiments-rates-qc.csv file
 
 ### Note about missing value codes
 

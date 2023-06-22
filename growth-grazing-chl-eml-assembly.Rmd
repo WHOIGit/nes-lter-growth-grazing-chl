@@ -130,9 +130,9 @@ coverage <- data_coverage(dates = date_col, lat = lat_col, lon = lon_col)
 
 # Make EML
 make_eml(here(),
-         dataset.title = "Phytoplankton growth and microzooplankton grazing rates from NES-LTER transect cruises, ongoing since 2017.",
+         dataset.title = "Phytoplankton growth and microzooplankton grazing rates from NES-LTER transect cruises, ongoing since 2018.",
          data.table = paste0(edi_filename, ".csv"),
-         data.table.description = "Phytoplankton growth and microzooplankton grazing rates with size-fractionated chlorophyll concentration",
+         data.table.description = "Phytoplankton growth and microzooplankton grazing rates with size-fractionated chlorophyll-a concentration",
          other.entity = c("chl-grazing-experiment-temp-inc-data.zip"),
          other.entity.description = c("Temperature and light intensity recorded during the incubation experiments"),
          temporal.coverage = c(coverage$startdate, coverage$enddate),
