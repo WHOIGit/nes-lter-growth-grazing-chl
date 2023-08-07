@@ -70,6 +70,7 @@ group_by(cruise, cast, niskin, filter_size) %>%
   summarise(chl = mean(chl)) %>%
   mutate(chl = round(chl, 2))
 
+# perhaps helpful to group grazing_data and remove rows with duplicate chl data before this step
 grazing_chl <- left_join(grazing_data, chl_avg, by = c("cruise", "cast", "niskin", "size_fraction" = "filter_size"))
 
 grazing_chl <- grazing_chl %>%
@@ -132,9 +133,9 @@ coverage <- data_coverage(dates = date_col, lat = lat_col, lon = lon_col)
 make_eml(here(),
          dataset.title = "Phytoplankton growth and microzooplankton grazing rates from NES-LTER transect cruises, ongoing since 2018.",
          data.table = paste0(edi_filename, ".csv"),
-         data.table.description = "Phytoplankton growth and microzooplankton grazing rates with size-fractionated chlorophyll-a concentration",
+         data.table.description = "Phytoplankton growth and microzooplankton grazing rates with size-fractionated chlorophyll-a concentration and associated data (location, depth, in situ temperature)",
          other.entity = c("chl-grazing-experiment-temp-inc-data.zip"),
-         other.entity.description = c("Temperature and light intensity recorded during the incubation experiments"),
+         other.entity.description = c("Temperature and light intensity records during the rate measurement experiments"),
          temporal.coverage = c(coverage$startdate, coverage$enddate),
          geographic.description = "NES-LTER Transect",
          geographic.coordinates = c(coverage$North, coverage$East, coverage$South, coverage$West),
