@@ -38,7 +38,7 @@ The uncertainty of g was quantified from the mean standard deviation of k\_dil, 
 
 # Data Processing
 
-Procedures for retrieving CTD and incubation temperature and light data as well as for quality-controlling chlorophyll data are documented at: <https://github.com/pmarrec/nes-lter-chl-cleaning> Raw data are included in this repo.
+Procedures for retrieving CTD and incubation temperature and light data as well as for quality-controlling chlorophyll data are documented at: <https://github.com/pmarrec/nes-lter-chl-cleaning>. Raw data are included in this repo.
 
 Calculation of the growth and grazing rates is documented here: <https://github.com/pmarrec/nes-lter-rate-calculation-chl>
 
@@ -72,7 +72,7 @@ The chl\_grazing\_experiment\_chl\_conc\_clean\_special.m Matlab script is to co
 
 The chl\_grazing\_experiment\_k\_values.m Matlab script is used to compute the apparent growth rates k obtained during the dilution (grazing) experiments.
 
-It creates a new table for each cruise gathering all the calculated k-values (apparent growth rates) for each treatment and filter type. The duration of each incubation is calculated from the date\_time\_utc\_end and the date\_time\_utc\_start for each experiment. Mean T0 chl-a concentration is calculated from replicates with iode\_quality\_flag = 1. T0 WSW mean Chla (Total = Chla, >10um = Chlau10, <10um = Chlad10) are reported in the new table, in addition to the % of Chl-a </>10um (Chlad10per and Chlau10per). Chlad10 = Chla - Chlau10. If Chlad10 < 0, Chlad10 = 0, Chlad10per = 0% and Chlau10per = 100%. k are calculated from each TF value. Up to 6 k values are then obtained for each treatment (dilution/nutrient/light) and filter type (>0&<200, >10&<200, >0 and >0&<10). Note that from cruise EN687 onward, up to 9 k values were obtained for 20WSW and WSW+N treatments because of the addition of another replicate bottle to achieve triplicate incubation bottles (a, b, and c).
+It creates a new table for each cruise gathering all the calculated k-values (apparent growth rates) for each treatment and filter type. The duration of each incubation is calculated from the date\_time\_utc\_end and the date\_time\_utc\_start for each experiment. Mean T0 chl-a concentration is calculated from replicates with iode\_quality\_flag = 1. T0 WSW mean Chla (Total = Chla, >10um = Chlau10, <10um = Chlad10) are reported in the new table, in addition to the % of Chl-a </>10um (Chlad10per and Chlau10per). Chlad10 = Chla - Chlau10. If Chlad10 < 0, Chlad10 = 0, Chlad10per = 0% and Chlau10per = 100%. k are calculated from each TF value. Up to 6 k values are then obtained for each treatment (dilution/nutrient/light) and filter type (>0&<200, >10&<200). Note that from cruise EN687 onward, up to 9 k values were obtained for 20WSW and WSW+N treatments because of the addition of another replicate bottle to achieve triplicate incubation bottles (a, b, and c).
 
 Based on >0&200 (GFF) and >10&<200 (10um filters, u10 = up 10), >0&<10 (d10 = down 10) Chl-a values and then corresponding k values are calculated. For each triplicate, Chl-a d10 tripilcate values are calculated as the difference between the mean Chl-a value on >0&<200 and individual triplicate Chl-a values of >10&<200. Only data with QC = 1 are considered. If Chl-a d10 <0, then Chl-a conc and k are set to NaN.
 

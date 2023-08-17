@@ -40,7 +40,7 @@
       <userId directory="https://orcid.org">https://orcid.org/0000-0002-2903-5851</userId>
       <role>metadata Provider</role>
     </associatedParty>
-    <pubDate>2023-08-08</pubDate>
+    <pubDate>2023-08-17</pubDate>
     <abstract>
       <para>Phytoplankton growth and microzooplankton grazing rates were measured from incubation experiments using the dilution method in the framework of the Northeast U.S. Shelf Long-Term Ecological Research project. The data set includes plankton population dynamics rates obtained during 12 cruises from winter 2018 (EN608) to summer 2022 (EN687) along a north/south transect from Martha’s Vineyard to the shelf-break. Phytoplankton growth and microzooplankton grazing rates were measured for the total phytoplankton community (chl-a concentrations) and for size fractions (chl-a size fractionation) less than and greater than 10 µm. Phytoplankton growth and microzooplankton grazing rates, the first trophic interaction between primary producers and higher trophic levels, are essential parameters to assess the cycling and export of carbon in the ocean and to better understand marine food webs.</para>
     </abstract>
@@ -143,7 +143,7 @@ The uncertainty of g was quantified from the mean standard deviation of k\_dil, 
 &#13;
 # Data Processing&#13;
 &#13;
-Procedures for retrieving CTD and incubation temperature and light data as well as for quality-controlling chlorophyll data are documented at: &lt;https://github.com/pmarrec/nes-lter-chl-cleaning&gt; Raw data are included in this repo.&#13;
+Procedures for retrieving CTD and incubation temperature and light data as well as for quality-controlling chlorophyll data are documented at: &lt;https://github.com/pmarrec/nes-lter-chl-cleaning&gt;. Raw data are included in this repo.&#13;
 &#13;
 Calculation of the growth and grazing rates is documented here: &lt;https://github.com/pmarrec/nes-lter-rate-calculation-chl&gt;&#13;
 &#13;
@@ -177,7 +177,7 @@ The chl\_grazing\_experiment\_chl\_conc\_clean\_special.m Matlab script is to co
 &#13;
 The chl\_grazing\_experiment\_k\_values.m Matlab script is used to compute the apparent growth rates k obtained during the dilution (grazing) experiments.&#13;
 &#13;
-It creates a new table for each cruise gathering all the calculated k-values (apparent growth rates) for each treatment and filter type. The duration of each incubation is calculated from the date\_time\_utc\_end and the date\_time\_utc\_start for each experiment. Mean T0 chl-a concentration is calculated from replicates with iode\_quality\_flag = 1. T0 WSW mean Chla (Total = Chla, &gt;10um = Chlau10, &lt;10um = Chlad10) are reported in the new table, in addition to the % of Chl-a &lt;/&gt;10um (Chlad10per and Chlau10per). Chlad10 = Chla - Chlau10. If Chlad10 &lt; 0, Chlad10 = 0, Chlad10per = 0% and Chlau10per = 100%. k are calculated from each TF value. Up to 6 k values are then obtained for each treatment (dilution/nutrient/light) and filter type (&gt;0&amp;&lt;200, &gt;10&amp;&lt;200, &gt;0 and &gt;0&amp;&lt;10). Note that from cruise EN687 onward, up to 9 k values were obtained for 20WSW and WSW+N treatments because of the addition of another replicate bottle to achieve triplicate incubation bottles (a, b, and c).&#13;
+It creates a new table for each cruise gathering all the calculated k-values (apparent growth rates) for each treatment and filter type. The duration of each incubation is calculated from the date\_time\_utc\_end and the date\_time\_utc\_start for each experiment. Mean T0 chl-a concentration is calculated from replicates with iode\_quality\_flag = 1. T0 WSW mean Chla (Total = Chla, &gt;10um = Chlau10, &lt;10um = Chlad10) are reported in the new table, in addition to the % of Chl-a &lt;/&gt;10um (Chlad10per and Chlau10per). Chlad10 = Chla - Chlau10. If Chlad10 &lt; 0, Chlad10 = 0, Chlad10per = 0% and Chlau10per = 100%. k are calculated from each TF value. Up to 6 k values are then obtained for each treatment (dilution/nutrient/light) and filter type (&gt;0&amp;&lt;200, &gt;10&amp;&lt;200). Note that from cruise EN687 onward, up to 9 k values were obtained for 20WSW and WSW+N treatments because of the addition of another replicate bottle to achieve triplicate incubation bottles (a, b, and c).&#13;
 &#13;
 Based on &gt;0&amp;200 (GFF) and &gt;10&amp;&lt;200 (10um filters, u10 = up 10), &gt;0&amp;&lt;10 (d10 = down 10) Chl-a values and then corresponding k values are calculated. For each triplicate, Chl-a d10 tripilcate values are calculated as the difference between the mean Chl-a value on &gt;0&amp;&lt;200 and individual triplicate Chl-a values of &gt;10&amp;&lt;200. Only data with QC = 1 are considered. If Chl-a d10 &lt;0, then Chl-a conc and k are set to NaN.&#13;
 &#13;
