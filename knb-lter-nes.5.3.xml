@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<eml:eml xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2" packageId="knb-lter-nes.5.2" xsi:schemaLocation="https://eml.ecoinformatics.org/eml-2.2.0/eml.xsd https://eml.ecoinformatics.org/eml-2.2.0/eml.xsd" system="edi">
+<eml:eml xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2" packageId="knb-lter-nes.5.3" xsi:schemaLocation="https://eml.ecoinformatics.org/eml-2.2.0/eml.xsd https://eml.ecoinformatics.org/eml-2.2.0/eml.xsd" system="edi">
   <access authSystem="https://pasta.edirepository.org/authentication" order="allowFirst" scope="document">
     <allow>
       <principal>uid=NES,o=LTER,dc=ecoinformatics,dc=org</principal>
@@ -23,6 +23,16 @@
     </creator>
     <creator>
       <individualName>
+        <givenName>Frankie</givenName>
+        <givenName>L</givenName>
+        <surName>Lopez</surName>
+      </individualName>
+      <organizationName>Northeast U.S. Shelf LTER</organizationName>
+      <electronicMailAddress>frankie.lopez@uri.edu</electronicMailAddress>
+      <userId directory="https://orcid.org">https://orcid.org/0009-0002-4309-2374</userId>
+    </creator>
+    <creator>
+      <individualName>
         <givenName>Pierre</givenName>
         <surName>Marrec</surName>
       </individualName>
@@ -30,19 +40,9 @@
       <electronicMailAddress>pmarrec@uri.edu</electronicMailAddress>
       <userId directory="https://orcid.org">https://orcid.org/0000-0002-7811-4150</userId>
     </creator>
-    <associatedParty>
-      <individualName>
-        <givenName>Kate</givenName>
-        <surName>Morkeski</surName>
-      </individualName>
-      <organizationName>Northeast U.S. Shelf LTER</organizationName>
-      <electronicMailAddress>kmorkeski@whoi.edu</electronicMailAddress>
-      <userId directory="https://orcid.org">https://orcid.org/0000-0002-2903-5851</userId>
-      <role>metadata Provider</role>
-    </associatedParty>
-    <pubDate>2023-08-17</pubDate>
+    <pubDate>2026-06-05</pubDate>
     <abstract>
-      <para>Phytoplankton growth and microzooplankton grazing rates were measured from incubation experiments using the dilution method in the framework of the Northeast U.S. Shelf Long-Term Ecological Research project. The data set includes plankton population dynamics rates obtained during 12 cruises from winter 2018 (EN608) to summer 2022 (EN687) along a north/south transect from Martha’s Vineyard to the shelf-break. Phytoplankton growth and microzooplankton grazing rates were measured for the total phytoplankton community (chl-a concentrations) and for size fractions (chl-a size fractionation) less than and greater than 10 µm. Phytoplankton growth and microzooplankton grazing rates, the first trophic interaction between primary producers and higher trophic levels, are essential parameters to assess the cycling and export of carbon in the ocean and to better understand marine food webs.</para>
+      <para>Phytoplankton growth and microzooplankton grazing rates were measured from incubation experiments using the dilution method in the framework of the Northeast U.S. Shelf Long-Term Ecological Research project. The data set includes plankton population dynamics rates obtained during seasonal cruises along a north/south transect from Martha’s Vineyard to the shelf-break. Phytoplankton growth and microzooplankton grazing rates were measured for the total phytoplankton community and for size fractions less than and greater than 10 µm. Phytoplankton growth and microzooplankton grazing rates, the first trophic interaction between primary producers and higher trophic levels, are essential parameters to assess the cycling and export of carbon in the ocean and to better understand marine food webs.</para>
     </abstract>
     <keywordSet>
       <keyword>Populations</keyword>
@@ -75,10 +75,10 @@
       <geographicCoverage>
         <geographicDescription>NES-LTER Transect</geographicDescription>
         <boundingCoordinates>
-          <westBoundingCoordinate>-70.9018</westBoundingCoordinate>
+          <westBoundingCoordinate>-70.9925</westBoundingCoordinate>
           <eastBoundingCoordinate>-70.7594</eastBoundingCoordinate>
           <northBoundingCoordinate>41.2041</northBoundingCoordinate>
-          <southBoundingCoordinate>39.7576</southBoundingCoordinate>
+          <southBoundingCoordinate>39.755</southBoundingCoordinate>
         </boundingCoordinates>
       </geographicCoverage>
       <temporalCoverage>
@@ -87,7 +87,7 @@
             <calendarDate>2018-01-31</calendarDate>
           </beginDate>
           <endDate>
-            <calendarDate>2022-08-02</calendarDate>
+            <calendarDate>2025-08-17</calendarDate>
           </endDate>
         </rangeOfDates>
       </temporalCoverage>
@@ -149,7 +149,7 @@ Calculation of the growth and grazing rates is documented here: &lt;https://gith
 &#13;
 ### Raw fluorescence data&#13;
 &#13;
-The raw fluorescence data for each cruise are stored in csv files in the "chl-grazing-experiment-raw" folder. The csv files contain the cast and Niskin bottle numbers (in text format, with '' to avoid considering some multiple cast/Niskin entries as dates), the measured Fo, Fa, blank, blank\_acid data with treatment information (T0\_TF, dilution, nutrient\_treatment, light\_level, replicate\_bottle and replicate\_chl). The files also include the vol\_filtered, the vol\_extracted, the calibration coefficient Fs and r and the start/end datetime of the incubations. Empty (NaN) columns for: date\_time\_utc\_sampling, latitude, longitude, depth, temperature\_sampling, nearest\_station, distance, incubation\_tank, temperature\_incubation\_avg, temperature\_incubation\_std, are there for retrieving these additional data from the CTD files in the REST API (&lt;https://github.com/WHOIGit/nes-lter-ims/wiki/Using-REST-API-to-access-NES-LTER-data&gt;) and from the csv files containing the temperature recorded in the incubation tanks during each cruise.&#13;
+The raw fluorescence data for each cruise are stored in csv files in the "chl-grazing-experiment-raw" folder. The csv files contain the cast and Niskin bottle numbers (in text format, with '' to avoid considering some multiple cast/Niskin entries as dates), the measured Fo, Fa, blank, blank\_acid data with treatment information (T0\_TF, dilution, nutrient\_treatment, light\_level, replicate\_bottle and replicate\_chl). The files also include the vol\_filtered, the vol\_extracted, the calibration coefficient Fs and r and the start/end datetime of the incubations. Empty (NaN) columns for: date\_time\_utc\_sampling, latitude, longitude, depth, temperature\_sampling, nearest\_station, distance, incubation\_tank, temperature\_incubation\_avg, temperature\_incubation\_std, are there for retrieving these additional data from the CTD files in the REST API (&lt;https://github.com/WHOIGit/nes-lter-api-2/wiki&gt;) and from the csv files containing the temperature recorded in the incubation tanks during each cruise.&#13;
 &#13;
 ### Retrieving CTD data&#13;
 &#13;
@@ -205,7 +205,7 @@ As documented in the data table column descriptions, the meaning of a missing va
 &#13;
 Chlorophyll data in this product are re-used from the NES chlorophyll transect rosette package (knb-lter-nes.8), which should be considered the authoritative source:&#13;
 &#13;
-Sosik, H.M., T. Rynearson, S. Menden-Deuer, and OOI CGSN Data Team. 2021. Size-fractionated chlorophyll from water column bottle samples collected during NES-LTER Transect cruises, ongoing since 2017. ver 1. Environmental Data Initiative. &lt;https://doi.org/10.6073/pasta/798bda0e9ddfeba20f2266e64cf4dd40&gt; (Accessed 2023-05-11).&#13;
+Sosik, H.M., E.T. Crockford, E. Peacock, M. Ferguson, T. Rynearson, D. Fontaine, S. Menden-Deuer, F.L. Lopez, P. Marrec, and OOI CGSN Data Team. 2026. Size-fractionated chlorophyll from water column bottle samples collected during NES-LTER Transect cruises, ongoing since 2017. ver 3. Environmental Data Initiative. https://doi.org/10.6073/pasta/98d883eacdf7c67a85f10b12f768b8c1 (Accessed 2026-06-05).&#13;
 &#13;
 Columns Chla and Chlau10 in this growth and grazing product are equivalent to the average of chl replicates for size fractions &gt;0&amp;&lt;200 and &gt;10&amp;&lt;200 in the chlorophyll transect rosette package. Note that in this growth and grazing product, chlorophyll values are repeated for all rows of each station.&#13;
 &#13;
@@ -213,28 +213,13 @@ Columns Chla and Chlau10 in this growth and grazing product are equivalent to th
 &#13;
 Package assembly was performed in R Markdown. Further documentation can be found on GitHub, at &lt;https://github.com/WHOIGit/nes-lter-growth-grazing-chl&gt;.&#13;
 &#13;
-We assured that all geographic (latitude, longitude, depth, station) and temporal (date\_time\_utc\_sampling) values, as well as other metadata (cast, Niskin, temperature\_sampling) were as expected, and that chlorophyll values matched those contributed to the forthcoming version 2 of the chlorophyll transect rosette product mentioned above.&#13;
+We assured that all geographic (latitude, longitude, depth, station) and temporal (date\_time\_utc\_sampling) values, as well as other metadata (cast, Niskin, temperature\_sampling) were as expected.&#13;
 &#13;
 # Differences from previous version&#13;
 &#13;
-In Version 2: &#13;
-- Data for 9 cruises were added. &#13;
-- Chlorophyll concentration data from the zero time point of the incubations were added. &#13;
-- Records at depths greater than surface were added (version 1 included only surface measurements).&#13;
-- Some values were changed (e.g., EN608 cast 8 15% light-level) &#13;
-- The data table structure has been updated from wide to long format and includes 30 columns instead of the prior 41 columns. Salinity is not reported, and the version 1 columns denoting size fractions for growth and grazing parameters are instead denoted by the size_fraction column. &#13;
-- The following columns were renamed from the previous version:&#13;
+In Version 3: &#13;
+ Data for 9 cruises were added. Date-time values are now in ISO 8601 format. &#13;
 &#13;
-| Version 1       | Version 2              |&#13;
-|-----------------|------------------------|&#13;
-| bottle          | niskin                 |&#13;
-| date\_time\_UTC   | date\_time\_utc\_sampling |&#13;
-| temp            | temperature\_sampling   |&#13;
-| light\_treatment | light\_level            |&#13;
-| mu\_N\_Std        | mu\_N\_std               |&#13;
-| grazing\_N\_Std   | grazing\_N\_std          |&#13;
-&#13;
--   The following columns were added in version 2: incubation\_tank, temperature\_incubation\_avg, temperature\_incubation\_std, size\_fraction, Chla, Chlad10, Chlau10, Chlad10per, Chlau10per, duration\_incubation, dilution, iode\_quality\_flag&#13;
 &#13;
 # References&#13;
 &#13;
@@ -258,7 +243,7 @@ Morison, F., Menden-Deuer, S., 2017. Doing more with less? Balancing sampling re
       </methodStep>
     </methods>
     <project>
-      <title>Northeast U.S. Shelf LTER</title>
+      <title>LTER: Scales of Variability in Ecosystem Dynamics and Production on the Changing Northeast U.S. Shelf (NES II)</title>
       <personnel>
         <individualName>
           <givenName>Heidi</givenName>
@@ -267,15 +252,6 @@ Morison, F., Menden-Deuer, S., 2017. Doing more with less? Balancing sampling re
         <electronicMailAddress>hsosik@whoi.edu</electronicMailAddress>
         <userId directory="https://orcid.org">https://orcid.org/0000-0002-4591-2842</userId>
         <role>Principal Investigator</role>
-      </personnel>
-      <personnel>
-        <individualName>
-          <givenName>Stace</givenName>
-          <surName>Beaulieu</surName>
-        </individualName>
-        <electronicMailAddress>sbeaulieu@whoi.edu</electronicMailAddress>
-        <userId directory="https://orcid.org">https://orcid.org/0000-0002-2609-5453</userId>
-        <role>Co-Principal Investigator</role>
       </personnel>
       <personnel>
         <individualName>
@@ -293,15 +269,6 @@ Morison, F., Menden-Deuer, S., 2017. Doing more with less? Balancing sampling re
         </individualName>
         <electronicMailAddress>rji@whoi.edu</electronicMailAddress>
         <userId directory="https://orcid.org">https://orcid.org/0000-0002-8839-5427</userId>
-        <role>Co-Principal Investigator</role>
-      </personnel>
-      <personnel>
-        <individualName>
-          <givenName>Steven</givenName>
-          <surName>Lentz</surName>
-        </individualName>
-        <electronicMailAddress>slentz@whoi.edu</electronicMailAddress>
-        <userId directory="https://orcid.org">https://orcid.org/0000-0001-7498-0281</userId>
         <role>Co-Principal Investigator</role>
       </personnel>
       <personnel>
@@ -342,6 +309,15 @@ Morison, F., Menden-Deuer, S., 2017. Doing more with less? Balancing sampling re
       </personnel>
       <personnel>
         <individualName>
+          <givenName>Mei</givenName>
+          <surName>Sato</surName>
+        </individualName>
+        <electronicMailAddress>msato@whoi.edu</electronicMailAddress>
+        <userId directory="https://orcid.org">https://orcid.org/0000-0002-0217-9898</userId>
+        <role>Co-Principal Investigator</role>
+      </personnel>
+      <personnel>
+        <individualName>
           <givenName>Rachel</givenName>
           <surName>Stanley</surName>
         </individualName>
@@ -349,12 +325,34 @@ Morison, F., Menden-Deuer, S., 2017. Doing more with less? Balancing sampling re
         <userId directory="https://orcid.org">https://orcid.org/0000-0003-4860-2476</userId>
         <role>Co-Principal Investigator</role>
       </personnel>
+      <personnel>
+        <individualName>
+          <givenName>Weifeng Gordon</givenName>
+          <surName>Zhang</surName>
+        </individualName>
+        <electronicMailAddress>wzhang@whoi.edu</electronicMailAddress>
+        <userId directory="https://orcid.org">https://orcid.org/0000-0002-2819-1780</userId>
+        <role>Co-Principal Investigator</role>
+      </personnel>
       <abstract>
         <para>The Northeast U.S. Shelf (NES) Long-Term Ecological Research (LTER) project integrates observations, experiments, and models to understand and predict how planktonic food webs are changing, and how those changes impact the productivity of higher trophic levels. The NES-LTER is co-located with the Northeast U.S. Continental Shelf Large Marine Ecosystem, spanning the Middle Atlantic Bight and Gulf of Maine. Our focal cross-shelf transect extends about 150 km southward from Martha’s Vineyard, MA, to just beyond the shelf break. Our overarching question is: How is climate change impacting the pelagic NES ecosystem and, in particular, affecting the relationship between compositional (e.g., species diversity and size structure) and aggregate (e.g., rates of primary production, and transfer of energy to important forage fish species) variability?</para>
       </abstract>
       <funding>
-        <para>NSF Award OCE-1655686</para>
+        <para>NSF Award OCE-2322676</para>
       </funding>
+      <relatedProject>
+        <title>LTER: Linking Pelagic Community Structure with Ecosystem Dynamics and Production Regimes on the Changing Northeast US Shelf (NES I)</title>
+        <personnel>
+          <individualName>
+            <givenName>Heidi</givenName>
+            <surName>Sosik</surName>
+          </individualName>
+          <electronicMailAddress>hsosik@whoi.edu</electronicMailAddress>
+          <userId directory="https://orcid.org">https://orcid.org/0000-0002-4591-2842</userId>
+          <role>Principal Investigator</role>
+        </personnel>
+        <funding>NSF Award OCE-1655686</funding>
+      </relatedProject>
       <relatedProject>
         <title>RAPID: Collaborative Research: Autumn transition in plankton ecology during an ocean heatwave on the Northeast U.S. Shelf</title>
         <personnel>
@@ -363,9 +361,14 @@ Morison, F., Menden-Deuer, S., 2017. Doing more with less? Balancing sampling re
             <surName>Sosik</surName>
           </individualName>
           <electronicMailAddress>hsosik@whoi.edu</electronicMailAddress>
+          <userId directory="https://orcid.org">0000-0002-4591-2842</userId>
           <role>Principal Investigator</role>
         </personnel>
-        <funding>NSF Award OCE-2102434</funding>
+        <award>
+          <funderName>National Science Foundation</funderName>
+          <awardNumber>NSF Award OCE-210243</awardNumber>
+          <title>RAPID: Collaborative Research: Autumn transition in plankton ecology during an ocean heatwave on the Northeast U.S. Shelf</title>
+        </award>
       </relatedProject>
     </project>
     <dataTable>
@@ -373,12 +376,12 @@ Morison, F., Menden-Deuer, S., 2017. Doing more with less? Balancing sampling re
       <entityDescription>Phytoplankton growth and microzooplankton grazing rates with size-fractionated chlorophyll-a concentration and associated data (location, depth, in situ temperature)</entityDescription>
       <physical>
         <objectName>nes-lter-growth-grazing-chl.csv</objectName>
-        <size unit="bytes">85620</size>
-        <authentication method="MD5">d2e2a47171de7a798731adabda1b4d99</authentication>
+        <size unit="bytes">128447</size>
+        <authentication method="MD5">d418f0547f5dcda7dd8c97b99c7ff851</authentication>
         <dataFormat>
           <textFormat>
             <numHeaderLines>1</numHeaderLines>
-            <recordDelimiter>\r\n</recordDelimiter>
+            <recordDelimiter>\n</recordDelimiter>
             <attributeOrientation>column</attributeOrientation>
             <simpleDelimited>
               <fieldDelimiter>,</fieldDelimiter>
@@ -449,7 +452,7 @@ Morison, F., Menden-Deuer, S., 2017. Doing more with less? Balancing sampling re
           <storageType>date</storageType>
           <measurementScale>
             <dateTime>
-              <formatString>YYYY-MM-DD hh:mm:ss</formatString>
+              <formatString>YYYY-MM-DDThh:mm:ssZ</formatString>
               <dateTimeDomain/>
             </dateTime>
           </measurementScale>
@@ -460,7 +463,7 @@ Morison, F., Menden-Deuer, S., 2017. Doing more with less? Balancing sampling re
           <storageType>date</storageType>
           <measurementScale>
             <dateTime>
-              <formatString>YYYY-MM-DD hh:mm:ss</formatString>
+              <formatString>YYYY-MM-DDThh:mm:ssZ</formatString>
               <dateTimeDomain/>
             </dateTime>
           </measurementScale>
@@ -471,7 +474,7 @@ Morison, F., Menden-Deuer, S., 2017. Doing more with less? Balancing sampling re
           <storageType>date</storageType>
           <measurementScale>
             <dateTime>
-              <formatString>YYYY-MM-DD hh:mm:ss</formatString>
+              <formatString>YYYY-MM-DDThh:mm:ssZ</formatString>
               <dateTimeDomain/>
             </dateTime>
           </measurementScale>
@@ -488,7 +491,7 @@ Morison, F., Menden-Deuer, S., 2017. Doing more with less? Balancing sampling re
               <numericDomain>
                 <numberType>real</numberType>
                 <bounds>
-                  <minimum exclusive="false">39.7576</minimum>
+                  <minimum exclusive="false">39.755</minimum>
                   <maximum exclusive="false">41.2041</maximum>
                 </bounds>
               </numericDomain>
@@ -507,7 +510,7 @@ Morison, F., Menden-Deuer, S., 2017. Doing more with less? Balancing sampling re
               <numericDomain>
                 <numberType>real</numberType>
                 <bounds>
-                  <minimum exclusive="false">-70.9018</minimum>
+                  <minimum exclusive="false">-70.9925</minimum>
                   <maximum exclusive="false">-70.7594</maximum>
                 </bounds>
               </numericDomain>
@@ -526,7 +529,7 @@ Morison, F., Menden-Deuer, S., 2017. Doing more with less? Balancing sampling re
               <numericDomain>
                 <numberType>real</numberType>
                 <bounds>
-                  <minimum exclusive="false">1.1</minimum>
+                  <minimum exclusive="false">1.09</minimum>
                   <maximum exclusive="false">61.79</maximum>
                 </bounds>
               </numericDomain>
@@ -608,7 +611,7 @@ Morison, F., Menden-Deuer, S., 2017. Doing more with less? Balancing sampling re
               <numericDomain>
                 <numberType>real</numberType>
                 <bounds>
-                  <minimum exclusive="false">0.39</minimum>
+                  <minimum exclusive="false">0</minimum>
                   <maximum exclusive="false">4.66</maximum>
                 </bounds>
               </numericDomain>
@@ -721,7 +724,7 @@ Morison, F., Menden-Deuer, S., 2017. Doing more with less? Balancing sampling re
                 <numberType>real</numberType>
                 <bounds>
                   <minimum exclusive="false">0</minimum>
-                  <maximum exclusive="false">3.51</maximum>
+                  <maximum exclusive="false">4.09</maximum>
                 </bounds>
               </numericDomain>
             </ratio>
@@ -744,7 +747,7 @@ Morison, F., Menden-Deuer, S., 2017. Doing more with less? Balancing sampling re
                 <numberType>real</numberType>
                 <bounds>
                   <minimum exclusive="false">0.02</minimum>
-                  <maximum exclusive="false">6.63</maximum>
+                  <maximum exclusive="false">7.34</maximum>
                 </bounds>
               </numericDomain>
             </ratio>
@@ -767,7 +770,7 @@ Morison, F., Menden-Deuer, S., 2017. Doing more with less? Balancing sampling re
                 <numberType>real</numberType>
                 <bounds>
                   <minimum exclusive="false">0</minimum>
-                  <maximum exclusive="false">0.97</maximum>
+                  <maximum exclusive="false">0.98</maximum>
                 </bounds>
               </numericDomain>
             </ratio>
@@ -789,7 +792,7 @@ Morison, F., Menden-Deuer, S., 2017. Doing more with less? Balancing sampling re
               <numericDomain>
                 <numberType>real</numberType>
                 <bounds>
-                  <minimum exclusive="false">0.03</minimum>
+                  <minimum exclusive="false">0.02</minimum>
                   <maximum exclusive="false">1</maximum>
                 </bounds>
               </numericDomain>
@@ -812,7 +815,7 @@ Morison, F., Menden-Deuer, S., 2017. Doing more with less? Balancing sampling re
               <numericDomain>
                 <numberType>real</numberType>
                 <bounds>
-                  <minimum exclusive="false">0.94</minimum>
+                  <minimum exclusive="false">0.89</minimum>
                   <maximum exclusive="false">1.09</maximum>
                 </bounds>
               </numericDomain>
@@ -831,8 +834,8 @@ Morison, F., Menden-Deuer, S., 2017. Doing more with less? Balancing sampling re
               <numericDomain>
                 <numberType>real</numberType>
                 <bounds>
-                  <minimum exclusive="false">0.13</minimum>
-                  <maximum exclusive="false">0.56</maximum>
+                  <minimum exclusive="false">0.01</minimum>
+                  <maximum exclusive="false">1.21</maximum>
                 </bounds>
               </numericDomain>
             </ratio>
@@ -850,7 +853,7 @@ Morison, F., Menden-Deuer, S., 2017. Doing more with less? Balancing sampling re
               <numericDomain>
                 <numberType>real</numberType>
                 <bounds>
-                  <minimum exclusive="false">-0.95</minimum>
+                  <minimum exclusive="false">-1.1</minimum>
                   <maximum exclusive="false">3.44</maximum>
                 </bounds>
               </numericDomain>
@@ -873,7 +876,7 @@ Morison, F., Menden-Deuer, S., 2017. Doing more with less? Balancing sampling re
               <numericDomain>
                 <numberType>real</numberType>
                 <bounds>
-                  <minimum exclusive="false">0.03</minimum>
+                  <minimum exclusive="false">0.02</minimum>
                   <maximum exclusive="false">11.68</maximum>
                 </bounds>
               </numericDomain>
@@ -966,7 +969,7 @@ Morison, F., Menden-Deuer, S., 2017. Doing more with less? Balancing sampling re
                 <numberType>real</numberType>
                 <bounds>
                   <minimum exclusive="false">0</minimum>
-                  <maximum exclusive="false">1.42</maximum>
+                  <maximum exclusive="false">1.65</maximum>
                 </bounds>
               </numericDomain>
             </ratio>
@@ -1010,15 +1013,15 @@ Morison, F., Menden-Deuer, S., 2017. Doing more with less? Balancing sampling re
           </measurementScale>
         </attribute>
       </attributeList>
-      <numberOfRecords>409</numberOfRecords>
+      <numberOfRecords>647</numberOfRecords>
     </dataTable>
     <otherEntity>
       <entityName>chl-grazing-experiment-temp-inc-data.zip</entityName>
       <entityDescription>Temperature and light intensity records during the rate measurement experiments</entityDescription>
       <physical>
         <objectName>chl-grazing-experiment-temp-inc-data.zip</objectName>
-        <size unit="bytes">250544</size>
-        <authentication method="MD5">cbb9aef5905cdb071e9eb12c9c911a89</authentication>
+        <size unit="bytes">741410</size>
+        <authentication method="MD5">6555a25753a3d482ea76d2635bf0702a</authentication>
         <dataFormat>
           <externallyDefinedFormat>
             <formatName>application/zip</formatName>
@@ -1041,7 +1044,7 @@ Morison, F., Menden-Deuer, S., 2017. Doing more with less? Balancing sampling re
     <metadata>
       <emlEditor>
         <app>EMLassemblyline</app>
-        <release>3.5.5</release>
+        <release>3.6.0</release>
       </emlEditor>
     </metadata>
   </additionalMetadata>

@@ -1,7 +1,7 @@
 ---
 title: "nes-lter-nutrients-transect-emlassemblyline"
 author: "Kate Morkeski, Jaxine Wolfe"
-date: "`r Sys.Date()`"
+date: "2026-05-31"
 output: html_document
 ---
 
@@ -16,10 +16,13 @@ knitr::opts_chunk$set(message = FALSE, warning = FALSE)
 library(EMLassemblyline)
 library(ediutilities)
 library(here)
-library(tidyverse)
+library(dplyr)
+library(stringr)
 library(readr)
 library(EML)
 library(xml2)
+library(ggplot2)
+library(tidyr)
 
 ```
 
@@ -27,13 +30,26 @@ library(xml2)
 
 ```{r}
 
-grazing_data <- read_csv("NES-LTER-chla-grazing-experiments-rates-qc-noquote.csv")
+grazing_data <- read_csv("NES-LTER-chla-grazing-experiments-rates-qc.csv")
 
-grazing_data$mu_N <- as.numeric(grazing_data$mu_N)
-grazing_data$mu_N_std <- as.numeric(grazing_data$mu_N_std)
+grazing_data <- grazing_data |> mutate(across(24:last_col(), ~ as.numeric(.x)))
+
+# remove apostrophes
+grazing_data$cast <- str_remove(grazing_data$cast, "'")
+grazing_data$niskin <- str_remove(grazing_data$niskin, "'")
+grazing_data$niskin_second_cast <- str_remove(grazing_data$niskin_second_cast, "'")
+
+# add niskin_second_cast to niskin
+grazing_data <- grazing_data |>
+  mutate(niskin_second_cast = case_when(niskin_second_cast == "NA" ~ NA,
+                                        TRUE ~ niskin_second_cast))
+grazing_data <- grazing_data |>
+  mutate(niskin = case_when(!is.na(niskin_second_cast) ~ paste0(niskin, "|", niskin_second_cast),
+                            TRUE ~ niskin))
+grazing_data <- grazing_data |> select(-niskin_second_cast)
 
 # write csv with missing values as NaN
-write.csv(grazing_data, here("nes-lter-growth-grazing-chl.csv"), na = "NaN", row.names = FALSE)
+write_csv(grazing_data, here("nes-lter-growth-grazing-chl.csv"), na = "NaN")
 
 ```
 ## QA: Map Sampling Locations
@@ -63,19 +79,53 @@ unique(DF$station)
 
 ```{r} 
 
-chlor <- read_csv("NES-LTER-chla-T0-SMD.csv")
+chlor <- read_csv("NES-LTER-chla-T0-SMD.csv", na = c("NaN", "NA"))
+
+# remove apostrophes
+chlor$cast <- str_remove(chlor$cast, "'")
+chlor$niskin <- str_remove(chlor$niskin, "'")
+chlor$niskin_second_cast <- str_remove(chlor$niskin_second_cast, "'")
+
+# add niskin_second_cast to niskin
+chlor <- chlor |>
+  mutate(niskin_second_cast = case_when(niskin_second_cast == "NA" ~ NA,
+                                        TRUE ~ niskin_second_cast))
+chlor <- chlor |>
+  mutate(niskin = case_when(!is.na(niskin_second_cast) ~ paste0(niskin, "|", niskin_second_cast),
+                            TRUE ~ niskin))
+chlor <- chlor |> select(-niskin_second_cast)
 
 chl_avg <- chlor %>%
 group_by(cruise, cast, niskin, filter_size) %>%
   summarise(chl = mean(chl)) %>%
   mutate(chl = round(chl, 2))
 
-# perhaps helpful to group grazing_data and remove rows with duplicate chl data before this step
 grazing_chl <- left_join(grazing_data, chl_avg, by = c("cruise", "cast", "niskin", "size_fraction" = "filter_size"))
 
-grazing_chl <- grazing_chl %>%
-  select(-date_time_utc_start, -date_time_utc_end, -temperature_incubation_avg, -temperature_incubation_std, -duration_incubation, -dilution, -mu_0, -mu_0_std, -mu_N, -mu_N_std, -grazing, -grazing_std, -iode_quality_flag)  %>% 
-  mutate(chl_diff = Chla - chl) 
+grazing_chl <- grazing_chl |>
+  select(cruise, cast, niskin, station, size_fraction, Chla, Chlau10, chl) |>
+  filter(size_fraction != ">0&<10") |>
+  distinct()
+
+grazing_chl_wide <- pivot_wider(grazing_chl, names_from = size_fraction, values_from = chl)
+
+grazing_chl_wide <- grazing_chl_wide |> 
+  rename(chl_wsw = ">0&<200")|> 
+  rename(chl_u10 = ">10&<200") 
+  
+grazing_chl_wide$Chla <- replace(grazing_chl_wide$Chla, is.nan(grazing_chl_wide$Chla), NA) 
+grazing_chl_wide$Chlau10 <-  replace(grazing_chl_wide$Chlau10, is.nan(grazing_chl_wide$Chlau10), NA)
+
+grazing_chl_wide <- grazing_chl_wide |>
+  mutate(wsw_diff = Chla - chl_wsw) |> mutate(u10_diff = Chlau10 - chl_u10)
+
+diff_grazing_chl <- grazing_chl_wide |> filter(wsw_diff != 0 | u10_diff != 0) 
+na_grazing_chl <- grazing_chl_wide |> filter(is.na(wsw_diff)| is.na(u10_diff))
+diff_grazing_chl <- rbind(diff_grazing_chl, na_grazing_chl)
+diff_grazing_chl <- distinct(diff_grazing_chl)
+diff_grazing_chl <- arrange(diff_grazing_chl, cruise, cast)
+write_csv(diff_grazing_chl, "chlorophyll_differences.csv")
+
 
 ggplot(grazing_chl, aes(x=as.factor(size_fraction), y=chl, color = "chlorophyll")) + 
   geom_boxplot() + xlab('size_fraction') + geom_boxplot(aes(x = as.factor(size_fraction), y = Chla, color = "grazing"))
@@ -90,12 +140,19 @@ ggsave("chl-chl-by-filter-size.png")
 
 summary(grazing_chl)
 
-chl_diff_summary <- grazing_chl %>%
-group_by(size_fraction) %>%
-  summarise(chl_diff_mean = mean(chl_diff), 
-            chl_diff_min = min(chl_diff),
-            chl_diff_max = max(chl_diff)) 
-
+# chl_diff_summary <- grazing_chl %>%
+# group_by(size_fraction) %>%
+#   summarise(chl_diff_mean = mean(chl_diff, na.rm=TRUE), 
+#             chl_diff_min = min(chl_diff, na.rm=TRUE),
+#             chl_diff_max = max(chl_diff, na.rm=TRUE))
+# 
+# chl_diff_2summary <- grazing_chl %>%
+# group_by(cruise, size_fraction) %>%
+#   summarise(chl_diff_mean = mean(chl_diff, na.rm=TRUE), 
+#             chl_diff_min = min(chl_diff, na.rm=TRUE),
+#             chl_diff_max = max(chl_diff, na.rm=TRUE))
+# 
+# chl_diff_2summary <- chl_diff_2summary |> filter(size_fraction != ">0&<10")
 
 ```
 
@@ -114,7 +171,7 @@ Step 4: Inserting a custom NES-LTER parent project node
 # define input files
 edi_filename <- "nes-lter-growth-grazing-chl"
 metadata <- "nes-lter-growth-grazing-chl-info"
-pkg_id <- "knb-lter-nes.5.2"
+pkg_id <- "knb-lter-nes.5.3"
 
 # Make EML Templates 
 # Specify methods file type as markdown
@@ -144,7 +201,7 @@ make_eml(here(),
          user.domain = "LTER",
          package.id = pkg_id)
 
-project_insert(pkg_id, filename='parent_project_RAPID.txt')
+project_insert(pkg_id, filename='parent_project_NESI-II_RAPID.txt')
 
 ```
 

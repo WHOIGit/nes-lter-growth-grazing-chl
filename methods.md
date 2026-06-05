@@ -44,7 +44,7 @@ Calculation of the growth and grazing rates is documented here: <https://github.
 
 ### Raw fluorescence data
 
-The raw fluorescence data for each cruise are stored in csv files in the "chl-grazing-experiment-raw" folder. The csv files contain the cast and Niskin bottle numbers (in text format, with '' to avoid considering some multiple cast/Niskin entries as dates), the measured Fo, Fa, blank, blank\_acid data with treatment information (T0\_TF, dilution, nutrient\_treatment, light\_level, replicate\_bottle and replicate\_chl). The files also include the vol\_filtered, the vol\_extracted, the calibration coefficient Fs and r and the start/end datetime of the incubations. Empty (NaN) columns for: date\_time\_utc\_sampling, latitude, longitude, depth, temperature\_sampling, nearest\_station, distance, incubation\_tank, temperature\_incubation\_avg, temperature\_incubation\_std, are there for retrieving these additional data from the CTD files in the REST API (<https://github.com/WHOIGit/nes-lter-ims/wiki/Using-REST-API-to-access-NES-LTER-data>) and from the csv files containing the temperature recorded in the incubation tanks during each cruise.
+The raw fluorescence data for each cruise are stored in csv files in the "chl-grazing-experiment-raw" folder. The csv files contain the cast and Niskin bottle numbers (in text format, with '' to avoid considering some multiple cast/Niskin entries as dates), the measured Fo, Fa, blank, blank\_acid data with treatment information (T0\_TF, dilution, nutrient\_treatment, light\_level, replicate\_bottle and replicate\_chl). The files also include the vol\_filtered, the vol\_extracted, the calibration coefficient Fs and r and the start/end datetime of the incubations. Empty (NaN) columns for: date\_time\_utc\_sampling, latitude, longitude, depth, temperature\_sampling, nearest\_station, distance, incubation\_tank, temperature\_incubation\_avg, temperature\_incubation\_std, are there for retrieving these additional data from the CTD files in the REST API (<https://github.com/WHOIGit/nes-lter-api-2/wiki>) and from the csv files containing the temperature recorded in the incubation tanks during each cruise.
 
 ### Retrieving CTD data
 
@@ -100,7 +100,7 @@ As documented in the data table column descriptions, the meaning of a missing va
 
 Chlorophyll data in this product are re-used from the NES chlorophyll transect rosette package (knb-lter-nes.8), which should be considered the authoritative source:
 
-Sosik, H.M., T. Rynearson, S. Menden-Deuer, and OOI CGSN Data Team. 2021. Size-fractionated chlorophyll from water column bottle samples collected during NES-LTER Transect cruises, ongoing since 2017. ver 1. Environmental Data Initiative. <https://doi.org/10.6073/pasta/798bda0e9ddfeba20f2266e64cf4dd40> (Accessed 2023-05-11).
+Sosik, H.M., E.T. Crockford, E. Peacock, M. Ferguson, T. Rynearson, D. Fontaine, S. Menden-Deuer, F.L. Lopez, P. Marrec, and OOI CGSN Data Team. 2026. Size-fractionated chlorophyll from water column bottle samples collected during NES-LTER Transect cruises, ongoing since 2017. ver 3. Environmental Data Initiative. https://doi.org/10.6073/pasta/98d883eacdf7c67a85f10b12f768b8c1 (Accessed 2026-06-05).
 
 Columns Chla and Chlau10 in this growth and grazing product are equivalent to the average of chl replicates for size fractions >0&<200 and >10&<200 in the chlorophyll transect rosette package. Note that in this growth and grazing product, chlorophyll values are repeated for all rows of each station.
 
@@ -108,28 +108,13 @@ Columns Chla and Chlau10 in this growth and grazing product are equivalent to th
 
 Package assembly was performed in R Markdown. Further documentation can be found on GitHub, at <https://github.com/WHOIGit/nes-lter-growth-grazing-chl>.
 
-We assured that all geographic (latitude, longitude, depth, station) and temporal (date\_time\_utc\_sampling) values, as well as other metadata (cast, Niskin, temperature\_sampling) were as expected, and that chlorophyll values matched those contributed to the forthcoming version 2 of the chlorophyll transect rosette product mentioned above.
+We assured that all geographic (latitude, longitude, depth, station) and temporal (date\_time\_utc\_sampling) values, as well as other metadata (cast, Niskin, temperature\_sampling) were as expected.
 
 # Differences from previous version
 
-In Version 2: 
-- Data for 9 cruises were added. 
-- Chlorophyll concentration data from the zero time point of the incubations were added. 
-- Records at depths greater than surface were added (version 1 included only surface measurements).
-- Some values were changed (e.g., EN608 cast 8 15% light-level) 
-- The data table structure has been updated from wide to long format and includes 30 columns instead of the prior 41 columns. Salinity is not reported, and the version 1 columns denoting size fractions for growth and grazing parameters are instead denoted by the size_fraction column. 
-- The following columns were renamed from the previous version:
+In Version 3: 
+ Data for 9 cruises were added. Date-time values are now in ISO 8601 format. 
 
-| Version 1       | Version 2              |
-|-----------------|------------------------|
-| bottle          | niskin                 |
-| date\_time\_UTC   | date\_time\_utc\_sampling |
-| temp            | temperature\_sampling   |
-| light\_treatment | light\_level            |
-| mu\_N\_Std        | mu\_N\_std               |
-| grazing\_N\_Std   | grazing\_N\_std          |
-
--   The following columns were added in version 2: incubation\_tank, temperature\_incubation\_avg, temperature\_incubation\_std, size\_fraction, Chla, Chlad10, Chlau10, Chlad10per, Chlau10per, duration\_incubation, dilution, iode\_quality\_flag
 
 # References
 
